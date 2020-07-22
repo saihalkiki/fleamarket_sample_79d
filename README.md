@@ -25,7 +25,7 @@
 |explanation|text|null: false|
 |category|string|null: false|
 |quality|string|null: false|
-|deliverycost|integer|null: false|
+|delivery_cost|integer|null: false|
 |region|string|null: false|
 |period|integer|null: false|
 |price|integer|null: false|
@@ -68,7 +68,7 @@
 |postal_code|integer|null:false|
 |prefectures|string|null:false|
 |city|string|null:false|
-|housenumber|integer|null:false|
+|house_number|integer|null:false|
 
 |user|references|null: false, foreign_key: true|
 
