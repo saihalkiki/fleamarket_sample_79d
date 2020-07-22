@@ -1,0 +1,46 @@
+.header{
+  height: 10vh;
+  width: 100vw;
+}
+
+.body{
+
+  &__appads{
+    height: 55vh;
+    background-color: lightblue;
+    .appadspic{
+      width: 100vw;
+      height: 55vh;
+      position: relative;
+      &--contents{
+        width: 20vw;
+        height: 30vh;
+        position: absolute;
+        right: 150px;
+        top: 150px;
+      }
+    }
+  }
+  &__reasons{
+    height: 63vh;
+    background-color: lightcoral;
+  }
+  &__appeal{
+    height: 40vh;
+    background-color: lightgoldenrodyellow;
+  }
+  &__features{
+    height: 70vh;
+    background-color: lightskyblue;
+  }
+  &__products{
+    height: 95vh;
+    background-color: lightgreen;
+  }
+}
+
+.footer{
+  background-color: blue;
+  height: 70vh;
+  width: 100vw;
+}
