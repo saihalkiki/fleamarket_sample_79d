@@ -3,15 +3,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|lastname|string|null:false|
-|firstname|string|null:false|
-|lastnameread|string|null:false|
+|last_name|string|null:false|
+|first_name|string|null:false|
+|last_name_read|string|null:false|
 |firstnameread|string|null:false|
 |gender|boolean|null:false|
 |birthday|date|null:false|
 |email|string|null: false|
 |password|string|null: false|
-|postal code|integer|null:false|
+|postal_code|integer|null:false|
 |prefectures|string|null:false|
 |city|string|null:false|
 |housenumber|integer|null:false|
@@ -22,7 +22,7 @@
 ### Association
 - has_many :posts
 - has_many :comments
-- belongs_to :card
+- has_many :cards
 
 ## postsテーブル
 |Column|Type|Options|
@@ -46,10 +46,13 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|cvc number|string|null: false|
-|card number|string|null: false|
-|valid date|date|null: false|
+|cvc_number|string|null: false|
+|card_number|string|null: false|
+|valid_date|date|null: false|
 |user|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 ## commentsテーブル
 |Column|Type|Options|
