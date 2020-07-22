@@ -23,7 +23,6 @@
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|category|string|null: false|
 |quality|string|null: false|
 |delivery_cost|integer|null: false|
 |region|string|null: false|
