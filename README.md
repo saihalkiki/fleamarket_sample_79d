@@ -33,9 +33,9 @@
 |category|string|null: false|
 |quality|string|null: false|
 |deliverycost|integer|null: false|
-|area|string|null: false|
+|region|string|null: false|
 |period|integer|null: false|
-|cost|integer|null: false|
+|price|integer|null: false|
 |comment|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
@@ -46,17 +46,15 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|name|string|null: false|
-|name|string|null: false|
-|name|string|null: false|
-|name|string|null: false|
+|cvc number|string|null: false|
+|card number|string|null: false|
+|valid date|date|null: false|
 |user|references|null: false, foreign_key: true|
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|text|text|null: false|
 |user|references|null: false, foreign_key: true|
 |post|references|null: false, foreign_key: true|
 
