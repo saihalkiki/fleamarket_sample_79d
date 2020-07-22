@@ -16,7 +16,7 @@
 - has_many :items
 - has_many :comments
 - has_many :cards
-- belongs_to :address
+- has_one :address
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -33,11 +33,10 @@
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :item
+- belongs_to :user
 - has_many :comments
 - has_many :images
-- has_many :categories
-- has_many :cateogries, through: :item_categories
+- belongs_to :category
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -92,11 +91,5 @@
 |name|string|null:false|
 
 ### Association
-- has_many :item_categories
-- has_many :items, through: :item_categories
+- has_many :items
 
-## item_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item|references|null:false, foreign_key:true|
-|category|references|null:false, foreign_key:true|
