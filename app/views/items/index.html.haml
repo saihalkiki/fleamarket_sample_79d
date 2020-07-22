@@ -1,17 +1,22 @@
-.header
+%header.header
   .headerInner
     .headerMain
-      =link_to "#"
-      =image_tag "logo.png", class:"headerIcon",alt:"アイコン"
+      .headerMain__icon
+        =link_to "#" do
+          =image_tag "logo.png",alt:"アイコン"
       .searchBox
-.body
-  .body__appads
+        = form_with(url: '#', local: true, method: :get, class: "searchBox__form") do |f|
+          = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox-input"
+          = button_tag type: 'submit' do
+            = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
+.main
+  .main__appads
     = image_tag "bg-mainVisual-pict_pc.jpg", class:"appadspic", alt:"ほげ"
-    .body__appads--contents
+    .main__appads--contents
       %h1 人生を変えるフリマアプリ
       %h3 FURIMAはだれでもかんたんに出品・購入できるフリマアプリです
-  .body__reasons
-  .body__appeal
-  .body__features
-  .body__products
+  .main__reasons
+  .main__appeal
+  .main__features
+  .main__products
 .footer
