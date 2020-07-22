@@ -29,7 +29,6 @@
 |region|string|null: false|
 |period|integer|null: false|
 |price|integer|null: false|
-
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -44,7 +43,6 @@
 |cvc_number|string|null: false|
 |card_number|string|null: false|
 |valid_date|date|null: false|
-
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -54,7 +52,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
 
@@ -69,7 +66,6 @@
 |prefectures|string|null:false|
 |city|string|null:false|
 |house_number|integer|null:false|
-
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -79,7 +75,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
-
 |item|references|null: false, foreign_key: true|
 
 ### Association
