@@ -1,6 +1,28 @@
 .header{
-  height: 10vh;
+  height: 100px;
   width: 100vw;
+}
+
+.headerInner{
+  max-width: 1040px;
+  height: 85px;
+  margin: 0 auto;
+  padding: 15px 0 0 ;
+  background-color: red;
+}
+
+.headerMain{
+  height: 50px;
+  background-color: blue;
+}
+
+.headerIcon{
+  height: 40px;
+  width: 140px;
+  background-color: bisque;
+  padding-bottom: 10px;
+  margin-right: 30px;
+  
 }
 
 .body{
