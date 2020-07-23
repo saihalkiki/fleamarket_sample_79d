@@ -1,0 +1,24 @@
+=form_with model: @item, local: true do |f|
+  =f.label :image, "出品画像"
+  =f.file_field :image
+
+  =f.label :name, "商品名"
+  =f.text_field :name
+
+  =f.label :explanation, "商品説明"
+  =f.text_area :explanation
+
+  =f.label :category, "カテゴリー"
+
+  =f.label :quality, "商品の状態"
+
+  =f.label :delivery_cost, "配送料"
+
+  =f.label :region, "発送元の地域"
+
+  =f.label :period, "発送までの日数"
+
+  =f.label :price, "販売価格"
+  =f.number_field :price
+
+
