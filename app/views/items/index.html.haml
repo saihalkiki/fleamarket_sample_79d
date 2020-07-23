@@ -13,7 +13,7 @@
       .navLeft
         .navLeft__item#category
           = link_to "カテゴリー", "#"
-          / カテゴリー一覧html
+          / カテゴリー覧html
           .tree.displayNone
             %ul.categoryTree
               %li.categoryTree__item
@@ -50,39 +50,109 @@
           = link_to "ログイン", "#"
         .navRight__item
           / もしログインしていない場合は新規登録を表示
-          = link_to "新規会員登録", "#"
+          = link_to "新規会員登録", "#" 
 
 .main
-  / 佐藤さん
-  .main__appads
-    .main__appads--contents
-      %h2.contents__subtitle 
+
+  / アピール
+  .mainAppads
+    .appadsContents
+      %h2.appadsContents__subtitle 
         人生を変えるフリマアプリ
-      %p.contents__text 
+      %p.appadsContents__text 
         FURIMAはだれでもかんたんに出品・購入できる
         %br
         フリマアプリです
-      .contents__btn
-        = link_to "#" do
+      .appadsContents__btn
+        = link_to "#", class: "appadsContents__btn--apple" do
           = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
-        = link_to "#" do
+        = link_to "#", class: "appadsContents__btn--google" do
           = image_tag "google-play-badge.png" ,alt:"gogleicon"
-  / 青木さん
+
+  / 理由
   .main__reasons
-    %h2.subtitle FURIMAが選ばれる3つの理由
-    %ul.imagebox
-      %li.imagebox__img
-      %li.imagebox__img
-      %li.imagebox__img
+    %h2.subtitle 
+      FURIMAが選ばれる3つの理由
+      .subtitle__border
+    %ul.reasonbox
+      %li.reasonbox__list
+        .reasonbox__list--image
+        %h3.reasonbox__list--text
+          %span 3分
+          ですぐに出品
+        .reasonbox__list--description
+      %li.reasonbox__list
+        .reasonbox__list--image
+        %h3.reasonbox__list--text
+        .reasonbox__list--description
+      %li.reasonbox__list
+        .reasonbox__list--image
+        %h3.reasonbox__list--text
+        .reasonbox__list--description
   / 松田さん
   .main__appeal
+    .main__appeal--contents
+      %h2.contents__topic
+        会員数日本一位
+      %p.contents__texts
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .content_btn
+        =link_to "#" do
+          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt:"appleicon"
+        =link_to "#" do
+          = image_tag "google-play-badge.png", alt:"googleicon"
 
-  / 齊藤さん
+        
+  -# .main__appads
+  -#   .main__appads--contents
+  -#     %h2.contents__subtitle 
+  -#       人生を変えるフリマアプリ
+  -#     %p.contents__text 
+  -#       FURIMAはだれでもかんたんに出品・購入できる
+  -#       %br
+  -#       フリマアプリです
+  -#     .contents__btn
+  -#       = link_to "#" do
+  -#         = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
+  -#       = link_to "#" do
+  -#         = image_tag "google-play-badge.png" ,alt:"googleicon"
+
   .mainFeatures
     %h2.subtitle
       FURIMAの特徴
       .subtitle__border
-    .featuresList      
+    %ul.featuresLists
+      %li.featuresList
+        .featuresList__image
+          %span.number 1
+          = image_tag "pict/pict-reason-01.jpg"
+        .featuresList__text
+          %span 3分
+          ですぐに出品  
+        .featuresList__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.featuresList
+        .featuresList__image
+          %span.number 2
+          = image_tag "pict/pict-reason-02.jpg"
+        .featuresList__text
+          %span シンプル
+          で使いやすい
+        .featuresList__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.featuresList.featuresList--last
+        .featuresList__image
+          %span.number 3
+          = image_tag "pict/pict-reason-03.jpg"
+        .featuresList__text
+          %span 手数料
+          業界最安
+        .featuresList__description
+          最大3%でお得に出品&購入！  
   .main__products
 
 / 佐藤さん
@@ -93,7 +163,7 @@
         FURIMAについて
       %ul
         %li
-          =link_to "会社概要（運営会社）", "#"
+          =link_to "会社概要（運営会社）", "#" 
         %li
           =link_to "プライバシーポリシー", "#"
         %li
@@ -115,9 +185,15 @@
         %li
           =link_to "FURIMAガイド", "#"
         %li
-          =link_to "FURIMAロゴ利用ガイドライン", "#"
+          =link_to "FURIMAロゴ利用ガイドライン", "#" 
         %li
-          =link_to "お知らせ", "#"
+          =link_to "お知らせ", "#" 
+  .footer__logo
+    =link_to "#" do
+      = image_tag "logo/logo-white.png",alt:"logo"
+  %p
+    ©　FURIMA
+
     
 
 
