@@ -6,9 +6,38 @@
           =image_tag "logo.png",alt:"アイコン"
       .searchBox
         = form_with(url: '#', local: true, method: :get, class: "searchBox__form") do |f|
-          = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox-input"
+          = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
           = button_tag type: 'submit' do
             = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
+    .nav
+      .navLeft
+        .navLeft__item
+          = link_to "カテゴリー", "#"
+          / カテゴリー一覧html
+          %ul.categoryTree
+            %li
+              item
+            %li
+              item
+            %li
+              item
+            %li
+              item
+            %li
+              item
+            %li
+              item
+        .navLeft__item
+          = link_to "ブランド", "#"
+        .tree.displayNone
+      .navRight
+        .navRight__item
+          / もしログインしていない場合はログインを表示
+          = link_to "ログイン", "#"
+        .navRight__item
+          / もしログインしていない場合は新規登録を表示
+          = link_to "新規会員登録", "#"
+
 .main
   .main__appads
     = image_tag "bg-mainVisual-pict_pc.jpg", class:"appadspic", alt:"ほげ"
