@@ -54,73 +54,75 @@
 
 .main
 
-  / アピール
-  .mainAppads
-    .appadsContents
-      %h2.appadsContents__subtitle 
+  / アプリ紹介
+  .mainApps
+    .appsContents
+      %h2.appsContents__subtitle 
         人生を変えるフリマアプリ
-      %p.appadsContents__text 
+      %p.appsContents__text 
         FURIMAはだれでもかんたんに出品・購入できる
         %br
         フリマアプリです
+      .appsContents__btn
+        = link_to "#", class: "appsContents__btn--apple" do
+          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
+        = link_to "#", class: "appsContents__btn--google" do
+          = image_tag "google-play-badge.png" ,alt:"gogleicon"
+
+  / 理由
+  .mainReasons
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+      .subtitle__border
+    %ul.reasonsLists
+      %li.reasonsList
+        .reasonsList__image
+          %span.number 1
+          = image_tag "pict/pict-reason-01.jpg"
+        .reasonsList__text
+          %span 3分
+          ですぐに出品  
+        .reasonsList__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.reasonsList
+        .reasonsList__image
+          %span.number 2
+          = image_tag "pict/pict-reason-02.jpg"
+        .reasonsList__text
+          %span シンプル
+          で使いやすい
+        .reasonsList__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.reasonsList.reasonsList--last
+        .reasonsList__image
+          %span.number 3
+          = image_tag "pict/pict-reason-03.jpg"
+        .reasonsList__text
+          %span 手数料
+          業界最安
+        .reasonsList__description
+          最大3%でお得に出品&購入！  
+
+
+  / アピール
+
+  .mainAppeal
+    .appadsContents
+      %h2.appadsContents__topic.appadsContents--shadow
+        会員数日本一位
+      %p.appadsContents__text.appadsContents--shadow
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
       .appadsContents__btn
         = link_to "#", class: "appadsContents__btn--apple" do
           = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
         = link_to "#", class: "appadsContents__btn--google" do
           = image_tag "google-play-badge.png" ,alt:"gogleicon"
 
-  / 理由
-  .main__reasons
-    %h2.subtitle 
-      FURIMAが選ばれる3つの理由
-      .subtitle__border
-    %ul.reasonbox
-      %li.reasonbox__list
-        .reasonbox__list--image
-        %h3.reasonbox__list--text
-          %span 3分
-          ですぐに出品
-        .reasonbox__list--description
-      %li.reasonbox__list
-        .reasonbox__list--image
-        %h3.reasonbox__list--text
-        .reasonbox__list--description
-      %li.reasonbox__list
-        .reasonbox__list--image
-        %h3.reasonbox__list--text
-        .reasonbox__list--description
-  / 松田さん
-  .main__appeal
-    .main__appeal--contents
-      %h2.contents__topic
-        会員数日本一位
-      %p.contents__texts
-        FURIMAは、フリマアプリで最も人気。
-        %br/
-        出品・購入回数も業界最多です！
-        %br/
-        ほしかったあの商品に出会えるかもしれません。
-      .content_btn
-        =link_to "#" do
-          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt:"appleicon"
-        =link_to "#" do
-          = image_tag "google-play-badge.png", alt:"googleicon"
-
-        
-  -# .main__appads
-  -#   .main__appads--contents
-  -#     %h2.contents__subtitle 
-  -#       人生を変えるフリマアプリ
-  -#     %p.contents__text 
-  -#       FURIMAはだれでもかんたんに出品・購入できる
-  -#       %br
-  -#       フリマアプリです
-  -#     .contents__btn
-  -#       = link_to "#" do
-  -#         = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
-  -#       = link_to "#" do
-  -#         = image_tag "google-play-badge.png" ,alt:"googleicon"
-
+  / 特徴
   .mainFeatures
     %h2.subtitle
       FURIMAの特徴
@@ -128,31 +130,26 @@
     %ul.featuresLists
       %li.featuresList
         .featuresList__image
-          %span.number 1
-          = image_tag "pict/pict-reason-01.jpg"
+          = image_tag "icon/icon-01.png"
         .featuresList__text
-          %span 3分
-          ですぐに出品  
+          簡単に売り買いできる
         .featuresList__description
-          スマホで入力するだけで簡単に出品できる！
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %li.featuresList
         .featuresList__image
-          %span.number 2
-          = image_tag "pict/pict-reason-02.jpg"
+          = image_tag "icon/icon-03.png"
         .featuresList__text
-          %span シンプル
-          で使いやすい
+          売上金は即日振込みに対応
         .featuresList__description
-          めんどくさい入力は必要なく、検索も購入もスムーズ！
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %li.featuresList.featuresList--last
         .featuresList__image
-          %span.number 3
-          = image_tag "pict/pict-reason-03.jpg"
+          = image_tag "icon/icon-04.png"
         .featuresList__text
-          %span 手数料
-          業界最安
+          様々な支払いに対応
         .featuresList__description
-          最大3%でお得に出品&購入！  
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。 
+          
   .main__products
 
 / 佐藤さん

@@ -125,9 +125,8 @@
   }
 }
 
-// メイン アピール
-
-.mainAppads{
+// アプリ紹介
+.mainApps{
   height: 560px;
   width: 100%;
   display: flex;
@@ -137,7 +136,7 @@
   background-image: url(bg-mainVisual-pict_pc.jpg);
   background-size: cover;
 }
-.appadsContents{
+.appsContents{
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
@@ -150,9 +149,9 @@
   }
   &__text{
     font-size: 18px;
-    color: #fff;
     line-height: 1.77778;
     margin: 16px 0 0 0;
+    color: #fff;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
   }
   &__btn{
@@ -176,45 +175,9 @@
 
 
 // 理由
-.main{
-&__reasons{
-  height: 63vh;
-  background-color: lightcoral;
-  width: 100%;
-  padding: 60px 20px;
-  .reasonbox {
-    max-width: 1020px;
-    height: 90%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    &__list {
-      width: 30vw;
-      height: 80%;
-      margin: 16px 5% 0 0;
-      background-color: green;
-    }
-    }
-  }
-  &__appeal{
-    height: 40vh;
-    width: 100vw;
-    background-image: url(pict/bg-topMiddleDl-pict.jpg);
-    background-size: cover;
-  }
-  &__products{
-    height: 95vh;
-    background-color: lightgreen;
-  }
-}
-
-
-
-
-.mainFeatures{
+.mainReasons{
   padding: 60px 20px;
 }
-
 .subtitle{
   text-align: center;
   font-size: 27px;
@@ -227,16 +190,14 @@
     margin: 0 auto;
   }
 }
-
-.featuresLists{
+.reasonsLists{
   text-align: center;
   display: flex;
   max-width: 1020px;
   width: 100%;
   margin: 0 auto;
 }
-
-.featuresList{
+.reasonsList{
   width: 30%;
   height: 450px;
   margin-right: 5%;
@@ -272,6 +233,108 @@
     margin-right: 0;
   }
 }
+
+// アピール
+.mainAppeal{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 0 60px;
+  align-items: center;
+  background-image: url(pict/bg-topMiddleDl-pict);
+  background-size: cover;
+  background-position: right bottom;
+}
+.appadsContents{
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  &__topic{
+    font-size: 27px;
+  }
+  &__text{
+    font-size: 18px;
+    line-height: 1.77778;
+    margin: 16px 0 0 0;
+  }
+  &--shadow{
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  }
+  &__btn{
+    display: flex;
+    margin: 16px 0 0 0 ;
+    align-items: center;
+    &--apple{
+      width: 180px;
+      img{
+        width: 100%;
+      }
+    }
+    &--google{
+      width: 220px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 特徴
+
+.mainFeatures{
+  padding: 60px 20px;
+}
+
+.subtitle{
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 36px;
+  &__border {
+    width: 70px;
+    height: 4px;
+    border: 2px solid #3CCACE;
+    margin: 0 auto;
+  }
+}
+
+.featuresLists{
+  text-align: center;
+  display: flex;
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.featuresList{
+  width: 30%;
+  margin-right: 5%;
+  &__image{
+    img{
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+  &__text{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    font-size: 18px;
+    span {
+      color: #3CCACE;
+    }
+  }
+  &__description{
+    margin-top: 16px;
+  }
+  &--last {
+    margin-right: 0;
+  }
+}
+
+// フッター
 
   .footer{
   background-color: #272727;
