@@ -14,22 +14,36 @@
         .navLeft__item
           = link_to "カテゴリー", "#"
           / カテゴリー一覧html
-          %ul.categoryTree
-            %li
-              item
-            %li
-              item
-            %li
-              item
-            %li
-              item
-            %li
-              item
-            %li
-              item
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree__item
+                = link_to "アイテム1", "#"
+              %li.categoryTree__item
+                = link_to "アイテム2", "#"
+              %li.categoryTree__item
+                = link_to "アイテム3", "#"
+              %li.categoryTree__item
+                = link_to "アイテム4", "#"
+              %li.categoryTree__item
+                = link_to "アイテム5", "#"
+              %li.categoryTree__item
+                = link_to "アイテム6", "#"
         .navLeft__item
           = link_to "ブランド", "#"
-        .tree.displayNone
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree__item
+                = link_to "アイテム1", "#"
+              %li.categoryTree__item
+                = link_to "アイテム2", "#"
+              %li.categoryTree__item
+                = link_to "アイテム3", "#"
+              %li.categoryTree__item
+                = link_to "アイテム4", "#"
+              %li.categoryTree__item
+                = link_to "アイテム5", "#"
+              %li.categoryTree__item
+                = link_to "アイテム6", "#"
       .navRight
         .navRight__item
           / もしログインしていない場合はログインを表示

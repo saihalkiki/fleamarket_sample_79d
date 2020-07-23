@@ -77,8 +77,9 @@
 
 .navLeft{
   display: flex;
+  position: relative;
   &__item{
-    padding-right: 30px;
+    padding-right: 46px;
     > a:hover{
       color: #ffb340;
     }
@@ -96,7 +97,30 @@
   }
 }
 
+.tree{
+  z-index: 2;
+  position: absolute;
+  background-color: #fff;
+  width: 240px;
+  top: 40px;
+}
+
+.displayNone{
+  display: none;
+}
+
 .categoryTree {
+  display: flex;
+  flex-direction: column;
+  &__item {
+    padding: 3px 8px 3px 5px;
+    border-bottom: 1px solid #f8f8f8;
+    width: 240px;
+    line-height: 38px;
+    > a:hover{
+      color: #ffb340;
+    }
+  }
 }
 
 .main{
