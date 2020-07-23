@@ -1,0 +1,60 @@
+.item  
+  .itembox
+    .itembox__name
+      =@item.name
+    .itembox__contents
+      .itembox__contents--image
+        .first-imagebox
+        .second-imagebox
+      .itembox__contents--detail
+        %table
+          %tbody
+            %tr
+              %th 出品者 
+              %td 青木
+            %tr
+              %th カテゴリー
+              %td apple
+            %tr
+              %th 商品の状態
+              %td とても良い
+            %tr
+              %th 配送料の負担
+              %td 
+                =@item.delivery_cost
+            %tr
+              %th 配送元地域
+              %td 
+                =@item.region
+            %tr
+              %th 発送日の目安
+              %td 
+                =@item.period
+            %tr
+              %th 出品者 
+              %td こう
+    %ul.itembox__optionalArea
+      %li.itembox__optionalArea--likebtn
+        = link_to "#" do
+          お気に入り
+      %li.itembox__optionalArea--optionalbtn
+        =link_to "#" do
+          不適切な商品の通報
+    .itembox__pricebox
+      .itembox__pricebox--price
+        ￥
+        %span<>
+        = @item.price
+    .itembox__submit
+      =link_to "#", class:"itemsubmit" do
+        購入画面に進む
+    .itembox__explanation
+      %p 商品説明
+      =@item.explanation
+  .itemcomment
+    .itemcomment__textbox
+    .itemcomment__submit
+
+
+
+    
