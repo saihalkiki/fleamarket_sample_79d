@@ -11,7 +11,7 @@
             = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
     .nav
       .navLeft
-        .navLeft__item
+        .navLeft__item#category
           = link_to "カテゴリー", "#"
           / カテゴリー一覧html
           .tree.displayNone
@@ -28,7 +28,7 @@
                 = link_to "アイテム5", "#"
               %li.categoryTree__item
                 = link_to "アイテム6", "#"
-        .navLeft__item
+        .navLeft__item#brand
           = link_to "ブランド", "#"
           .tree.displayNone
             %ul.categoryTree
@@ -53,13 +53,74 @@
           = link_to "新規会員登録", "#"
 
 .main
+  / 佐藤さん
   .main__appads
-    = image_tag "bg-mainVisual-pict_pc.jpg", class:"appadspic", alt:"ほげ"
     .main__appads--contents
-      %h1 人生を変えるフリマアプリ
-      %h3 FURIMAはだれでもかんたんに出品・購入できるフリマアプリです
+      %h2.contents__subtitle 
+        人生を変えるフリマアプリ
+      %p.contents__text 
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .contents__btn
+        = link_to "#" do
+          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
+        = link_to "#" do
+          = image_tag "google-play-badge.png" ,alt:"gogleicon"
+  / 青木さん
   .main__reasons
+    %h2.subtitle FURIMAが選ばれる3つの理由
+    %ul.imagebox
+      %li.imagebox__img
+      %li.imagebox__img
+      %li.imagebox__img
+  / 松田さん
   .main__appeal
-  .main__features
+
+  / 齊藤さん
+  .mainFeatures
+    %h2.subtitle
+      FURIMAの特徴
+      .subtitle__border
+    .featuresList      
   .main__products
-.footer
+
+/ 佐藤さん
+%footer.footer
+  %ul.footer__contents
+    %li.footer__list
+      %h2.list__title
+        FURIMAについて
+      %ul
+        %li
+          =link_to "会社概要（運営会社）", "#"
+        %li
+          =link_to "プライバシーポリシー", "#"
+        %li
+          =link_to "FURIMA利用規約","#"
+        %li
+          =link_to "ポイントに関する特約","#"
+    %li.footer__list
+      %h2.list__title
+        FURIMAを見る
+      %ul
+        %li
+          =link_to "カテゴリー一覧", "#"
+        %li
+          =link_to "ブランド一覧", "#"
+    %li.footer__list
+      %h2.list__title
+        ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to "FURIMAガイド", "#"
+        %li
+          =link_to "FURIMAロゴ利用ガイドライン", "#"
+        %li
+          =link_to "お知らせ", "#"
+    
+
+
+
+
+    

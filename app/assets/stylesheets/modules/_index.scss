@@ -125,32 +125,33 @@
 
 .main{
   &__appads{
-    height: 55vh;
+    height: 560px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 0 60px;
+    align-items: center;
     background-color: lightblue;
-    .appadspic{
-      width: 100vw;
-      height: 55vh;
-      position: relative;
+    background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
+    background-size: cover;
       &--contents{
-        width: 20vw;
-        height: 30vh;
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
         position: absolute;
-        right: 150px;
-        top: 150px;
+        padding: 35 0 0 0px;
       }
     }
-  }
-  &__reasons{
-    height: 63vh;
-    background-color: lightcoral;
+    &__reasons{
+      height: 63vh;
+      background-color: lightcoral;
   }
   &__appeal{
     height: 40vh;
-    background-color: lightgoldenrodyellow;
-  }
-  &__features{
-    height: 70vh;
-    background-color: lightskyblue;
+    width: 100vw;
+    background-image: url(bg-topMiddleDl-pict.jpg);
+    background-size: cover;
+    
   }
   &__products{
     height: 95vh;
@@ -158,8 +159,70 @@
   }
 }
 
-.footer{
-  background-color: blue;
+.contents__subtitle{
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+.contents__text{
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.77778;
+  margin: 16px 0 0 0;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.contents__btn{
+  display: flex;
+  margin: 16px 0 0 0 ;
+}
+
+
+
+
+// 齊藤記述
+.mainFeatures{
+  padding: 60px 20px;
+  height: 70vh;
+@include  visual_elements;
+}
+.subtitle{
+  @include  visual_elements;
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 36px;
+  &__border {
+    width: 70px;
+    height: 4px;
+    border: 2px solid #3CCACE;
+    margin: 0 auto;
+  }
+}
+
+
+// 齊藤記述
+
+
+
+
+
+
+  .footer{
+  background-color: #272727;
   height: 70vh;
   width: 100vw;
+  padding: 60px 0 ;
+  color: #fff;
+  text-align: center;
 }
+
+  .footer__contents{
+  display: flex;
+  margin: 0 auto;
+  max-width: 840px;
+  }
+
+  .footer__list{
+
+  }
