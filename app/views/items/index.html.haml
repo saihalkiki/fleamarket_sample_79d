@@ -303,22 +303,17 @@
                       0
                 %p
                   (税込)
-
   / バナー
-  .appBanner
-    .appadsContents
-      %h2.appadsContents__topic.appadsContents--shadow
-        会員数日本一位
-      %p.appadsContents__text.appadsContents--shadow
-        FURIMAは、フリマアプリで最も人気。
-        %br/
-        出品・購入回数も業界最多です！
-        %br/
-        ほしかったあの商品に出会えるかもしれません。
-      .appadsContents__btn
-        = link_to "#", class: "appadsContents__btn--apple" do
+  .mainBanner
+    .bannerContents
+      %h2.bannerContents__topic.bannerContents--shadow
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.bannerContents__text.bannerContents--shadow
+        今すぐ無料ダウンロード
+      .bannerContents__btn
+        = link_to "#", class: "bannerContents__btn--apple" do
           = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
-        = link_to "#", class: "appadsContents__btn--google" do
+        = link_to "#", class: "bannerContents__btn--google" do
           = image_tag "google-play-badge.png" ,alt:"gogleicon"
 
 

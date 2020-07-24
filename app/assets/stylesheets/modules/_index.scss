@@ -391,7 +391,53 @@
 }
 
 // バナー
-    
+.mainBanner{
+  height: 360px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 0 60px;
+  align-items: center;
+  background-image: url(pict/bg-appBanner-pict.jpg);
+  background-size: cover;
+}
+.bannerContents{
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  &__topic{
+    font-size: 24px;
+  }
+  &__text{
+    font-size: 35px;
+    line-height: 1.77778;
+  }
+  &--shadow{
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  }
+  &__btn{
+    display: flex;
+    margin: 16px 0 0 0 ;
+    align-items: center;
+    justify-content: center;
+    &--apple{
+      width: 180px;
+      img{
+        width: 100%;
+      }
+    }
+    &--google{
+      width: 220px;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+
 // フッター
 
   .footer{
