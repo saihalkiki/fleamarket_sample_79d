@@ -1,0 +1,53 @@
+%header.header
+  .headerInner
+    .headerMain
+      .headerMain__icon
+        =link_to "#" do
+          =image_tag "logo.png",alt:"アイコン"
+      .searchBox
+        = form_with(url: '#', local: true, method: :get, class: "searchBox__form") do |f|
+          = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
+          = button_tag type: 'submit' do
+            = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
+    .nav
+      .navLeft
+        .navLeft__item#category
+          = link_to "カテゴリー", "#"
+          / カテゴリー覧html
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree__item
+                = link_to "アイテム1", "#"
+              %li.categoryTree__item
+                = link_to "アイテム2", "#"
+              %li.categoryTree__item
+                = link_to "アイテム3", "#"
+              %li.categoryTree__item
+                = link_to "アイテム4", "#"
+              %li.categoryTree__item
+                = link_to "アイテム5", "#"
+              %li.categoryTree__item
+                = link_to "アイテム6", "#"
+        .navLeft__item#brand
+          = link_to "ブランド", "#"
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree__item
+                = link_to "アイテム1", "#"
+              %li.categoryTree__item
+                = link_to "アイテム2", "#"
+              %li.categoryTree__item
+                = link_to "アイテム3", "#"
+              %li.categoryTree__item
+                = link_to "アイテム4", "#"
+              %li.categoryTree__item
+                = link_to "アイテム5", "#"
+              %li.categoryTree__item
+                = link_to "アイテム6", "#"
+      .navRight
+        .navRight__item
+          / もしログインしていない場合はログインを表示
+          = link_to "ログイン", "#"
+        .navRight__item
+          / もしログインしていない場合は新規登録を表示
+          = link_to "新規会員登録", "#" 
