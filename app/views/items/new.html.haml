@@ -4,54 +4,18 @@
       %li
         =f.label :image, "出品画像"
         %span 必須
-      .form__image
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
-        %li
-          =f.label :image, "出品画像"
-          %span 必須
-        %li
-          =f.file_field :image, class: "form-field"
+      %li
+        .form__image
+          =f.fields_for :images do |i|
+            %li
+              =i.file_field :image, class: "form-field"
+               
+
+        -# = f.fields_for :images do |i|
+        -#         .input-area
+        -#           = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+        -#           %label{for: "img-file"}
+        -#             %i.fas.fa-camera
 
         
       %li
