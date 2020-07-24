@@ -75,3 +75,4 @@ gem "haml-rails", "~> 2.0"
 gem 'ancestry'
 gem 'carrierwave'
 gem 'mini_magick'
+gem "font-awesome-sass"

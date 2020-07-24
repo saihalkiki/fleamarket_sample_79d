@@ -5,17 +5,19 @@
         =f.label :image, "出品画像"
         %span 必須
       %li
-        .form__image
-          =f.fields_for :images do |i|
-            %li
-              =i.file_field :image, class: "form-field"
-               
-
-        -# = f.fields_for :images do |i|
-        -#         .input-area
-        -#           = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
-        -#           %label{for: "img-file"}
-        -#             %i.fas.fa-camera
+        =f.file_field :image, class: "form-field"
+        -# .form__image
+        -#   =f.fields_for :images do |i|
+        -#     %li
+        -#       =i.file_field :image, class: "form-field"
+        -#       %input{type: "file"}
+        -#       %input{type: "file"}
+        -#       %input{type: "file"}
+        -# -# = f.fields_for :images do |i|
+        -# -#         .input-area
+        -# -#           = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+        -# -#           %label{for: "img-file"}
+        -# -#             %i.fas.fa-camera
 
         
       %li
