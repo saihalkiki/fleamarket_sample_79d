@@ -166,30 +166,163 @@
               = image_tag "item/sample_item01.jpg"
             .listbody
               %h3.name
-                ee
+                test1
               .datails
                 %ul
                   %li
                     1000円
                   %li
-                    = icon("fas","fa-star")
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test2
+              .datails
+                %ul
+                  %li
+                    10000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+          
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test3
+              .datails
+                %ul
+                  %li
+                    4000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+        
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test4
+              .datails
+                %ul
+                  %li
+                    6000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+  
+  / ピックアップカテゴリー アーカイブ
+  .mainProducts
+    %h2.mainProducts__head
+      ピックアップブランド
+    .productsBox
+      .boxhead
+        =link_to "#" do
+          %h3.head__title
+            アーカイブ
+      .boxlists
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test1
+              .datails
+                %ul
+                  %li
+                    1000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test2
+              .datails
+                %ul
+                  %li
+                    10000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+          
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test3
+              .datails
+                %ul
+                  %li
+                    4000円
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
+        
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                test4
+              .datails
+                %ul
+                  %li
+                    6000円
+                  %li
+                    %i.fas.fa-star
                       0
                 %p
                   (税込)
 
-                    
+  / バナー
+  .appBanner
+    .appadsContents
+      %h2.appadsContents__topic.appadsContents--shadow
+        会員数日本一位
+      %p.appadsContents__text.appadsContents--shadow
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .appadsContents__btn
+        = link_to "#", class: "appadsContents__btn--apple" do
+          = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
+        = link_to "#", class: "appadsContents__btn--google" do
+          = image_tag "google-play-badge.png" ,alt:"gogleicon"
 
-              
 
-
-
-
-  / ピックアップカテゴリー アーカイブ
-
-
-
-
-/ 佐藤さん
+/ フッター
 %footer.footer
   %ul.footer__contents
     %li.footer__list

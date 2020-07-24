@@ -339,7 +339,6 @@
 .mainProducts{
   padding: 80px 0 0;
   background-color: #f8f8f8;
-  @include visual_elements;
   &__head{
     font-size: 28px;
     text-align: center;
@@ -356,12 +355,11 @@
     }
   }
   .boxlists{
-    @include visual_elements;
-    margin: 26px auto;
+    margin: 0px auto;
+    padding: 26px 0;
     display: flex;
     justify-content: center;
     .boxlist{
-      @include visual_elements;
       width: 220px;
       .listimage{
         margin: 0px;
@@ -371,14 +369,20 @@
         width: 100%;
       }
       .listbody{
-        @include visual_elements;
         background-color: white;
         color: #333;
         padding: 16px;
+        p {
+          font-size: 10px;
+        }
         .datails > ul{
           display: flex;
+          justify-content: space-between;
           li {
             line-height: 24px;
+          }
+          i {
+            font-size: 14px;
           }
         }
       }
@@ -386,9 +390,8 @@
   }
 }
 
-
-
-
+// バナー
+    
 // フッター
 
   .footer{
