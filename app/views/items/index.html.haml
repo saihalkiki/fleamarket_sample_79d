@@ -149,8 +149,45 @@
           様々な支払いに対応
         .featuresList__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。 
-          
-  .main__products
+
+  / ピックアップカテゴリー 新規投稿
+  .mainProducts
+    %h2.mainProducts__head
+      ピックアップカテゴリー
+    .productsBox
+      .boxhead
+        =link_to "#" do
+          %h3.head__title
+            新規投稿商品
+      .boxlists
+        .boxlist
+          =link_to "#" do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                ee
+              .datails
+                %ul
+                  %li
+                    1000円
+                  %li
+                    = icon("fas","fa-star")
+                      0
+                %p
+                  (税込)
+
+                    
+
+              
+
+
+
+
+  / ピックアップカテゴリー アーカイブ
+
+
+
 
 / 佐藤さん
 %footer.footer
