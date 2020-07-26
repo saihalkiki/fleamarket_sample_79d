@@ -62,10 +62,6 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     ancestry (3.0.7)
       activerecord (>= 3.2.0)
-    better_errors (2.7.1)
-      coderay (>= 1.0.0)
-      erubi (>= 1.0.0)
-      rack (>= 0.9.0)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -315,8 +311,6 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
-  better_errors
-  binding_of_caller
   bootsnap (>= 1.4.2)
   bullet
   byebug
