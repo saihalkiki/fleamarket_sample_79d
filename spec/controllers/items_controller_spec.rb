@@ -6,11 +6,11 @@ describe ItemsController, type: :controller do
       get :index
       expect(response).to render_template :index
     end
-    # it "@itemsにデータを取得できているか" do
-    #   item = create(:item)
-    #   get :index
-    #   expect(assigns(:item)).to eq item
-    # end
+    it "@itemsにデータを取得できているか" do
+      item = create(:item)
+      get :index
+      expect(assigns(:item)).to eq item
+    end
   end
 
 end
