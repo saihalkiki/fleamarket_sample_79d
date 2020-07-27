@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # Basic認証
   before_action :basic_auth, if: :production?
   
   private
