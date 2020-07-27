@@ -95,6 +95,8 @@
         .featuresList__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。 
 
+
+
   / ピックアップカテゴリー 新規投稿
   .mainProducts
     %h2.mainProducts__head
@@ -105,72 +107,23 @@
           %h3.head__title
             新規投稿商品
       .boxlists
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test1
-              .datails
-                %ul
-                  %li
-                    1000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test2
-              .datails
-                %ul
-                  %li
-                    10000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-          
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test3
-              .datails
-                %ul
-                  %li
-                    4000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-        
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test4
-              .datails
-                %ul
-                  %li
-                    6000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
+        - @items_new.first(4).each do |item|
+          .boxlist
+            =link_to "#" do
+              %figure.listimage
+                = image_tag "item/sample_item01.jpg"
+              .listbody
+                %h3.name
+                  = item.name
+                .datails
+                  %ul
+                    %li
+                      = item.price
+                    %li
+                      %i.fas.fa-star
+                        0
+                  %p
+                    (税込)
   
   / ピックアップカテゴリー アーカイブ
   .mainProducts
@@ -182,77 +135,25 @@
           %h3.head__title
             アーカイブ
       .boxlists
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test1
-              .datails
-                %ul
-                  %li
-                    1000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test2
-              .datails
-                %ul
-                  %li
-                    10000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-          
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test3
-              .datails
-                %ul
-                  %li
-                    4000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-        
-        .boxlist
-          =link_to "#" do
-            %figure.listimage
-              = image_tag "item/sample_item01.jpg"
-            .listbody
-              %h3.name
-                test4
-              .datails
-                %ul
-                  %li
-                    6000円
-                  %li
-                    %i.fas.fa-star
-                      0
-                %p
-                  (税込)
-
-
-    
-
-
-
-
-    
+        - @items_archive.first(4).each do |item|
+          .boxlist
+            =link_to "#" do
+              %figure.listimage
+                = image_tag "item/sample_item01.jpg"
+              .listbody
+                %h3.name
+                  = item.name
+                .datails
+                  %ul
+                    %li
+                      = item.price
+                    %li
+                      %i.fas.fa-star
+                        0
+                  %p
+                    (税込)
+= link_to new_item_path do
+  .ExhibitBtn
+    .ExhibitBtn__text
+      出品する
+    = image_tag "icon/icon_camera.png" 
