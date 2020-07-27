@@ -47,7 +47,7 @@
       %li
         =f.label :region, "発送元の地域"
         %span 必須
-        =f.collection_select :region, (:prefecture_id, Prefecture.all, :id, :name,{include_blank: "---"} )
+        =f.collection_select (:prefecture_id, Prefecture.all, :id, :name )
       %li
         =f.label :period, "発送までの日数"
         %span 必須

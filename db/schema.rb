@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_095054) do
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "prefecture_id", null: false
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
