@@ -6,6 +6,7 @@
         %span 必須
       %li
         =f.file_field :image, class: "form-field"
+        -# 画像を複数投稿できるようにする
         -# .form__image
         -#   =f.fields_for :images do |i|
         -#     %li
@@ -60,4 +61,4 @@
         =f.number_field :price, class: "form-field", placeholder:"例)￥1500"
           
       %li
-        =f.submit "編集する編集する", class:"formbtn"
+        =f.submit "編集する", class:"formbtn"
