@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :category
   has_many :images
+  belongs_to :user
   accepts_nested_attributes_for :images, allow_destroy: true
 
   [:name, :explanation, :quality, :delivery_cost, :region, :period, :price].each do |v|
@@ -8,5 +9,5 @@ class Item < ApplicationRecord
   end
 
   validates :name, length: { maximum: 40 }
-  
+
 end
