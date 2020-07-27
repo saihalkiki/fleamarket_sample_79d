@@ -449,7 +449,7 @@ mens_9.children.create([
 
   # 時計の商品一覧
 mens_10.children.create([
-  {name: "腕時計(アナログ)"},,
+  {name: "腕時計(アナログ)"},
   {name: "腕時計(デジタル)"},
   {name: "ラバーベルト"},
   {name: "レザーベルト"},
