@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show]
+  before_action :set_item, only: [:edit, :show, :update]
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
@@ -20,11 +20,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
-      redirect_to edit_item_path(item)
+      redirect_to edit_item_path(@item)
     end
   end
 
