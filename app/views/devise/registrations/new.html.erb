@@ -36,13 +36,13 @@
       <div class="field">
         <%= f.label :名字ふりがな %>
         <span> 必須 </span><br />
-        <%= f.text_field :last_name_read, autocomplete: "" %>
+        <%= f.text_field :last_name_read%>
       </div>
 
       <div class="field">
         <%= f.label :名ふりがな %>
         <span> 必須 </span><br />
-        <%= f.text_field :first_name_read, autocomplete: "" %>
+        <%= f.text_field :first_name_read %>
       </div>
     <div>
 
@@ -59,13 +59,13 @@
 <div class="field">
   <%= f.label :誕生日 %>
   <span> 必須 </span><br />
-  <%= f.date_field :first_name_read, autocomplete: "bday" %>
+  <%= f.date_field :birthday, autocomplete: "bday" %>
 </div>
 
   <div class="field">
     <%= f.label :パスワード, class:"password_registration" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <em>(7文字以上)</em>
     <% end %>
     <span> 必須 </span><br />
     <%= f.password_field :password, autocomplete: "new-password" %>

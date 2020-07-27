@@ -2,7 +2,7 @@
 
   height: auto;
   width:800px ;
-  margin: 50px 496px 150px;
+  margin: 50px auto 150px;
   border: 10px solid #C2EEFF;
   border-radius:10px;
 
@@ -18,9 +18,7 @@
       width: 700px;
       height: auto;
       margin: 40px 50px 0;
-      
 
-      
       input, select{
         margin: 0px 100px 20px 100px;
         width: 500px;
@@ -52,6 +50,20 @@
         font-size: 12px;
       }
 
+      .field-remember{
+        display: flex;
+        input{
+          margin: 0;
+          width: 20px;
+          height: 20px;
+          
+        }
+        .rememberme{
+          font-size: 15px;
+          margin: 0px 3px 30px 100px;
+        }
+      }
+
       .registration_name{
         display: flex;
         justify-content: space-between;
@@ -61,18 +73,21 @@
         input, label{
           margin: 0 0 10px 0;
           width: 230px;
-        }
-        
+        } 
       }
     }
   }
 
-  .device_link{
+
+    
+    
+
+    .devise_link{
       color: white;
       background-color:#64F9C1;
       border: none;
       width: 500px;
-      height: 40px;
+      height:40px;
       margin: 15px 150px;
       text-align: center;
       position: relative;
@@ -85,5 +100,9 @@
         margin-right: -50%;
         transform: translate(-50%, -50%) 
       }
-    
-  }
+    }
+
+
+
+
+  

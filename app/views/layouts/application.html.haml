@@ -9,5 +9,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render partial: "layouts/header"
-    = yield 
-    = render partial: "layouts/footer"
+    = render 'layouts/notifications'
+    = yield
+    = render partial: "layouts/btn"
+    = render partial: "layouts/footer"                                
