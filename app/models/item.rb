@@ -10,4 +10,7 @@ class Item < ApplicationRecord
 
   validates :name, length: { maximum: 40 }
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+
 end
