@@ -1,0 +1,75 @@
+.mypage{
+  width: 1020px;
+  height: auto;
+
+  margin: 50px auto;
+  border: 10px solid #C2EEFF;
+  border-radius:10px;
+
+&__profile{
+  width: 1000px;
+  height: 300px;
+
+  &--top{
+  width: 1000px;
+  height: 150px;
+  display: flex;
+  .currentnamebox{
+    width: 742px;
+    position: relative;
+    .currentname{
+      text-align: center;
+      font-size: 30px;
+      width: auto;
+      line-height: 150px;
+      margin: auto;
+      position: absolute;
+      right: 180px;
+    }
+  }
+  .profilesetting{
+    text-align: center;
+    font-size: 15px;
+    line-height: 150px;
+    margin-right: 40px;
+    
+    &__content{
+      margin-left: 10px;
+    }
+    }
+  }
+  &--bottom{
+    width: 1000px;
+    height: 100px;
+    display: flex;
+    
+    .addbox{
+      width: 25%;
+      height: auto;
+      border: 3px solid #C2EEFF;
+      background-color: #FFFAF0;
+    }
+  }
+}
+
+&__items{
+  width: 1000px;
+  height: auto;
+  flex-wrap: wrap;
+  display: flex;
+  
+  &--item{
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    margin: 40px 0 20px 40px;
+    border: 2px solid black;
+     border-radius:2px;
+    position: relative;
+    .details{
+      position: absolute;
+      top: 0;
+    }
+  }
+}
+}
