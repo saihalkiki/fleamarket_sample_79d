@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :phone_number, uniqueness: true
 
