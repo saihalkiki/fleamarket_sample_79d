@@ -1,9 +1,8 @@
 .mypage
   .mypage__profile
     .mypage__profile--top
-      .currentnamebox
-        .currentname
-          =current_user.nickname
+      .currentname
+        =current_user.nickname
       .profilesetting
         = link_to "#", class:"profilesetting__content" do
           %i.fas.fa-user-cog
