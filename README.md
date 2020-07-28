@@ -29,6 +29,7 @@
 |period|integer|null: false|
 |price|integer|null: false|
 |user|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -64,7 +65,9 @@
 |postal_code|integer|null:false|
 |prefectures|string|null:false|
 |city|string|null:false|
-|house_number|integer|null:false|
+|house_number|string|null:false|
+|building_number|string|null:false|
+|phone_number|integer|null:false|
 |user|references|null: false, foreign_key: true|
 
 ### Association
