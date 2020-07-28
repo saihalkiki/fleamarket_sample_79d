@@ -1,0 +1,46 @@
+.mypage
+  .mypage__profile
+    .mypage__profile--top
+      .currentname
+        =current_user.nickname
+      .profilesetting
+        = link_to "#", class:"profilesetting__content" do
+          %i.fas.fa-user-cog
+          設定
+        = link_to "#", class:"profilesetting__content" do
+          %i.fas.fa-credit-card
+          クレジットカード
+    .mypage__profile--bottom
+      .addbox
+      .addbox
+      .addbox
+      .addbox
+  .mypage__items
+    .mypage__items--item
+      =link_to "#" do
+        = image_tag "item/sample_item01.jpg", size: "180x180", alt: "商品画像"
+      .details
+        3000
+        %i.fas.fa-star
+          0
+        %p
+          (税込)
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    .mypage__items--item
+    -# -@items.each do |item|
+    -#   =item.name
+    -#   =item.region
