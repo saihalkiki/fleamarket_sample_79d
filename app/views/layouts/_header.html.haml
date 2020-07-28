@@ -2,7 +2,7 @@
   .headerInner
     .headerMain
       .headerMain__icon
-        =link_to "#" do
+        =link_to root_path do
           =image_tag "logo.png",alt:"アイコン"
       .searchBox
         = form_with(url: '#', local: true, method: :get, class: "searchBox__form") do |f|
@@ -45,9 +45,14 @@
               %li.categoryTree__item
                 = link_to "アイテム6", "#"
       .navRight
-        .navRight__item
-          / もしログインしていない場合はログインを表示
-          = link_to "ログイン", "#"
-        .navRight__item
-          / もしログインしていない場合は新規登録を表示
-          = link_to "新規会員登録", "#" 
+        -if user_signed_in?
+          .navRight__item
+            = link_to "ログアウト", "/users/sign_out", method: :DELETE
+          .navRight__item
+            = link_to "マイページ", "#" 
+        -else
+          .navRight__item
+            = link_to "ログイン", "/users/sign_in"
+          .navRight__item
+            = link_to "新規会員登録", "/users/sign_up"
+           
