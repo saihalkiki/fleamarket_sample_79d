@@ -25,11 +25,12 @@
 |explanation|text|null: false|
 |quality|string|null: false|
 |delivery_cost|integer|null: false|
-|region|string|null: false|
 |period|integer|null: false|
 |price|integer|null: false|
 |user|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
+|prefecture|references|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
