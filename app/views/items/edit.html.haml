@@ -47,7 +47,8 @@
       %li
         =f.label "発送元の地域"
         %span 必須
-        =f.collection_select(:prefecture_id, Prefecture.all, :id, :name )
+      %li
+        =f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください' })
       %li
         =f.label :period, "発送までの日数"
         %span 必須
