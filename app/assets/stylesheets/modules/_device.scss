@@ -1,0 +1,97 @@
+.registration{
+
+  height: auto;
+  width:800px ;
+  margin: 50px auto 150px;
+  border: 10px solid #C2EEFF;
+  border-radius:10px;
+
+  h2{
+    text-align: center;
+    margin: 20px;
+    font-size: 30px;
+    color: red;
+
+  }
+    .new_user{
+      width: 700px;
+      height: auto;
+      margin: 40px 50px 0;
+
+      input, select{
+        margin: 0px 100px 20px 100px;
+        width: 500px;
+        height: 40px;
+      }
+
+      .password_registration{
+        margin: 10px 0 10px 100px;
+      }
+
+      label{
+        margin: 30px 3px 0 100px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .submitbtn{
+        color: white;
+        background-color: red;
+        border: none;
+      }
+      em{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 0;
+      }
+
+      span{
+        color: red;
+        font-size: 12px;
+      }
+
+      .field-remember{
+        display: flex;
+        input{
+          margin: 0;
+          width: 20px;
+          height: 20px;
+          
+        }
+        .rememberme{
+          font-size: 15px;
+          margin: 0px 3px 30px 100px;
+        }
+      }
+
+      .registration_name{
+        display: flex;
+        justify-content: space-between;
+        width: 500px;
+        margin-left: 100px;
+       
+        input, label{
+          margin: 0 0 10px 0;
+          width: 230px;
+        } 
+      }
+    }
+  }
+    .devise_link{
+      color: white;
+      background-color:#64F9C1;
+      border: none;
+      width: 500px;
+      height:40px;
+      margin: 15px 150px;
+      text-align: center;
+      position: relative;
+      a{
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) 
+      }
+    }

@@ -1,0 +1,63 @@
+.registration
+  %h2 会員情報入力
+  = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+    = devise_error_messages!
+    .field
+      = f.label :email
+      %span 必須
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :ニックネーム
+      %span 必須
+      %br/
+      = f.text_field :nickname, autocomplete: "nickname"
+    .registration_name
+      .registration_name_firstbox
+        .field
+          = f.label :名字
+          %span 必須
+          %br/
+          = f.text_field :last_name, autofocus: true, autocomplete: "family-name"
+        .field
+          = f.label :名
+          %span 必須
+          %br/
+          = f.text_field :first_name, autocomplete: "given-name"
+      .registration_name_firstbox
+        .field
+          = f.label :名字ふりがな
+          %span 必須
+          %br/
+          = f.text_field :last_name_read
+        .field
+          = f.label :名ふりがな
+          %span 必須
+          %br/
+          = f.text_field :first_name_read
+        %div
+    .field
+      = f.label :性別
+      %span 必須
+      %br/
+      = f.select :gender,[['男性'], ['女性']], { include_blank: '選択してください' }, { id: "quality_id" }
+    .field
+      = f.label :誕生日
+      %span 必須
+      %br/
+      = f.date_field :birthday, autocomplete: "bday"
+    .field
+      = f.label :パスワード, class:"password_registration"
+      - if @minimum_password_length
+        %em (7文字以上)
+      %span 必須
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      = f.label :パスワード確認用
+      %span 必須
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .actions
+      = f.submit "Sign up", class:"submitbtn"
+  = render "devise/shared/links"
