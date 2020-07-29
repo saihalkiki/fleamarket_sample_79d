@@ -1,12 +1,12 @@
 .registration
   %h2 会員情報入力
-  = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+  = form_with model: @address, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
     = devise_error_messages!
     .field
       = f.label :郵便番号
       %span 必須
       %br/
-      = f.integer :postal_code, autofocus: true, autocomplete: "postal-code"
+      = f.text_field :postal_code, autofocus: true, autocomplete: "postal-code"
     .field
       = f.label :都道府県
       %span 必須
@@ -33,7 +33,7 @@
       = f.label :電話番号
       %span 任意
       %br/
-      = f.integer :phone_number
+      = f.text_field :phone_number
     %div
     .actions
       = f.submit "次へ", class:"submitbtn"
