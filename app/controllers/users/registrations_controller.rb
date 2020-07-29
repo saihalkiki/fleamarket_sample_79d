@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
+    # @userのデータをsessionにハッシュの形で情報を保持させている @userの属性を全て整形している
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
@@ -29,10 +30,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
-    @user.build_address(@address.attributes)
-    session["address"] = @address.attributes
-    @creditcard = @user.build_creditcard
-    render :new_credit_card
+    @user.addresses.build(@address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to root_path
   end
 
   # GET /resource/edit
