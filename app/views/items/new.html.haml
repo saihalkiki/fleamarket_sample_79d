@@ -1,69 +1,65 @@
-.form
-  =form_with model: @item, class:"formcontents", local: true do |f|
-    %ul
-      %li
-        = f.label :image, "出品画像"
-        %span 必須
-
-      / 複数imageを登録できるようにする 
-      %li
-        = f.file_field :image, class: "form-field"
-        -# .form__image
-        -#   =f.fields_for :images do |i|
-        -#     %li
-        -#       =i.file_field :image, class: "form-field"
-        -#       %input{type: "file"}
-        -#       %input{type: "file"}
-        -#       %input{type: "file"}
-        -# -# = f.fields_for :images do |i|
-        -# -#         .input-area
-        -# -#           = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
-        -# -#           %label{for: "img-file"}
-        -# -#             %i.fas.fa-camera
-
-        
-      %li
-        = f.label :name, "商品名"
-        %span 必須
-      %li
-        = f.text_field :name, placeholder: "40文字まで"
-      %li
-        = f.label :explanation, "商品説明"
-        %span 必須
-      %li
-        = f.text_area :explanation, class: "form-field", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-      %li
-        .categoryList
+.NewMain
+  .Form
+    =form_with model: @item, class:"formcontents", local: true do |f|
+      .Form__group
+        .Form__label
+          = f.label :image, "出品画像"
+          %span 必須
+        / 複数imageを登録できるようにする  
+        .Form__field
+          %p.img__upload__comment 最大10枚までアップロードできます
+          %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+          = f.fields_for :images do |image|
+            = image.file_field :image, id: "sell-img"
+      .Form__group
+        .Form__label
+          = f.label :name, "商品名"
+          %span 必須
+        .Form__field
+          = f.text_field :name, placeholder: "全角20文字まで", class: "Form__input", maxlength: "40"
+      .Form__group
+        .Form__label
+          = f.label :explanation, "商品説明"
+          %span 必須
+        .Form__field
+          = f.text_area :explanation, class: "Form__input", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .Form__group
+        .Form__label
           = f.label :category, "カテゴリー"
           %span.listing-default--require 必須
-          = f.select :category, @category_parent_array, {}, {id: 'parent_category'}
-
-      %li
-        = f.label :quality, "商品の状態"
-        %span 必須
-      %li
-        = f.select :quality,[['新品、未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], { include_blank: '選択してください' }, { id: "quality_id" }
-      %li
-        = f.label :delivery_cost,
-         "配送料の負担"
-        %span 必須
-      %li
-        = f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id" }
-      %li
-        = f.label "発送元の地域"
-        %span 必須
-      %li
-        = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください' })
-      %li
-        = f.label :period, "発送までの日数"
-        %span 必須
-      %li
-        = f.select :period, [['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]], { include_blank: '選択してください' }, { id: "period_id" }
-      %li
-        = f.label :price, "販売価格"
-        %span 必須
-      %li
-        = f.number_field :price, class: "form-field", placeholder:"例)￥1500"
-          
-      %li
-        = f.submit "出品する", class:"formbtn"
+        .Form__field.categoryList
+          = f.select :category, @category_parent_array, {}, { class: "Form__input", id: 'parent_category'}
+      .Form__group
+        .Form__label
+          = f.label :quality, "商品の状態"
+          %span 必須
+        .Form__field
+          = f.select :quality,['新品、未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり','傷や汚れあり', '全体的に状態が悪い'],  { include_blank: '選択してください' }, { class: "Form__input", id: "quality_id" }
+      .Form__group
+        .Form__label
+          = f.label :delivery_cost,
+          "配送料の負担"
+          %span 必須
+        .Form__field
+          = f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id", class: "Form__input" }
+      .Form__group
+        .Form__label
+          = f.label "発送元の地域"
+          %span 必須
+        .Form__field
+          = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください'},{class: "Form__input"})
+      .Form__group
+        .Form__label
+          = f.label :period, "発送までの日数"
+          %span 必須
+        .Form__field
+          = f.select :period, [['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]], { include_blank: '選択してください' }, { id: "period_id", class: "Form__input" }
+      .Form__group
+        .Form__label
+          = f.label :price, "販売価格"
+          %span 必須
+        .Form__field
+          = f.number_field :price, class: "Form__input", placeholder:"例)￥1500"
+      .Form__group--last
+        .Form__btn
+          = f.submit "出品する", class:"Form__exhibitBtn"
