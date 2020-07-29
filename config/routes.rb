@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
-  get 'card/new'
-  get 'card/show'
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-  }
-  devise_scope :user do
-    get 'addresses', to: 'users/registrations#new_address'
-    post 'addresses', to: 'users/registrations#create_address'
-  end
+  devise_for :users
   root 'items#index'
-    resources :items do
+    resources :items, only: [:index, :new, :create, :show] do
       resources :images, only: [:new, :create]
     end
-  resources :users, only: :show
-end
+  end
+ 
