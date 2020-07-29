@@ -33,9 +33,11 @@
       %li
         = f.text_area :explanation, class: "form-field", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       %li
-        = f.label :category, "カテゴリー"
+        .categoryList
+          = f.label :category, "カテゴリー"
+          %span.listing-default--require 必須
+          = f.select :category, @category_parent_array, {}, {id: 'parent_category'}
 
-        %span 必須
       %li
         = f.label :quality, "商品の状態"
         %span 必須
