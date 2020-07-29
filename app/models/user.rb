@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_one :address
   enum gender: { 男性: 0, 女性: 1}
   validates :password, length: { minimum: 7 }
   validates :nickname, presence: true, uniqueness: true
