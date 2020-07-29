@@ -49,6 +49,9 @@
     .itembox__submit
       =link_to "#", class:"itemsubmit" do
         購入画面に進む
+    .itembox__submit
+      =link_to "#{@item.id}", method: :delete do
+        削除
     .itembox__explanation
       %p 商品説明
       =@item.explanation
