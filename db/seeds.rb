@@ -1,5 +1,29 @@
 # ladiesの親階層
 ladies = Category.create(name: "レディース")
+# mensの親階層
+mens = Category.create(name: "メンズ")
+# baby_kidsの親階層
+baby_kids = Category.create(name: "ベビー・キッズ")
+# interior_home_accessoriesの親階層
+interior_home_accessories   = Category.create(name: "インテリア・住まい・小物")
+# book_music_gameの親階層
+book_music_game = Category.create(name: "本・音楽・ゲーム")
+# toy_hobby_goodsの親階層
+toy_hobby_goods = Category.create(name: "おもちゃ・ホビー・グッズ")
+# cosme_perfume_beautyの親階層
+cosme_perfume_beauty = Category.create(name: "コスメ・香水・美容")
+# appliance_smartphone_cameraの親階層
+appliance_smartphone_camera = Category.create(name: "家電・スマホ・カメラ")
+# sport_leisureの親階層
+sport_leisure = Category.create(name: "スポーツ・レジャー")
+# handmadeの親階層
+handmade = Category.create(name: "ハンドメイド")
+# ticketの親階層
+ticket = Category.create(name: "チケット")
+# car_motorcycleの親階層
+car_motorcycle = Category.create(name: "自動車・オートバイ")
+# othersの親階層
+others = Category.create(name: "その他")
 
 # ladiesの子階層
 ladies_1  = ladies.children.create(name: "トップス")
@@ -21,6 +45,156 @@ ladies_16 = ladies.children.create(name: "浴衣/水着")
 ladies_17 = ladies.children.create(name: "スーツ/フォーマル/ドレス")
 ladies_18 = ladies.children.create(name: "マタニティ")
 ladies_19 = ladies.children.create(name: "その他")
+
+# mensの子階層
+mens_1  = mens.children.create(name: "トップス")
+mens_2  = mens.children.create(name: "ジャケット/アウター")
+mens_3  = mens.children.create(name: "パンツ")
+mens_4  = mens.children.create(name: "靴")
+mens_5  = mens.children.create(name: "バッグ")
+mens_6  = mens.children.create(name: "スーツ")
+mens_7  = mens.children.create(name: "帽子")
+mens_8  = mens.children.create(name: "アクセサリー")
+mens_9  = mens.children.create(name: "小物")
+mens_10 = mens.children.create(name: "時計")
+mens_11 = mens.children.create(name: "水着")
+mens_12 = mens.children.create(name: "レッグウェア")
+mens_13 = mens.children.create(name: "アンダーウェア")
+mens_14 = mens.children.create(name: "その他")
+
+# baby_kidsの子階層
+baby_kids_1  = baby_kids.children.create(name: "ベビー服(女の子用) ~95cm")
+baby_kids_2  = baby_kids.children.create(name: "ベビー服(男の子用) ~95cm")
+baby_kids_3  = baby_kids.children.create(name: "ベビー服(男女兼用) ~95cm")
+baby_kids_4  = baby_kids.children.create(name: "キッズ服(女の子用) 100cm~")
+baby_kids_5  = baby_kids.children.create(name: "キッズ服(男の子用) 100cm~")
+baby_kids_6  = baby_kids.children.create(name: "キッズ服(男女兼用) 100cm~")
+baby_kids_7  = baby_kids.children.create(name: "キッズ靴")
+baby_kids_8  = baby_kids.children.create(name: "子供用ファッション小物")
+baby_kids_9  = baby_kids.children.create(name: "おむつ/トイレ/バス")
+baby_kids_10 = baby_kids.children.create(name: "外出/移動用品")
+baby_kids_11 = baby_kids.children.create(name: "授乳/食事")
+baby_kids_12 = baby_kids.children.create(name: "ベビー家具/寝具/室内用品")
+baby_kids_13 = baby_kids.children.create(name: "おもちゃ")
+baby_kids_14 = baby_kids.children.create(name: "行事/記念品")
+baby_kids_15 = baby_kids.children.create(name: "その他")
+
+# interior_home_accessoriesの子階層
+interior_home_accessories_1  = interior_home_accessories.children.create(name: "キッチン/食器")
+interior_home_accessories_2  = interior_home_accessories.children.create(name: "ベッド/マットレス")
+interior_home_accessories_3  = interior_home_accessories.children.create(name: "ソファ/ソファベッド")
+interior_home_accessories_4  = interior_home_accessories.children.create(name: "椅子/チェア")
+interior_home_accessories_5  = interior_home_accessories.children.create(name: "机/テーブル")
+interior_home_accessories_6  = interior_home_accessories.children.create(name: "収納家具")
+interior_home_accessories_7  = interior_home_accessories.children.create(name: "ラグ/カーペット/マット")
+interior_home_accessories_8  = interior_home_accessories.children.create(name: "カーテン/ブラインド")
+interior_home_accessories_9  = interior_home_accessories.children.create(name: "ライト/照明")
+interior_home_accessories_10 = interior_home_accessories.children.create(name: "寝具")
+interior_home_accessories_11 = interior_home_accessories.children.create(name: "インテリア小物")
+interior_home_accessories_12 = interior_home_accessories.children.create(name: "季節/年中行事")
+interior_home_accessories_13 = interior_home_accessories.children.create(name: "その他")
+
+# book_music_gameの子階層
+book_music_game_1 = book_music_game.children.create(name: "本")
+book_music_game_2 = book_music_game.children.create(name: "漫画")
+book_music_game_3 = book_music_game.children.create(name: "雑誌")
+book_music_game_4 = book_music_game.children.create(name: "CD")
+book_music_game_5 = book_music_game.children.create(name: "DVD/ブルーレイ")
+book_music_game_6 = book_music_game.children.create(name: "レコード")
+book_music_game_7 = book_music_game.children.create(name: "テレビゲーム")
+
+# toy_hobby_goodsの子階層
+toy_hobby_goods_1  = toy_hobby_goods.children.create(name: "おもちゃ")
+toy_hobby_goods_2  = toy_hobby_goods.children.create(name: "タレントグッズ")
+toy_hobby_goods_3  = toy_hobby_goods.children.create(name: "コミック/アニメグッズ")
+toy_hobby_goods_4  = toy_hobby_goods.children.create(name: "トレーディングカード")
+toy_hobby_goods_5  = toy_hobby_goods.children.create(name: "フィギュア")
+toy_hobby_goods_6  = toy_hobby_goods.children.create(name: "楽器/器材")
+toy_hobby_goods_7  = toy_hobby_goods.children.create(name: "コレクション")
+toy_hobby_goods_8  = toy_hobby_goods.children.create(name: "ミリタリー")
+toy_hobby_goods_9  = toy_hobby_goods.children.create(name: "美術品")
+toy_hobby_goods_10 = toy_hobby_goods.children.create(name: "アート用品")
+toy_hobby_goods_11 = toy_hobby_goods.children.create(name: "その他")
+
+# cosme_perfume_beautyの子階層
+cosme_perfume_beauty_1  = cosme_perfume_beauty.children.create(name: "ベースメイク")
+cosme_perfume_beauty_2  = cosme_perfume_beauty.children.create(name: "メイクアップ")
+cosme_perfume_beauty_3  = cosme_perfume_beauty.children.create(name: "ネイルケア")
+cosme_perfume_beauty_4  = cosme_perfume_beauty.children.create(name: "香水")
+cosme_perfume_beauty_5  = cosme_perfume_beauty.children.create(name: "スキンケア/基礎化粧品")
+cosme_perfume_beauty_6  = cosme_perfume_beauty.children.create(name: "ヘアケア")
+cosme_perfume_beauty_7  = cosme_perfume_beauty.children.create(name: "ボディケア")
+cosme_perfume_beauty_8  = cosme_perfume_beauty.children.create(name: "オーラルケア")
+cosme_perfume_beauty_9  = cosme_perfume_beauty.children.create(name: "リラクゼーション")
+cosme_perfume_beauty_10 = cosme_perfume_beauty.children.create(name: "ダイエット")
+cosme_perfume_beauty_11 = cosme_perfume_beauty.children.create(name: "その他")
+
+# appliance_smartphone_cameraの子階層
+appliance_smartphone_camera_1  = appliance_smartphone_camera.children.create(name: "スマートフォン/携帯電話")
+appliance_smartphone_camera_2  = appliance_smartphone_camera.children.create(name: "スマホアクセサリー")
+appliance_smartphone_camera_3  = appliance_smartphone_camera.children.create(name: "PC/タブレット")
+appliance_smartphone_camera_4  = appliance_smartphone_camera.children.create(name: "カメラ")
+appliance_smartphone_camera_5  = appliance_smartphone_camera.children.create(name: "テレビ/映像機器")
+appliance_smartphone_camera_6  = appliance_smartphone_camera.children.create(name: "オーディオ機器")
+appliance_smartphone_camera_7  = appliance_smartphone_camera.children.create(name: "美容/健康")
+appliance_smartphone_camera_8  = appliance_smartphone_camera.children.create(name: "冷暖房/空調")
+appliance_smartphone_camera_9  = appliance_smartphone_camera.children.create(name: "生活家電")
+appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
+
+# sport_leisureの子階層
+sport_leisure_1  = sport_leisure.children.create(name: "ゴルフ")
+sport_leisure_2  = sport_leisure.children.create(name: "フィッシング")
+sport_leisure_3  = sport_leisure.children.create(name: "自転車")
+sport_leisure_4  = sport_leisure.children.create(name: "トレーニング/エクササイズ")
+sport_leisure_5  = sport_leisure.children.create(name: "野球")
+sport_leisure_6  = sport_leisure.children.create(name: "サッカー/フットサル")
+sport_leisure_7  = sport_leisure.children.create(name: "テニス")
+sport_leisure_8  = sport_leisure.children.create(name: "スノーボード")
+sport_leisure_9  = sport_leisure.children.create(name: "スキー")
+sport_leisure_10 = sport_leisure.children.create(name: "その他スポーツ")
+sport_leisure_11 = sport_leisure.children.create(name: "アウトドア")
+sport_leisure_12 = sport_leisure.children.create(name: "その他")
+
+# handmadeの子階層
+handmade_1 = handmade.children.create(name: "アクセサリー(女性用)")
+handmade_2 = handmade.children.create(name: "ファッション/小物")
+handmade_3 = handmade.children.create(name: "アクセサリー/時計")
+handmade_4 = handmade.children.create(name: "日用品/インテリア")
+handmade_5 = handmade.children.create(name: "趣味/おもちゃ")
+handmade_6 = handmade.children.create(name: "キッズ/ベビー")
+handmade_7 = handmade.children.create(name: "素材/材料")
+handmade_8 = handmade.children.create(name: "二次創作物")
+handmade_9 = handmade.children.create(name: "その他")
+
+# ticket_チケット
+ticket_1 = ticket.children.create(name: "音楽")
+ticket_2 = ticket.children.create(name: "スポーツ")
+ticket_3 = ticket.children.create(name: "演劇/芸能")
+ticket_4 = ticket.children.create(name: "イベント")
+ticket_5 = ticket.children.create(name: "映画")
+ticket_6 = ticket.children.create(name: "施設利用券")
+ticket_7 = ticket.children.create(name: "優待券/割引券")
+ticket_8 = ticket.children.create(name: "その他")
+
+# car_motorcycleの子階層
+car_motorcycle_1 = car_motorcycle.children.create(name: "自動車本体")
+car_motorcycle_2 = car_motorcycle.children.create(name: "自動車タイヤ/ホイール")
+car_motorcycle_3 = car_motorcycle.children.create(name: "自動車パーツ")
+car_motorcycle_4 = car_motorcycle.children.create(name: "自動車アクセサリー")
+car_motorcycle_5 = car_motorcycle.children.create(name: "オートバイ車体")
+car_motorcycle_6 = car_motorcycle.children.create(name: "オートバイパーツ")
+car_motorcycle_7 = car_motorcycle.children.create(name: "オートバイアクセサリー")
+
+# othersの子階層
+others_1 = others.children.create(name: "まとめ売り")
+others_2 = others.children.create(name: "ペット用品")
+others_3 = others.children.create(name: "食品")
+others_4 = others.children.create(name: "飲料/酒")
+others_5 = others.children.create(name: "日用品/生活雑貨/旅行")
+others_6 = others.children.create(name: "アンティーク/コレクション")
+others_7 = others.children.create(name: "文房具/事務用品")
+others_8 = others.children.create(name: "事務/店舗用品")
+others_9 = others.children.create(name: "その他")
 
 # ladiesの孫階層
 # トップス
@@ -277,27 +451,7 @@ ladies_19.children.create([
   {name: "その他"}
 ])
 
-# mensの親階層
-mens = Category.create(name: "メンズ")
-
-# mensの子階層
-mens_1  = mens.children.create(name: "トップス")
-mens_2  = mens.children.create(name: "ジャケット/アウター")
-mens_3  = mens.children.create(name: "パンツ")
-mens_4  = mens.children.create(name: "靴")
-mens_5  = mens.children.create(name: "バッグ")
-mens_6  = mens.children.create(name: "スーツ")
-mens_7  = mens.children.create(name: "帽子")
-mens_8  = mens.children.create(name: "アクセサリー")
-mens_9  = mens.children.create(name: "小物")
-mens_10 = mens.children.create(name: "時計")
-mens_11 = mens.children.create(name: "水着")
-mens_12 = mens.children.create(name: "レッグウェア")
-mens_13 = mens.children.create(name: "アンダーウェア")
-mens_14 = mens.children.create(name: "その他")
-
 # mensの孫階層
-
 # トップスの商品一覧
 mens_1.children.create([
   {name: "Tシャツ/カットソー(半袖/袖なし)"},
@@ -485,30 +639,8 @@ mens_14.children.create([
   {name: "その他"}
 ])
 
-
-
-# baby_kidsの親階層
-baby_kids = Category.create(name: "ベビー・キッズ")
-
-# baby_kidsの子階層
-baby_kids_1  = baby_kids.children.create(name: "ベビー服(女の子用) ~95cm")
-baby_kids_2  = baby_kids.children.create(name: "ベビー服(男の子用) ~95cm")
-baby_kids_3  = baby_kids.children.create(name: "ベビー服(男女兼用) ~95cm")
-baby_kids_4  = baby_kids.children.create(name: "キッズ服(女の子用) 100cm~")
-baby_kids_5  = baby_kids.children.create(name: "キッズ服(男の子用) 100cm~")
-baby_kids_6  = baby_kids.children.create(name: "キッズ服(男女兼用) 100cm~")
-baby_kids_7  = baby_kids.children.create(name: "キッズ靴")
-baby_kids_8  = baby_kids.children.create(name: "子供用ファッション小物")
-baby_kids_9  = baby_kids.children.create(name: "おむつ/トイレ/バス")
-baby_kids_10 = baby_kids.children.create(name: "外出/移動用品")
-baby_kids_11 = baby_kids.children.create(name: "授乳/食事")
-baby_kids_12 = baby_kids.children.create(name: "ベビー家具/寝具/室内用品")
-baby_kids_13 = baby_kids.children.create(name: "おもちゃ")
-baby_kids_14 = baby_kids.children.create(name: "行事/記念品")
-baby_kids_15 = baby_kids.children.create(name: "その他")
-
 # baby_kidsの孫階層
-  # ベビー服(女の子用) ~95cmの商品一覧
+# ベビー服(女の子用) ~95cmの商品一覧
 baby_kids_1.children.create([
   {name: "トップス"},
   {name: "アウター"},
@@ -684,24 +816,6 @@ baby_kids_15.children.create([
   {name: "母子手帳用品"},
   {name: "その他"}
 ])
-
-# interior_home_accessoriesの親階層
-interior_home_accessories   = Category.create(name: "インテリア・住まい・小物")
-
-# interior_home_accessoriesの子階層
-interior_home_accessories_1  = interior_home_accessories.children.create(name: "キッチン/食器")
-interior_home_accessories_2  = interior_home_accessories.children.create(name: "ベッド/マットレス")
-interior_home_accessories_3  = interior_home_accessories.children.create(name: "ソファ/ソファベッド")
-interior_home_accessories_4  = interior_home_accessories.children.create(name: "椅子/チェア")
-interior_home_accessories_5  = interior_home_accessories.children.create(name: "机/テーブル")
-interior_home_accessories_6  = interior_home_accessories.children.create(name: "収納家具")
-interior_home_accessories_7  = interior_home_accessories.children.create(name: "ラグ/カーペット/マット")
-interior_home_accessories_8  = interior_home_accessories.children.create(name: "カーテン/ブラインド")
-interior_home_accessories_9  = interior_home_accessories.children.create(name: "ライト/照明")
-interior_home_accessories_10 = interior_home_accessories.children.create(name: "寝具")
-interior_home_accessories_11 = interior_home_accessories.children.create(name: "インテリア小物")
-interior_home_accessories_12 = interior_home_accessories.children.create(name: "季節/年中行事")
-interior_home_accessories_13 = interior_home_accessories.children.create(name: "その他")
 
 # interior_home_accessoriesの孫階層
   # キッチン/食器の商品一覧
@@ -882,18 +996,6 @@ interior_home_accessories_13.children.create([
   {name: "その他"}
 ])
 
-# book_music_gameの親階層
-book_music_game = Category.create(name: "本・音楽・ゲーム")
-
-# book_music_gameの子階層
-book_music_game_1 = book_music_game.children.create(name: "本")
-book_music_game_2 = book_music_game.children.create(name: "漫画")
-book_music_game_3 = book_music_game.children.create(name: "雑誌")
-book_music_game_4 = book_music_game.children.create(name: "CD")
-book_music_game_5 = book_music_game.children.create(name: "DVD/ブルーレイ")
-book_music_game_6 = book_music_game.children.create(name: "レコード")
-book_music_game_7 = book_music_game.children.create(name: "テレビゲーム")
-
 # book_music_gameの孫階層
   # 本の商品一覧
 book_music_game_1.children.create([
@@ -973,23 +1075,6 @@ book_music_game_7.children.create([
   {name: "PCゲーム"},
   {name: "その他"}
 ])
-
-
-# toy_hobby_goodsの親階層
-toy_hobby_goods = Category.create(name: "おもちゃ・ホビー・グッズ")
-
-# toy_hobby_goodsの子階層
-toy_hobby_goods_1  = toy_hobby_goods.children.create(name: "おもちゃ")
-toy_hobby_goods_2  = toy_hobby_goods.children.create(name: "タレントグッズ")
-toy_hobby_goods_3  = toy_hobby_goods.children.create(name: "コミック/アニメグッズ")
-toy_hobby_goods_4  = toy_hobby_goods.children.create(name: "トレーディングカード")
-toy_hobby_goods_5  = toy_hobby_goods.children.create(name: "フィギュア")
-toy_hobby_goods_6  = toy_hobby_goods.children.create(name: "楽器/器材")
-toy_hobby_goods_7  = toy_hobby_goods.children.create(name: "コレクション")
-toy_hobby_goods_8  = toy_hobby_goods.children.create(name: "ミリタリー")
-toy_hobby_goods_9  = toy_hobby_goods.children.create(name: "美術品")
-toy_hobby_goods_10 = toy_hobby_goods.children.create(name: "アート用品")
-toy_hobby_goods_11 = toy_hobby_goods.children.create(name: "その他")
 
 # toy_hobby_goodsの孫階層
   # おもちゃの商品一覧
@@ -1135,22 +1220,6 @@ toy_hobby_goods_11.children.create([
   {name: "その他"}
 ])
 
-# cosme_perfume_beautyの親階層
-cosme_perfume_beauty = Category.create(name: "コスメ・香水・美容")
-
-# cosme_perfume_beautyの子階層
-cosme_perfume_beauty_1  = cosme_perfume_beauty.children.create(name: "ベースメイク")
-cosme_perfume_beauty_2  = cosme_perfume_beauty.children.create(name: "メイクアップ")
-cosme_perfume_beauty_3  = cosme_perfume_beauty.children.create(name: "ネイルケア")
-cosme_perfume_beauty_4  = cosme_perfume_beauty.children.create(name: "香水")
-cosme_perfume_beauty_5  = cosme_perfume_beauty.children.create(name: "スキンケア/基礎化粧品")
-cosme_perfume_beauty_6  = cosme_perfume_beauty.children.create(name: "ヘアケア")
-cosme_perfume_beauty_7  = cosme_perfume_beauty.children.create(name: "ボディケア")
-cosme_perfume_beauty_8  = cosme_perfume_beauty.children.create(name: "オーラルケア")
-cosme_perfume_beauty_9  = cosme_perfume_beauty.children.create(name: "リラクゼーション")
-cosme_perfume_beauty_10 = cosme_perfume_beauty.children.create(name: "ダイエット")
-cosme_perfume_beauty_11 = cosme_perfume_beauty.children.create(name: "その他")
-
 # cosme_perfume_beautyの孫階層
   # ベースメイクの商品一覧
 cosme_perfume_beauty_1.children.create([
@@ -1284,21 +1353,6 @@ cosme_perfume_beauty_11.children.create([
   {name: "その他"}
 ])
 
-# appliance_smartphone_cameraの親階層
-appliance_smartphone_camera = Category.create(name: "家電・スマホ・カメラ")
-
-# appliance_smartphone_cameraの子階層
-appliance_smartphone_camera_1  = appliance_smartphone_camera.children.create(name: "スマートフォン/携帯電話")
-appliance_smartphone_camera_2  = appliance_smartphone_camera.children.create(name: "スマホアクセサリー")
-appliance_smartphone_camera_3  = appliance_smartphone_camera.children.create(name: "PC/タブレット")
-appliance_smartphone_camera_4  = appliance_smartphone_camera.children.create(name: "カメラ")
-appliance_smartphone_camera_5  = appliance_smartphone_camera.children.create(name: "テレビ/映像機器")
-appliance_smartphone_camera_6  = appliance_smartphone_camera.children.create(name: "オーディオ機器")
-appliance_smartphone_camera_7  = appliance_smartphone_camera.children.create(name: "美容/健康")
-appliance_smartphone_camera_8  = appliance_smartphone_camera.children.create(name: "冷暖房/空調")
-appliance_smartphone_camera_9  = appliance_smartphone_camera.children.create(name: "生活家電")
-appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
-
 # appliance_smartphone_cameraの孫階層
   # スマートフォン/携帯電話
 appliance_smartphone_camera_1.children.create([
@@ -1414,23 +1468,6 @@ appliance_smartphone_camera_9.children.create([
 appliance_smartphone_camera_10.children.create([
   {name: "その他"}
 ])
-
-# sport_leisureの親階層
-sport_leisure = Category.create(name: "スポーツ・レジャー")
-
-# sport_leisureの子階層
-sport_leisure_1  = sport_leisure.children.create(name: "ゴルフ")
-sport_leisure_2  = sport_leisure.children.create(name: "フィッシング")
-sport_leisure_3  = sport_leisure.children.create(name: "自転車")
-sport_leisure_4  = sport_leisure.children.create(name: "トレーニング/エクササイズ")
-sport_leisure_5  = sport_leisure.children.create(name: "野球")
-sport_leisure_6  = sport_leisure.children.create(name: "サッカー/フットサル")
-sport_leisure_7  = sport_leisure.children.create(name: "テニス")
-sport_leisure_8  = sport_leisure.children.create(name: "スノーボード")
-sport_leisure_9  = sport_leisure.children.create(name: "スキー")
-sport_leisure_10 = sport_leisure.children.create(name: "その他スポーツ")
-sport_leisure_11 = sport_leisure.children.create(name: "アウトドア")
-sport_leisure_12 = sport_leisure.children.create(name: "その他")
 
 # sport_leisureの孫階層
   # ゴルフ
@@ -1571,19 +1608,7 @@ sport_leisure_12.children.create([
   {name: "その他"}
 ])
 
-# handmadeの親階層
-handmade = Category.create(name: "ハンドメイド")
 
-# handmadeの子階層
-handmade_1 = handmade.children.create(name: "アクセサリー(女性用)")
-handmade_2 = handmade.children.create(name: "ファッション/小物")
-handmade_3 = handmade.children.create(name: "アクセサリー/時計")
-handmade_4 = handmade.children.create(name: "日用品/インテリア")
-handmade_5 = handmade.children.create(name: "趣味/おもちゃ")
-handmade_6 = handmade.children.create(name: "キッズ/ベビー")
-handmade_7 = handmade.children.create(name: "素材/材料")
-handmade_8 = handmade.children.create(name: "二次創作物")
-handmade_9 = handmade.children.create(name: "その他")
 
 # handmadeの孫階層
   # アクセサリー(女性用)
@@ -1664,18 +1689,7 @@ handmade_9.children.create([
   {name: "その他"}
 ])
 
-# ticketの親階層
-ticket = Category.create(name: "チケット")
 
-# ticket_チケット
-ticket_1 = ticket.children.create(name: "音楽")
-ticket_2 = ticket.children.create(name: "スポーツ")
-ticket_3 = ticket.children.create(name: "演劇/芸能")
-ticket_4 = ticket.children.create(name: "イベント")
-ticket_5 = ticket.children.create(name: "映画")
-ticket_6 = ticket.children.create(name: "施設利用券")
-ticket_7 = ticket.children.create(name: "優待券/割引券")
-ticket_8 = ticket.children.create(name: "その他")
 
 # ticket_チケット
   # 音楽
@@ -1760,17 +1774,7 @@ ticket_7.children.create([
   {name: "その他"}
 ])
 
-# car_motorcycleの親階層
-car_motorcycle = Category.create(name: "自動車・オートバイ")
 
-# car_motorcycleの子階層
-car_motorcycle_1 = car_motorcycle.children.create(name: "自動車本体")
-car_motorcycle_2 = car_motorcycle.children.create(name: "自動車タイヤ/ホイール")
-car_motorcycle_3 = car_motorcycle.children.create(name: "自動車パーツ")
-car_motorcycle_4 = car_motorcycle.children.create(name: "自動車アクセサリー")
-car_motorcycle_5 = car_motorcycle.children.create(name: "オートバイ車体")
-car_motorcycle_6 = car_motorcycle.children.create(name: "オートバイパーツ")
-car_motorcycle_7 = car_motorcycle.children.create(name: "オートバイアクセサリー")
 
 # car_motorcycleの孫階層
   # 自動車本体
@@ -1856,19 +1860,7 @@ car_motorcycle_7.children.create([
   {name: "その他"}
 ])
 
-# othersの親階層
-others = Category.create(name: "その他")
 
-# othersの子階層
-others_1 = others.children.create(name: "まとめ売り")
-others_2 = others.children.create(name: "ペット用品")
-others_3 = others.children.create(name: "食品")
-others_4 = others.children.create(name: "飲料/酒")
-others_5 = others.children.create(name: "日用品/生活雑貨/旅行")
-others_6 = others.children.create(name: "アンティーク/コレクション")
-others_7 = others.children.create(name: "文房具/事務用品")
-others_8 = others.children.create(name: "事務/店舗用品")
-others_9 = others.children.create(name: "その他")
 
 # othersの孫階層
   # まとめ売り
