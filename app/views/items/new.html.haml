@@ -2,11 +2,12 @@
   =form_with model: @item, class:"formcontents", local: true do |f|
     %ul
       %li
-        =f.label :image, "出品画像"
+        = f.label :image, "出品画像"
         %span 必須
+
+      / 複数imageを登録できるようにする 
       %li
-        =f.file_field :image, class: "form-field"
-        -# 画像を複数投稿できるようにする
+        = f.file_field :image, class: "form-field"
         -# .form__image
         -#   =f.fields_for :images do |i|
         -#     %li
@@ -22,44 +23,47 @@
 
         
       %li
-        =f.label :name, "商品名"
+        = f.label :name, "商品名"
         %span 必須
       %li
-        =f.text_field :name, placeholder: "40文字まで"
+        = f.text_field :name, placeholder: "40文字まで"
       %li
-        =f.label :explanation, "商品説明"
+        = f.label :explanation, "商品説明"
         %span 必須
       %li
-        =f.text_area :explanation, class: "form-field", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :explanation, class: "form-field", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       %li
-        =f.label :category, "カテゴリー"
+        .categoryList
+          = f.label :category, "カテゴリー"
+          %span.listing-default--require 必須
+          = f.select :category, @category_parent_array, {}, {id: 'parent_category'}
+
+      %li
+        = f.label :quality, "商品の状態"
         %span 必須
       %li
-        =f.label :quality, "商品の状態"
-        %span 必須
+        = f.select :quality,[['新品、未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], { include_blank: '選択してください' }, { id: "quality_id" }
       %li
-        =f.select :quality,[['新品、未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], { include_blank: '選択してください' }, { id: "quality_id" }
-      %li
-        =f.label :delivery_cost,
+        = f.label :delivery_cost,
          "配送料の負担"
         %span 必須
       %li
-        =f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id" }
+        = f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id" }
       %li
-        =f.label "発送元の地域"
+        = f.label "発送元の地域"
         %span 必須
       %li
-        =f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください' })
+        = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください' })
       %li
-        =f.label :period, "発送までの日数"
+        = f.label :period, "発送までの日数"
         %span 必須
       %li
-        =f.select :period, [['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]], { include_blank: '選択してください' }, { id: "period_id" }
+        = f.select :period, [['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]], { include_blank: '選択してください' }, { id: "period_id" }
       %li
-        =f.label :price, "販売価格"
+        = f.label :price, "販売価格"
         %span 必須
       %li
-        =f.number_field :price, class: "form-field", placeholder:"例)￥1500"
+        = f.number_field :price, class: "form-field", placeholder:"例)￥1500"
           
       %li
-        =f.submit "出品する", class:"formbtn"
+        = f.submit "出品する", class:"formbtn"
