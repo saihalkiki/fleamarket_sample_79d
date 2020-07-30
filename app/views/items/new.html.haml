@@ -9,7 +9,8 @@
         .Form__field
           %p.img__upload__comment 最大10枚までアップロードできます
           %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-          = f.fields_for :images do |image|
+          = f.fields_for :item_images do |image|
+            = image.file_field :image, id: "sell-img"
             = image.file_field :image, id: "sell-img"
       .Form__group
         .Form__label
@@ -28,7 +29,7 @@
           = f.label :category, "カテゴリー"
           %span.listing-default--require 必須
         .Form__field.categoryList
-          = f.select :category, @category_parent_array, {}, { class: "Form__input", id: 'parent_category'}
+          = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: '選択してください' }, { class: "Form__input", id: 'parent_category'}
       .Form__group
         .Form__label
           = f.label :quality, "商品の状態"
