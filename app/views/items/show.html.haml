@@ -25,33 +25,56 @@
           .item_Subname
             = @item.name
           .table
-            .tbody
-              %tr
-                %th 出品者
-                %td 
-                  = @item.user.nickname
-              %tr
-                %th カテゴリー
-                %td 
-                  = @item.category
-              %tr
-                %th ブランド
-                %td とても良い
-              %tr
-                %th 商品の状態
-                %td とても良い
-              %tr
-                %th 商品の状態
-                %td とても良い
-              %tr
-                %th 商品の状態
-                %td とても良い
-              %tr
-                %th 商品の状態
-                %td とても良い
-              %tr
-                %th 商品の状態
-                %td とても良い
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td 
+                    = @item.user.nickname
+                %tr
+                  %th カテゴリー
+                  %td 
+                    = @item.category
+                %tr
+                  %th 商品の状態
+                  %td 
+                    = @item.quality
+                %tr
+                  %th 配送料の負担
+                  %td
+                    = @item.delivery_cost
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = @item
+                %tr
+                  %th 発送日の目安
+                  %td
+                    = @item.period
+          .option
+            %ul
+              %li.likebtn
+                %i.fa.fa-star
+                  お気に入り
+            %ul.report
+              %li.reportbtn
+                =link_to "#" do
+                  %i.fa.fa-flag
+                    不適切の商品の通報
+          .commentbox
+            %form.new_coment
+              %p.notcoment
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                  不快な不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            .comentbtn
+              = button_tag 
+
+
+
+            
+
+
 
 
 
