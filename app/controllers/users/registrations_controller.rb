@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new and return
     end
     # @userのデータをsessionにハッシュの形で情報を保持させている @userの属性を全て整形している
-    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"] = { user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
     render :new_address
@@ -30,7 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
-    @user.addresses.build(@address.attributes)
+    @user.build_address(@address.attributes)
     @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
@@ -64,10 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(
-      :postal_code, :prefectures, :city, :house_number, :building_name,
-      :phone_number
-    )
+    params.require(:address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
