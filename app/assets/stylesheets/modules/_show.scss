@@ -149,10 +149,77 @@
  }
 
  .commentbox{
-   background-color: bisque;
-   height: 256px;
-   width: 652px;
-   padding: 24px;
+   background-color:#fff;
+   height: auto;
    margin: 10px 0px;
    text-align: center;
+   &__input{
+     height: auto;
+     margin-bottom: 20px;
+     margin-top: 40px;
+     li{
+     }
+     .commentform{
+       margin: auto;
+     }
+     .commentbtn{
+       width: 85%;
+       height: 50px;
+       color: white;
+       background-color:#3CCACE;
+       margin-top: 15px;
+       border: none;
+     }
+     textarea{
+       width: 100%;
+       height: 150px;
+     }
+   }
+   &__show{
+     width: 560px;
+     background-color: #FFFFEE;
+     height: auto;
+     margin: auto;
+     border:2px solid grey;
+     &--box{
+       width:520px;
+       height:auto;
+       margin: auto;
+       .commentindex{
+         margin-bottom: 30px;
+          h4{
+            font-size: 20px;
+          }
+       }
+        .commentcontent{
+          width: 80%;
+          height:auto;
+          text-align: start;
+          margin-bottom: 25px;
+          .commentuser{
+            width:auto;
+            height:auto;
+            margin-bottom: 5px;
+            a{
+              color:black;
+              text-decoration: none;
+              font-size: 20px;
+            }
+          }
+          .commenttext{
+            width:auto;
+            height:auto;
+            margin-left: 70px;
+            font-size: 15px;
+          }
+          .commenttime{
+            width:auto;
+            height:auto;
+            font-size: 10px;
+            margin-top: 15px;
+            color:#808080;
+          }
+      }
+     }
+   }
  }

@@ -62,13 +62,30 @@
                   %i.fa.fa-flag
                     不適切の商品の通報
           .commentbox
-            %form.new_coment
-              %p.notcoment
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br
-                  不快な不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .comentbtn
-              = button_tag 
+            .commentbox__input
+              -# -if current_user
+              %ul
+                =form_with model:[@item, @comment],class:"commentform", local: true do |f|
+                  %li
+                    =f.text_area :text
+                  %li
+                    =f.submit "コメントする", class:"commentbtn"
+              -# -else
+              -# %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+            .commentbox__show
+              .commentbox__show--box
+                -if @comments
+                  .commentindex
+                    %h4 コメント一覧
+                  -@comments.each do |comment|
+                    .commentcontent
+                      .commentuser
+                        =link_to "/users/#{comment.user_id}" do
+                          =comment.user.nickname
+                      .commenttext
+                        =comment.text
+                      .commenttime
+                        =comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
 
 
