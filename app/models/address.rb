@@ -6,7 +6,7 @@ class Address < ApplicationRecord
 
   validates :phone_number, uniqueness: true
 
-  [:postal_code, :prefectures, :city, :house_number, :building_name, :phone_number, :user_id].each do |v|
+  [:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number].each do |v|
     validates v, presence: true
   end
 end
