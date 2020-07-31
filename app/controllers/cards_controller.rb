@@ -1,5 +1,6 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
   require "payjp"
+  
 
   def new
      # cardがすでに登録済みの場合、indexのページに戻します。
@@ -47,4 +48,6 @@ class CardController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
+
+
 end

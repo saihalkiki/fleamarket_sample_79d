@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       resources :images, only: [:new, :create]
     end
   resources :users, only: :show
+  resources :cards, only: [:new, :show] 
 end
