@@ -109,6 +109,15 @@
    }
  }
 
+ .morelist{
+   margin-bottom: 30px;
+   text-align: right;
+   margin-right: 30px;
+   &__editbtn{
+     margin-bottom: 5px;
+   }
+ }
+
  .option{
    display: flex;
    justify-content: space-between;
