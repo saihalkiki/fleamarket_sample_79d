@@ -4,9 +4,9 @@ class Address < ApplicationRecord
 
   belongs_to :user, optional: true
 
-  # 先頭が「0」＋「半角数字2から3桁」＋「-（ハイフン）」＋「半角数字1から4桁」＋「-（ハイフン）」＋「半角数字4桁」
+  # 携帯番号（ハイフンなし10桁or11桁）
   validates :phone_number, presence: true ,uniqueness: true,
-            format: { with: /\A\0\d{2,3}-\d{1,4}-\d{4}\z/ }
+            format: { with: /\A\d{10,11}\z/ }
   validates :postal_code, presence: true,
             # 郵便番号(ハイフンあり7桁)
             format: { with: /\A\d{3}-\d{4}\z/, message: "is must NOT contain any other characters than alphanumerics." }
