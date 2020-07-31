@@ -9,7 +9,7 @@
         .Form__field
           %p.img__upload__comment 最大10枚までアップロードできます
           %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-          = f.fields_for :item_images do |image|
+          = f.fields_for :images, @image do |image|
             = image.file_field :image, id: "sell-img"
             = image.file_field :image, id: "sell-img"
       .Form__group

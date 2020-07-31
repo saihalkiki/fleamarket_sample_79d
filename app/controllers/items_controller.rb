@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.build
+    @image = @item.images.build
     
     ##親階層のカテゴリー取得
     @category_parent_array = Category.where(ancestry: nil)
@@ -28,12 +28,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
-    # binding.pry
-    if item.save
+    @item = Item.new(item_params)
+    binding.pry
+    if @item.save
       flash.now[:notice] = "出品しました！"
-      redirect_to item_path(item)
+      redirect_to item_path(@item)
     else
+      binding.pry
       @category_parent_array = Category.where(ancestry: nil)
       render :new
     end
@@ -54,12 +55,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-     @item.destroy
+    @item.destroy
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :quality, :delivery_cost, :period, :price,  :prefecture_id, :category_id ).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :quality, :delivery_cost, :period, :price,  :prefecture_id, :category_id ).merge(user_id: current_user.id, images_attributes: params[ :image, :item_id])
   end
   def set_item
     @item=Item.find(params[:id])
