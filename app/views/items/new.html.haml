@@ -5,13 +5,14 @@
         .Form__label
           = f.label :image, "出品画像"
           %span 必須
-        / 複数imageを登録できるようにする  
         .Form__field
           %p.img__upload__comment 最大10枚までアップロードできます
           %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+          .imageContainer
+
           = f.fields_for :images, @image do |image|
-            = image.file_field :image, id: "sell-img"
-            = image.file_field :image, id: "sell-img"
+            = image.file_field :image, id: "sell-img" , name: "item[images_attributes][0][image]"
+            = image.file_field :image, id: "sell-img" , name: "item[images_attributes][1][image]"
       .Form__group
         .Form__label
           = f.label :name, "商品名"
