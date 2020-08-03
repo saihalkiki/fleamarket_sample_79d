@@ -10,7 +10,7 @@ class Address < ApplicationRecord
   validates :postal_code, presence: true,
             # 郵便番号(ハイフンあり7桁)
             format: { with: /\A\d{3}-\d{4}\z/, message: "is must NOT contain any other characters than alphanumerics." }
-  [:prefecture_id, :city, :house_number, :building_name].each do |v|
+  [:prefecture_id, :city, :house_number].each do |v|
     validates v, presence: true
   end
 end

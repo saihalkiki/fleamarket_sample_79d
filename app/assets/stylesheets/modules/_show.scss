@@ -110,11 +110,40 @@
  }
 
  .morelist{
-   margin-bottom: 30px;
-   text-align: right;
-   margin-right: 30px;
+   text-align: center;
+   line-height: 50px;
+   margin-bottom: 40px;
+   
    &__editbtn{
-     margin-bottom: 5px;
+    display: flex;
+    width: 560px;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+     a{
+      width: 85%;
+      height: 50px;
+      color: white;
+      background-color:lightgrey;
+      margin-top: 15px;
+      font-size: 20px;
+     }
+    
+   }
+   &__deletebtn{
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+    align-items: center;
+    margin: 0 auto;
+     a{
+      width: 85%;
+      height: 50px;
+      color: white;
+      background-color: red;
+      margin-top: 15px;
+      font-size: 20px;
+     }
    }
  }
 
