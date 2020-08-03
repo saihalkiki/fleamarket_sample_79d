@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
   def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
-      # binding.pry
   end
 
   # 孫階層のカテゴリー取得
@@ -29,12 +28,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
     if @item.save
       flash.now[:notice] = "出品しました！"
       redirect_to item_path(@item)
     else
-      binding.pry
       @category_parent_array = Category.where(ancestry: nil)
       render :new
     end

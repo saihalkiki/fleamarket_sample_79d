@@ -42,7 +42,6 @@ $(document).on('turbolinks:load', function () {
         })
         // 親階層カテゴリーが初期値でないときの成功動作
         .done(function (children) {
-          console.log("発火")
           //親が変更された時、子以下を削除する
           $('#children_category').remove(); 
           $('#grandchildren_category').remove(); 
@@ -60,7 +59,6 @@ $(document).on('turbolinks:load', function () {
         })
       } else {
         // 親階層カテゴリーが初期値になった時、子以下を削除する
-        console.log('親階層が初期値です');
         // 子階層の表示削除
         $('#children_category').remove(); 
         // 孫階層の表示削除
@@ -70,7 +68,6 @@ $(document).on('turbolinks:load', function () {
     // 子階層カテゴリー選択後のイベント
     $('.categoryList').on('change', '#children_category', function () {
       let childId = $('#children_category option:selected').data('category-id');
-      console.log(childId)
       if (childId != "選択してください") {
         $.ajax({
           url: 'get_category_grandchildren',
