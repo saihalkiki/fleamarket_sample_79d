@@ -3,7 +3,7 @@
   = form_with model: @address, id: 'new_user', class: 'new_user', local: true do |f|
     = devise_error_messages!
     .field
-      = f.label :郵便番号
+      = f.label :郵便番号（ハイフンあり）
       %span 必須
       %br/
       = f.text_field :postal_code, autofocus: true, autocomplete: "postal-code"
@@ -30,7 +30,7 @@
       %br/
       = f.text_field :building_name
     .field
-      = f.label :電話番号
+      = f.label :電話番号（ハイフンなし）
       %span 必須
       %br/
       = f.text_field :phone_number
