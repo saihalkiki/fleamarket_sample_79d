@@ -29,22 +29,36 @@ class CardController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.delete
-      card.delete
+      redirect_to action: "index", alert: "削除できませんでした"
     end
-      redirect_to action: "new"
   end
 
-  def show
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new" 
+  def buy
+    @item = Item.find(params[:item_id])
+    # すでに購入されていないか？
+    if @item.buyer.present? 
+      redirect_back(fallback_location: root_path) 
+    elsif @card.blank?
+      # カード情報がなければ、買えないから戻す
+      redirect_to action: "new"
+      flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
+      # 購入者もいないし、クレジットカードもあるし、決済処理に移行
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      # 請求を発行
+      Payjp::Charge.create(
+      amount: @item.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
+      )
+      # 売り切れなので、productの情報をアップデートして売り切れにします。
+      if @item.update(buyer_id: current_user.id)
+        flash[:notice] = '購入しました。'
+        redirect_to controller: 'products', action: 'show', id: @item.id
+      else
+        flash[:alert] = '購入に失敗しました。'
+        redirect_to controller: 'products', action: 'show', id: @item.id
+      end
     end
   end
 end
