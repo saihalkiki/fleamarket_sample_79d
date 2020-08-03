@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function () {
       //選択された親カテゴリーの名前を取得
       let parentCategory = $(this).val();
       //親階層カテゴリーが初期値でないとき発火
-      if (parentCategory != "選択してください") { 
+      if (parentCategory != "") { 
         // いったん子階層・孫階層の表示データを削除
         // 子階層カテゴリーを持ってくるためにajax通信
         $.ajax({
@@ -96,7 +96,7 @@ $(document).on('turbolinks:load', function () {
           alert('カテゴリー取得に失敗しました');
         })
       }else{
-        // 孫階層の表示削除
+        // 孫階層が初期値の時孫階層の表示削除
         $('#grandchildren_category').remove(); 
       }
     })
