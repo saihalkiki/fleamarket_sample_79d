@@ -30,7 +30,7 @@
           = f.label :category, "カテゴリー"
           %span.listing-default--require 必須
         .Form__field.categoryList
-          = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: '選択してください' }, { class: "Form__input", id: 'parent_category'}
+          = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: '選択してください', value: "選択してください" }, { class: "Form__input", id: 'parent_category'}
       .Form__group
         .Form__label
           = f.label :quality, "商品の状態"
