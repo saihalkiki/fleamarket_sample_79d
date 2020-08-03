@@ -40,10 +40,9 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|cvc_number|string|null: false|
-|card_number|string|null: false|
-|valid_date|date|null: false|
-|user|references|null: false, foreign_key: true|
+|user|references|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
