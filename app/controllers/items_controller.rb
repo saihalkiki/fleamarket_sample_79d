@@ -8,30 +8,33 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @image = @item.images.build
     
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["選択してください"]
-    #親階層のカテゴリー取得
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    ##親階層のカテゴリー取得
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 
-    # 子階層のカテゴリー取得
-    def get_category_children
-        #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-        @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-        # binding.pry
-    end
+  # 子階層のカテゴリー取得
+  def get_category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+  end
 
-    # 孫階層のカテゴリー取得
-    def get_category_grandchildren
-        #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-        @category_grandchildren = Category.find("#{params[:child_id]}").children
-    end
+  # 孫階層のカテゴリー取得
+  def get_category_grandchildren
+      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      flash.now[:notice] = "出品しました！"
+      redirect_to item_path(@item)
+    else
+      @category_parent_array = Category.where(ancestry: nil)
+      render :new
+    end
   end
 
   def show
@@ -60,7 +63,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :quality, :delivery_cost, :period, :price, :user, :prefecture_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explanation, :quality, :delivery_cost, :period, :price,  :prefecture_id, :category_id,images_attributes: [:image, :item_id] ).merge(user_id: current_user.id)
   end
   def set_item
     @item=Item.find(params[:id])
