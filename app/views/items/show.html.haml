@@ -70,15 +70,15 @@
                     不適切の商品の通報
           .commentbox
             .commentbox__input
-              -# -if current_user
-              %ul
-                =form_with model:[@item, @comment],class:"commentform", local: true do |f|
-                  %li
-                    =f.text_area :text
-                  %li
-                    =f.submit "コメントする", class:"commentbtn"
-              -# -else
-              -# %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+              -if user_signed_in?
+                %ul
+                  =form_with model:[@item, @comment],class:"commentform", local: true, id: "new_comment" do |f|
+                    %li
+                      =f.text_area :text, class: "textbox"
+                    %li
+                      =f.submit "コメントする", class:"commentbtn"
+              -else
+                %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
             .commentbox__show
               .commentbox__show--box
                 -if @comments
@@ -93,6 +93,7 @@
                         =comment.text
                       .commenttime
                         =comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                        
 
 
 
