@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @image = @item.images.build
     
-    ##親階層のカテゴリー取得
+    #親階層のカテゴリー取得
     @category_parent_array = Category.where(ancestry: nil)
   end
 
@@ -43,6 +43,12 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    @category_grandchildren = @item.category
+    @category_grandchildren_array = @category_grandchildren.siblings
+    @category_children = @category_grandchildren.parent
+    @category_children_array = @category_children.siblings
+    @category_parent = @category_grandchildren.root
+    @category_parent_array = @category_parent.siblings
   end
 
   def update
