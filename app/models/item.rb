@@ -15,9 +15,9 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search
-      Item.where('text LIKE(?)', "%#{search}%")
+      Item.where('name LIKE(?)', "%#{search}%")
     else
-      redirect_to root_path
+      Item.all
     end
   end
 end
