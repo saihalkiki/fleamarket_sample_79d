@@ -73,9 +73,9 @@
             .commentbox__input
               -if user_signed_in?
                 %ul
-                  =form_with model:[@item, @comment],class:"commentform", local: true do |f|
+                  =form_with model:[@item, @comment],class:"commentform", local: true, id: "new_comment" do |f|
                     %li
-                      =f.text_area :text
+                      =f.text_area :text, class: "textbox"
                     %li
                       =f.submit "コメントする", class:"commentbtn"
               -else
@@ -94,6 +94,7 @@
                         =comment.text
                       .commenttime
                         =comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                        
 
 
 
