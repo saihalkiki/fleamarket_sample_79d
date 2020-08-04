@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function () {
       let parentId = $(this).val();
       //親階層カテゴリーが初期値でないとき発火
       console.log(parentId);
-      if (parentId != "") { 
+      if (parentCategory != "選択してください") {  
         // いったん子階層・孫階層の表示データを削除
         // 子階層カテゴリーを持ってくるためにajax通信
         $.ajax({
