@@ -25,7 +25,6 @@ $(function(){
       let html = buildHTML(data);
       $('.commentbox__show--box').append(html);
       $('.commentform')[0].reset();  
-      $('.textbox').val('');
       $('.commentbtn').prop('disabled', false);
     })
     .fail(function(){
