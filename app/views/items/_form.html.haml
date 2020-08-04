@@ -1,0 +1,82 @@
+= form_with model: @item, class:"Form__container", local: true do |f|
+  .Form__group
+    .Form__label
+      = f.label :image, "出品画像"
+      %span.Form__label--required 必須
+    .Form__field
+      %p.img__upload__comment 最大10枚までアップロードできます
+      %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+      #previews
+        - if @item.persisted?
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.image.url, data: { index: i }, width: "150", height: '150'
+      .imageContainer
+        #image-box
+          = f.fields_for :images do |image|
+            .js-file_group{data: {index: "#{image.index}"}}
+              = image.file_field :image, class: "js-file"
+              .js-remove.newInputHidden 削除
+            - if @item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{data: {index: "#{@item.images.count}"}}
+              = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+              .js-remove 削除
+  .Form__group
+    .Form__label
+      = f.label :name, "商品名"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.text_field :name, placeholder: "全角20文字まで", class: "Form__input", maxlength: "40"
+  .Form__group
+    .Form__label
+      = f.label :explanation, "商品説明"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.text_area :explanation, class: "Form__input", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+  .Form__group
+    .Form__label
+      = f.label :category, "カテゴリー"
+      %span.Form__label--required 必須
+    - if @item.persisted?
+      .Form__field.categoryList
+        = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: '選択してください', selected: @category_parent.id}, { class: "Form__input", id: 'parent_category'}
+        = f.collection_select :category_id, @category_children_array, :id, :name, { include_blank: '選択してください', selected: @category_children.id}, { class: "Form__input", id: 'children_category'}
+        = f.collection_select :category_id, @category_grandchildren_array, :id, :name, { include_blank: '選択してください'}, { class: "Form__input", id: 'grandchildren_category'}
+    - else
+      .Form__field.categoryList
+        = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: '選択してください'}, { class: "Form__input", id: 'parent_category'}
+  .Form__group
+    .Form__label
+      = f.label :quality, "商品の状態"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.select :quality,['新品、未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり','傷や汚れあり', '全体的に状態が悪い'],  { include_blank: '選択してください' }, { class: "Form__input", id: "quality_id" }
+  .Form__group
+    .Form__label
+      = f.label :delivery_cost,
+      "配送料の負担"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id", class: "Form__input" }
+  .Form__group
+    .Form__label
+      = f.label "発送元の地域"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください'},{class: "Form__input"})
+  .Form__group
+    .Form__label
+      = f.label :period, "発送までの日数"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.select :period, [['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]], { include_blank: '選択してください' }, { id: "period_id", class: "Form__input" }
+  .Form__group
+    .Form__label
+      = f.label :price, "販売価格"
+      %span.Form__label--required 必須
+    .Form__field
+      = f.number_field :price, class: "Form__input", placeholder:"例)￥1500"
+  .Form__group--last
+    .Form__btn
+      = f.submit class:"Form__exhibitBtn"
