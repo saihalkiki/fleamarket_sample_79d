@@ -1,0 +1,22 @@
+.mainProducts
+  %h2.mainProducts__head
+    検索結果
+  .productsBox
+    .boxlists
+      - @items.each do |item|
+        .boxlist
+          =link_to item_path(item) do
+            %figure.listimage
+              = image_tag "item/sample_item01.jpg"
+            .listbody
+              %h3.name
+                = item.name
+              .datails
+                %ul
+                  %li
+                    = item.price
+                  %li
+                    %i.fas.fa-star
+                      0
+                %p
+                  (税込)
