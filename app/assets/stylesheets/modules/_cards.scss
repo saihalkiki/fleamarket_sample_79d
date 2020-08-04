@@ -1,0 +1,27 @@
+.registration {
+  .form-group {
+    height: 200px;
+    .label {
+      font-weight: bold;
+      margin: 10px 0px;
+    }
+    .necessary {
+      color: red;
+      padding-top: 10px;
+      padding-left: 5px;
+    }
+    input {
+      width: 40%;
+      height: 30px;
+      padding: 10px;
+      border-radius: 3px gray;
+    }
+    .cards-expire {
+      display: flex;
+      
+      .cards-expire__wrap {
+        padding-top: 10px;
+      }
+    }
+  }
+}

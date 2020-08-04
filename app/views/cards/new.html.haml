@@ -1,6 +1,6 @@
 .registration
-  支払い情報
-  = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f|
+  %h2.title 支払い情報
+  = form_with url: cards_path, method: :post, html: { name: "inputForm" }, class: "form-group" do |f|
     = f.label :カード番号, class: 'label'
     %span.necessary 必須
     = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16", id: "card_number"
