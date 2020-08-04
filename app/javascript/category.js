@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function () {
     // カテゴリーオプション作成(セレクトタグ内のoption)
     function buildOption(category) {
       let html =
-        `<option value="${category.id}" data-category-id="${category.id}">${category.name}</option>`
+        `<option value="${category.id}" >${category.name}</option>`
       return html;
     }
     // 子階層カテゴリーの表示作成
@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function () {
       let buildChildSelect = '';
       buildChildSelect =
         `<select class="Form__input" id="children_category" name="item[category_id]">
-          <option value="選択してください" data-category-id="選択してください">選択してください</option>
+          <option value>選択してください</option>
           ${insertHTML}
         </select>`
       $('.categoryList').append(buildChildSelect);
@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function () {
       let buildGrandchidrenSelect = '';
       buildGrandchidrenSelect =
         `<select class="Form__input" id="grandchildren_category" name="item[category_id]">
-          <option value="選択してください" data-category-id="選択してください">選択してください</option>
+          <option>選択してください</option>
           ${insertHTML}
         </select>`
       $('.categoryList').append(buildGrandchidrenSelect);
@@ -29,15 +29,16 @@ $(document).on('turbolinks:load', function () {
     // 親階層カテゴリー選択後のイベント
     $('#parent_category').on('change', function () {
       //選択された親カテゴリーの名前を取得
-      let parentCategory = $(this).val();
+      let parentId = $(this).val();
       //親階層カテゴリーが初期値でないとき発火
-      if (parentCategory != "") { 
+      console.log(parentId);
+      if (parentId != "") { 
         // いったん子階層・孫階層の表示データを削除
         // 子階層カテゴリーを持ってくるためにajax通信
         $.ajax({
-          url: 'get_category_children',
+          url: '/items/get_category_children',
           type: 'GET',
-          data: { parent_id: parentCategory },
+          data: { parent_id: parentId },
           dataType: 'json'
         })
         // 親階層カテゴリーが初期値でないときの成功動作
@@ -67,10 +68,11 @@ $(document).on('turbolinks:load', function () {
     });
     // 子階層カテゴリー選択後のイベント
     $('.categoryList').on('change', '#children_category', function () {
-      let childId = $('#children_category option:selected').data('category-id');
-      if (childId != "選択してください") {
+      let childId = $(this).val();
+      console.log(childId);
+      if (childId != "") {
         $.ajax({
-          url: 'get_category_grandchildren',
+          url: '/items/get_category_grandchildren',
           type: 'GET',
           data: { child_id: childId },
           dataType: 'json'
