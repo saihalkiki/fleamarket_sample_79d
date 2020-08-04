@@ -13,8 +13,10 @@ $(document).on('turbolinks:load', function () {
 
     // editアクション用 既に使われているindexを除外 ※後ほど確認
     lastIndex = $('.js-file_group:last').data('index');
+    // 第1引数で指定した要素から、第2引数で指定した数の分の要素を取り除
     fileIndex.splice(0, lastIndex);
-    $('.hidden-destroy').hide();
+    // 削除check_boxを非表示にする ※動作確認のため、一旦表示させる
+    // $('.hidden-destroy').hide();
     
     // file_fieldの内容が変化した時発火
     $('#image-box').on('change', '.js-file', function () {
