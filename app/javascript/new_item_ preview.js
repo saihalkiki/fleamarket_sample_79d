@@ -3,14 +3,18 @@ $(document).on('turbolinks:load', function () {
     // 画像用のinputを生成する関数
     const buildFileField = function(index) {
       const html = `<div class="js-file_group" data-index="${index}">
-                    <input class="js-file" type="file" name="item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">
-                    <div class="js-remove newInputHidden">削除</div>`;
+                    <input class="js-file" type="file" name="item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">`;
       return html;
     }
 
     // プレビュー用のimgタグを生成する関数
     const buildImg = function(index, url) {
-      const html = `<img data-index="${index}" src="${url}" width="150px" height="150px">`;
+      const html = `<div class="previewsBox" data-index="${index}">
+                    <img data-index="${index}" src="${url}" width="150px" height="150px">
+                    <div class="js-remove text-center">
+                    削除
+                    </div>
+                    </div>`;
       return html;
     }
 
@@ -30,7 +34,9 @@ $(document).on('turbolinks:load', function () {
       const targetIndex = $(this).parent().data('index');
       // ファイルのブラウザ上でのURLを取得する
       const file = e.target.files[0];
+      console.log(file);
       const blobUrl = window.URL.createObjectURL(file);
+      console.log(blobUrl);
       $(this).next('div').removeClass('newInputHidden');
       // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
       if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
@@ -39,7 +45,6 @@ $(document).on('turbolinks:load', function () {
         $('#previews').append(buildImg(targetIndex, blobUrl));
         // fileIndexの先頭の数字を使ってinputを作る
         $('#image-box').append(buildFileField(fileIndex[0]));
-
         // 配列から最初の要素を取り除き、その要素を返す
         fileIndex.shift();
         // 減った分の配列末尾に1足した数を追加する
@@ -48,15 +53,16 @@ $(document).on('turbolinks:load', function () {
     });
     $('#image-box').on('click', '.js-remove', function() {
       // クリックされた要素の親要素のdata-indexの値を取得する
-      const targetIndex = $(this).parent().data('index')
+      const targetIndex = $(this).parent().data('index');
+      console.log(targetIndex);
       // 該当indexを振られているチェックボックスを取得する
       const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-
       // もしチェックボックスが存在すればチェックを入れる
       if (hiddenCheck) hiddenCheck.prop('checked', true);
-      // クリックした親要素(div.js-file_group)を削除
+      // プレビュー画像の削除
       $(this).parent().remove();
-      $(`img[data-index="${targetIndex}"]`).remove();
+      // クリックした親要素(div.js-file_group)を削除
+      $(`#item_images_attributes_${targetIndex}_image`).parent().remove();
       // 画像入力欄が0個になったら
       if ($('.js-file').length == 0) {
         // 入力蘭を追加する

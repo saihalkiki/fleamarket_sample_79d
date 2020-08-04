@@ -14,3 +14,23 @@ a {
 .newInputHidden{
   display: none;
 }
+
+.js-remove {
+  cursor: pointer;
+  color: #3CCACE;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.previewsBox{
+  width: 152px;
+  margin-right: 10px;
+  background-color: rgb(245, 245, 245);
+}
+
+#previews{
+  display: flex;
+  flex-wrap: wrap;
+}
