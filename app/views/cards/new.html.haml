@@ -3,7 +3,7 @@
   = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f|
     = f.label :カード番号, class: 'label'
     %span.necessary 必須
-    = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
+    = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16", id: "card_number"
     .cards-expire
       = f.label :有効期限, class: 'label'
       %span.necessary 必須
@@ -18,6 +18,6 @@
     .cards-expire
       = f.label :セキュリティコード, class: 'label'
       %span.necessary 必須
-      = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+      = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "cvc"
     .content__title-bottom#card_token
       = f.submit '追加する', class: 'content__title-bottom--add-btn', id: 'token_submit'
