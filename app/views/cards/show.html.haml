@@ -1,42 +1,23 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(card_path, method: :delete, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
-
-
--# .show
--#   .show__frame
--#     .show__frame__title
--#       登録クレジットカード情報
--#     .credit_card__list
--#       .credit_card__list__title
--#         クレジットカード一覧
--#       .credit_card__list__frame
--#         .credit_card_info
--#           .credit_card_info__brand
--#             # showメソッドで定義した@card_srcを呼び出し
--#             # 画像をcardsというフォルダを作り、入れておく
--#             = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
--#           .credit_card_info__numbers
--#             .number
--#               # Pay.jpから取得したカード番号の末尾４桁を取得
--#               = "**** **** **** " + @customer_card.last4
--#             .expiration_date
--#               .expiration_date__title
--#                 有効期限
--#               .expiration_date__info
--#                 # showメソッドで定義した有効期限の年と月を取得
--#                 = @exp_month + " / " + @exp_year
--#         .destroy__function
--#           .destroy__function__link
--#             # 削除ボタンを作成、押すとdestroyメソッドが働くように
--#             = link_to card_path, method: :delete, class: "destroy__function__link__btn" do 
--#               削除する
--#       .payment-details
--#         = link_to "支払い方法について >", "", class: "payment-details__btn"
+.cardinfo
+  .cardinfo-contents
+    %h2.card-title 
+      =current_user.last_name
+      %span
+      様の登録クレジットカード情報
+    %br
+    .card-info
+      .card-info__name
+        %p カード番号   :  
+      .card-info__number
+        = "**** **** **** " + @default_card_information.last4
+    %br
+    .card-date
+      .card-date__name
+      %p 有効期限   :  
+      .card-date__date
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+  = form_tag(card_path, method: :delete, id: 'charge-form',  name: "inputForm", class: "delete-submit") do
+    %input{ type: "hidden", name: "card_id", value: "" }
+    %button.card-deletebtn 削除する

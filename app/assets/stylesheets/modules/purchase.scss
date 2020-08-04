@@ -1,0 +1,48 @@
+// Place all the styles related to the purchase controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.payment{
+  width: 70%;
+  height: auto;
+  margin:250px 403px 570px;
+  display: flex;
+ &__left{
+   width: 110%;
+   height: auto;
+   h2{
+    font-size: 50px;
+  }
+  &--confirmation{
+    margin-bottom: 15px;
+  }
+  &--method{
+    font-size: 25px;
+    margin-top: 50px;
+  }
+  .paymentbtn{
+    width: 300px;
+    height: 50px;
+    color: white;
+    background-color: red;
+    border-style: none;
+    margin-top: 100px;
+  }
+ }
+ &__right{
+   width: 90%;
+   height: auto;
+   padding: 30px;
+   text-align: center;
+   border: 2px solid lightgrey;
+   border-radius: 3px;
+   border-radius: 2px;
+   &--product{
+     font-size: 30px;
+     margin-bottom: 40px;
+     line-height: 120px;
+   }
+   &--price{
+     font-size: 30px;
+   }
+ }
+}

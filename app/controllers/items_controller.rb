@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = @item.images.build
-    
+
     ##親階層のカテゴリー取得
     @category_parent_array = Category.where(ancestry: nil)
   end
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash.now[:notice] = "出品しました！"
-      redirect_to item_path(@item)
+      redirect_to item_path(@item_id)
     else
       @category_parent_array = Category.where(ancestry: nil)
       render :new
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end
-  
+
   def edit
   end
 

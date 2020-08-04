@@ -1,27 +1,91 @@
-.registration {
-  .form-group {
-    height: 200px;
-    .label {
-      font-weight: bold;
-      margin: 10px 0px;
+.creditcard {
+  width: 40%;
+  height: auto;
+  margin: 100px 540px;
+  border: 2px solid black;
+  span{
+    color: red;
+  }
+  h2{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+  }
+  .cardform{
+    width: 80%;
+    height: auto;
+    margin: 50px 71.5px;
+    padding-left: 70px;
+    .label{
+      width: 100px;
+      font-size: 20px;
     }
-    .necessary {
-      color: red;
-      padding-top: 10px;
-      padding-left: 5px;
+    .input-number{
+      width: 100px;
+      margin-left: 100px;
+      margin-top:15px;
+      margin-bottom: 15px;
+      width: 300px;
+      height: 50px;
     }
-    input {
-      width: 40%;
-      height: 30px;
-      padding: 10px;
-      border-radius: 3px gray;
-    }
-    .cards-expire {
+    .expire{
       display: flex;
-      
-      .cards-expire__wrap {
-        padding-top: 10px;
+      margin-left: 100px;
+      margin-top:15px;
+      margin-bottom: 15px;
+      .expiretime{
+        margin-right: 14px;
+        select{
+          width: 150px;
+          height: 50px;
+        }
       }
     }
+  }
+  .creditcardbtn{
+    color: white;
+    background-color: red;
+    border-style: none;
+    margin: 20px 120px;
+    width: 150px;
+    height: 30px;
+  }
+
+}
+
+.cardinfo{
+  width: 40%;
+  height: auto;
+  margin: 40px 538.5px;
+  border: 3px solid black;
+  display: flex;
+  .cardinfo-contents{
+    h2 {
+      font-size: 25px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .card-info {
+      text-align: center;
+      margin: auto;
+      display: flex;
+      &__name{
+        font-size: 20px;
+      }
+    }
+    .card-date {
+      margin-bottom: 20px;
+      font-size: 20px;
+      display: flex;
+      &__name{}
+    }
+  }
+  .card-deletebtn {
+    color: white;
+    background-color: red;
+    border-style: none;
+    padding: 150px;
+
+
   }
 }
