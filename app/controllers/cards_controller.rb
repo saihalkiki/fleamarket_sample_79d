@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   require "payjp"
   def index
+
   end
   
   def new
@@ -11,7 +12,7 @@ class CardsController < ApplicationController
   def create
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
-    if params['payjp_token'].blank?
+    if params['payjp-token'].blank?
       redirect_to action: :new, alert: "あいうあ言うあいうあ"
     else
       customer = Payjp::Customer.create(
@@ -20,10 +21,13 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user: current_user, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: :index
+        redirect_to action: :show
       else
         redirect_to action: :new, alert: "クレジットカードを登録できませんでした。"
       end
     end
+  end
+  def show
+    
   end
 end
