@@ -13,4 +13,11 @@ class Item < ApplicationRecord
 
   validates :name, length: { maximum: 40 }
 
+  def self.search(search)
+    if search
+      Item.where('text LIKE(?)', "%#{search}%")
+    else
+      redirect_to root_path
+    end
+  end
 end
