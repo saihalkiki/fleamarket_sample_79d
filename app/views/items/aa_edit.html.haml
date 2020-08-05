@@ -1,0 +1,64 @@
+.form
+  =form_with model: @item, class:"formcontents", local: true do |f|
+    %ul
+      %li
+        =f.label :image, "出品画像"
+        %span 必須
+      %li
+        =f.file_field :image, class: "form-field"
+        -# 画像を複数投稿できるようにする
+        -# .form__image
+        -#   =f.fields_for :images do |i|
+        -#     %li
+        -#       =i.file_field :image, class: "form-field"
+        -#       %input{type: "file"}
+        -#       %input{type: "file"}
+        -#       %input{type: "file"}
+        -# -# = f.fields_for :images do |i|
+        -# -#         .input-area
+        -# -#           = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+        -# -#           %label{for: "img-file"}
+        -# -#             %i.fas.fa-camera
+
+        
+      %li
+        =f.label :name, "商品名"
+        %span 必須
+      %li
+        =f.text_field :name, placeholder: "40文字まで"
+      %li
+        =f.label :explanation, "商品説明"
+        %span 必須
+      %li
+        =f.text_area :explanation, class: "form-field", placeholder: "例）2019年ごろに1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      %li
+        =f.label :category, "カテゴリー"
+        %span 必須
+      %li
+        =f.label :quality, "商品の状態"
+        %span 必須
+      %li
+        =f.select :quality,[['新品、未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], { include_blank: '選択してください' }, { id: "quality_id" }
+      %li
+        =f.label :delivery_cost, "配送料の負担"
+        %span 必須
+      %li
+        =f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id" }
+      %li
+        =f.label "発送元の地域"
+        %span 必須
+      %li
+        =f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください' })
+      %li
+        =f.label :period, "発送までの日数"
+        %span 必須
+      %li
+        =f.select :period, [['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]], { include_blank: '選択してください' }, { id: "period_id" }
+      %li
+        =f.label :price, "販売価格"
+        %span 必須
+      %li
+        =f.number_field :price, class: "form-field", placeholder:"例)￥1500"
+          
+      %li
+        =f.submit "編集する", class:"formbtn"

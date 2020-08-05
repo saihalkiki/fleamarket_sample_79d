@@ -1,3 +1,6 @@
+#サンプルユーザー
+User.create("email"=>"sample@sample.com", "nickname"=>"sample", "last_name"=>"齊藤", "first_name"=>"悠", "last_name_read"=>"さいとう", "first_name_read"=>"はるか", "gender"=>"男性", "birthday"=>"1988-05-06", "password"=>"hogehoge", "password_confirmation"=>"hogehoge")
+
 # ladiesの親階層
 ladies = Category.create(name: "レディース")
 # mensの親階層

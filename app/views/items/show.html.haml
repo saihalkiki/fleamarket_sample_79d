@@ -1,64 +1,114 @@
-.item  
-  .itembox
-    .itembox__name
-      =@item.name
-    .itembox__contents
-      .itembox__contents--image
-        .first-imagebox
-        .second-imagebox
-      .itembox__contents--detail
-        %table
-          %tbody
-            %tr
-              %th 出品者 
-              %td 青木
-            %tr
-              %th カテゴリー
-              %td apple
-            %tr
-              %th 商品の状態
-              %td とても良い
-            %tr
-              %th 配送料の負担
-              %td 
-                =@item.delivery_cost
-            %tr
-              %th 配送元地域
-              %td 
-                / 県名が表示できない,idになってしまう
-                =@item.prefecture_id
-            %tr
-              %th 発送日の目安
-              %td
-                =@item.period
-            %tr
-              %th 出品者
-              %td こう
-    %ul.itembox__optionalArea
-      %li.itembox__optionalArea--likebtn
-        = link_to "#" do
-          お気に入り
-      %li.itembox__optionalArea--optionalbtn
-        =link_to "#" do
-          不適切な商品の通報
-    .itembox__pricebox
-      .itembox__pricebox--price
-        ￥
-        %span<>
-        = @item.price
-    .itembox__submit
-      =link_to "#", class:"itemsubmit" do
-        購入画面に進む
-    .itembox__submit
-      =link_to "#{@item.id}", method: :delete do
-        削除
-    .itembox__explanation
-      %p 商品説明
-      =@item.explanation
-  .itemcomment
-    .itemcomment__textbox
-    .itemcomment__submit
+.main
+  .showMain
+    .showcontent
+      .topcontent
+        .itembox
+          %h2.itembox__name
+            = @item.name
+          .itembox__top
+            %ul
+              %li
+                = image_tag "pict/pict-reason-03.jpg"
+                %ul
+                  %li
+                    = image_tag "pict/pict-reason-03.jpg"
+                  %li
+                    = image_tag "pict/pict-reason-03.jpg"
+          .itembox__price
+            %span
+              = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
+            .itembox__tax
+              %h2
+                (税込)
+              %h2
+                送料込み
+          .item_Subname
+            = @item.name
+          .table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td
+                    = @item.user.nickname
+                %tr
+                  %th カテゴリー
+                  %td
+                    = @item.category
+                %tr
+                  %th 商品の状態
+                  %td
+                    = @item.quality
+                %tr
+                  %th 配送料の負担
+                  %td
+                    = @item.delivery_cost
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = @item.prefecture.name
+                %tr
+                  %th 発送日の目安
+                  %td
+                    = @item.period
+
+          .morelist
+            - if current_user.id == @item.user_id
+              .morelist__editbtn
+                =link_to edit_item_path(@item.id), method: :get do
+                  編集
+              .morelist__deletebtn
+                =link_to item_path(@item.id), method: :delete do
+                  削除
+            -else
+              .morelist__deletebtn
+                =link_to  item_purchase_index_path(@item.id) do
+                  購入
+
+          .option
+            %ul
+              %li.likebtn
+                %i.fa.fa-star
+                  お気に入り
+            %ul.report
+              %li.reportbtn
+                =link_to "#" do
+                  %i.fa.fa-flag
+                    不適切の商品の通報
+          .commentbox
+            .commentbox__input
+              -if user_signed_in?
+                %ul
+                  =form_with model:[@item, @comment],class:"commentform", local: true, id: "new_comment" do |f|
+                    %li
+                      =f.text_area :text, class: "textbox"
+                    %li
+                      =f.submit "コメントする", class:"commentbtn"
+              -else
+                %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+            .commentbox__show
+              .commentbox__show--box
+                -if @comments
+                  .commentindex
+                    %h4 コメント一覧
+                  -@comments.each do |comment|
+                    .commentcontent
+                      .commentuser
+                        =link_to "/users/#{comment.user_id}" do
+                          =comment.user.nickname
+                      .commenttext
+                        =comment.text
+                      .commenttime
+                        =comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                        
 
 
 
-    
+
+
+
+
+
+
+
+

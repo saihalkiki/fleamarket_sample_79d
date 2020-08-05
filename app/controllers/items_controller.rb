@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
@@ -8,55 +8,76 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["選択してください"]
+    @image = @item.images.build
     #親階層のカテゴリー取得
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 
-    # 子階層のカテゴリー取得
-    def get_category_children
-        #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-        @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-        # binding.pry
-    end
+  # 子階層のカテゴリー取得
+  def get_category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+  end
 
-    # 孫階層のカテゴリー取得
-    def get_category_grandchildren
-        #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-        @category_grandchildren = Category.find("#{params[:child_id]}").children
-    end
+  # 孫階層のカテゴリー取得
+  def get_category_grandchildren
+      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      flash.now[:notice] = "出品しました！"
+      redirect_to item_path(@item.id)
+    else
+      @category_parent_array = Category.where(ancestry: nil)
+      render :new
+    end
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
-  
+
+  def search
+    @items = Item.search(params[:keyword])
+    @keyword = params[:keyword]
+  end
+
   def edit
+    @category_grandchildren = @item.category
+    @category_grandchildren_array = @category_grandchildren.siblings
+    @category_children = @category_grandchildren.parent
+    @category_children_array = @category_children.siblings
+    @category_parent = @category_grandchildren.root
+    @category_parent_array = @category_parent.siblings
   end
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path
     else
-      redirect_to edit_item_path(@item)
+      render :edit
     end
   end
 
   def destroy
-     @item.destroy
+    if @item.destroy
+      redirect_to user_path
+    else
+      render :show
+    end
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :quality, :delivery_cost, :period, :price, :user, :prefecture_id)
+    params.require(:item).permit(:name, :explanation, :quality, :delivery_cost, :period, :price,  :prefecture_id, :category_id,images_attributes: [:image, :item_id, :_destroy, :id] ).merge(user_id: current_user.id)
   end
+
   def set_item
-    @item=Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
+  
 end
