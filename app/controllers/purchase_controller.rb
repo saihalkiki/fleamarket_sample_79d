@@ -15,14 +15,19 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    card = Card.where(user_id: current_user.id).first
+    @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    @item = Item.find(params[:item_id])
     Payjp::Charge.create(
     :amount => @item.price, 
     :customer => @card.customer_id, 
     :currency => 'jpy', 
   )
   redirect_to action: 'done' 
+  end
+
+  def done 
+    @item = Item.find(params[:item_id])
   end
 
 end
