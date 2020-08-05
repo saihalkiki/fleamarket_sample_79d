@@ -58,6 +58,7 @@ $(document).on('turbolinks:load', function () {
       const targetIndex = $(this).parent().data('index');
       // 該当indexを振られているチェックボックスを取得する
       const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+      debugger
       // もしチェックボックスが存在すればチェックを入れる
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       // プレビュー画像の削除
@@ -70,7 +71,7 @@ $(document).on('turbolinks:load', function () {
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       }
       // クリックした親要素(div.js-file_group)を削除
-      $(`#item_images_attributes_${targetIndex}_image`).parent().remove();
+      $("#item_images_attributes_${targetIndex}_image").parent().remove();
       // 画像入力欄が0個になったら
       if ($('.js-file').length == 0) {
         // 入力蘭を追加する
