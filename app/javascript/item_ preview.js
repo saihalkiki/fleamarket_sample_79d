@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function () {
     // 第1引数で指定した要素から、第2引数で指定した数の分の要素を取り除
     fileIndex.splice(0, lastIndex);
     // 削除check_boxを非表示にする ※動作確認のため、一旦表示させる
-    // $('.hidden-destroy').hide();
+    $('.hidden-destroy').hide();
     
     // file_fieldの内容が変化した時発火
     $('#image-box').on('change', '.js-file', function (e) {
@@ -46,10 +46,12 @@ $(document).on('turbolinks:load', function () {
         if ($('.js-file').length < 10) {
           // fileIndexの先頭の数字を使ってinputを作る
           $('#image-box').append(buildFileField(fileIndex[0]));
-          // 配列から最初の要素を取り除き、その要素を返す
-          fileIndex.shift();
           // 減った分の配列末尾に1足した数を追加する
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+          console.log(fileIndex);
+          // 配列から最初の要素を取り除き、その要素を返す
+          fileIndex.shift();
+          console.log(fileIndex);
         }
       }
     });
@@ -58,20 +60,21 @@ $(document).on('turbolinks:load', function () {
       const targetIndex = $(this).parent().data('index');
       // 該当indexを振られているチェックボックスを取得する
       const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-      debugger
       // もしチェックボックスが存在すればチェックを入れる
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       // プレビュー画像の削除
       $(this).parent().remove();
       if ($('.previewsBox').length == 9) {
         $('#image-box').append(buildFileField(fileIndex[0]));
-        // 配列から最初の要素を取り除き、その要素を返す
-        fileIndex.shift();
         // 減った分の配列末尾に1足した数を追加する
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+        console.log(fileIndex);
+        // 配列から最初の要素を取り除き、その要素を返す
+        fileIndex.shift();
+        console.log(fileIndex);
       }
       // クリックした親要素(div.js-file_group)を削除
-      $("#item_images_attributes_${targetIndex}_image").parent().remove();
+      $(`#item_images_attributes_${targetIndex}_image`).parent().remove();
       // 画像入力欄が0個になったら
       if ($('.js-file').length == 0) {
         // 入力蘭を追加する

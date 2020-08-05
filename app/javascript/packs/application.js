@@ -11,7 +11,7 @@ require('jquery')
 require('../item_tree')
 require('../category')
 require("../payjp")
-require('../new_item_ preview')
+require('../item_ preview')
 require('../comment')
 
 
