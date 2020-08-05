@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash.now[:notice] = "出品しました！"
-      redirect_to item_path(@item_id)
+      redirect_to item_path(@item.id)
     else
       @category_parent_array = Category.where(ancestry: nil)
       render :new
