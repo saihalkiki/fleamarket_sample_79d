@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :items do
+    resources :likes, only: [:create, :destroy]
     resources :purchase, only: [:index] do
       collection do
         post 'pay', to: 'purchase#pay'

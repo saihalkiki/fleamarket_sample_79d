@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :item
 
+  def already_liked?(item)
+    self.likes.exists?(item_id: item.id)
+  end
+
   enum gender: { 男性: 0, 女性: 1}
   validates :password, length: { minimum: 7 }
   validates :nickname, presence: true, uniqueness: true
