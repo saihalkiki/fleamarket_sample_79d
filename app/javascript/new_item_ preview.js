@@ -58,7 +58,6 @@ $(document).on('turbolinks:load', function () {
       const targetIndex = $(this).parent().data('index');
       // 該当indexを振られているチェックボックスを取得する
       const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-      debugger
       // もしチェックボックスが存在すればチェックを入れる
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       // プレビュー画像の削除
