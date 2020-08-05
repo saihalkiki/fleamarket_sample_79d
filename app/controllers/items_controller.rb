@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = @item.images.build
-    
     #親階層のカテゴリー取得
     @category_parent_array = Category.where(ancestry: nil)
   end
@@ -30,7 +29,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash.now[:notice] = "出品しました！"
-      redirect_to item_path(@item)
+      redirect_to item_path(@item.id)
     else
       @category_parent_array = Category.where(ancestry: nil)
       render :new
@@ -41,7 +40,12 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end
-  
+
+  def search
+    @items = Item.search(params[:keyword])
+    @keyword = params[:keyword]
+  end
+
   def edit
     @category_grandchildren = @item.category
     @category_grandchildren_array = @category_grandchildren.siblings
@@ -53,14 +57,18 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path
     else
       render :edit
     end
   end
 
   def destroy
-    @item.destroy
+    if @item.destroy
+      redirect_to user_path
+    else
+      render :show
+    end
   end
 
   private
