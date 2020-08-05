@@ -6,7 +6,7 @@
       = f.label :郵便番号
       %span 必須
       %br/
-      = f.text_field :postal_code, autofocus: true, autocomplete: "postal-code"
+      = f.text_field :postal_code, autofocus: true, autocomplete: "postal-code", placeholder: "例：123-4567"
     .field
       = f.label :都道府県
       %span 必須
@@ -33,7 +33,7 @@
       = f.label :電話番号
       %span 必須
       %br/
-      = f.text_field :phone_number
+      = f.text_field :phone_number, placeholder: "例：08012345678"
     %div
     .actions
       = f.submit "新規登録", class:"submitbtn"
