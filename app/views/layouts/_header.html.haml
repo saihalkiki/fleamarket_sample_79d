@@ -49,7 +49,7 @@
           .navRight__item
             = link_to "ログアウト", "/users/sign_out", method: :DELETE
           .navRight__item
-            = link_to "マイページ", "#" 
+            = link_to "マイページ", "/users/#{current_user.id}" 
         -else
           .navRight__item
             = link_to "ログイン", "/users/sign_in"
