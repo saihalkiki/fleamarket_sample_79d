@@ -18,12 +18,15 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'search'
     end
     resources :comments, only: :create
   end
   resources :users, only: :show
   resources :cards, only: [:new, :create, :show, :destroy] do
   end
-  
+
+  namespace :items do
+    resources :searches, only: :index
+  end
+
 end

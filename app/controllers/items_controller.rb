@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
@@ -39,11 +39,6 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-  end
-
-  def search
-    @items = Item.search(params[:keyword])
-    @keyword = params[:keyword]
   end
 
   def edit

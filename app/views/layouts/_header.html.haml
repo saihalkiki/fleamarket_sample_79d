@@ -5,8 +5,8 @@
         =link_to root_path do
           =image_tag "logo.png",alt:"アイコン"
       .searchBox
-        = form_with(url: search_items_path, local: true, method: :get, class: "searchBox__form") do |f|
-          = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
+        = search_form_for(@search, url: items_searches_path, local: true, method: :get, class: "searchBox__form") do |f|
+          = f.search_field :name_cont, placeholder: "キーワードから探す", class: "searchBox__input"
           = button_tag type: 'submit' do
             = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
     .nav
