@@ -5,12 +5,14 @@ $(document).on('turbolinks:load', function () {
       const html = `<div class="js-file_group" data-index="${index}">
                     <input class="js-file" type="file" name="item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">`;
       return html;
-    }
+    } 
 
     // プレビュー用のimgタグを生成する関数
     const buildImg = function(index, url) {
       const html = `<div class="previewsBox" data-index="${index}">
+                    <div class="previewsBox__image">
                     <img data-index="${index}" src="${url}">
+                    </div>
                     <div class="js-remove text-center">
                     削除
                     </div>
@@ -60,7 +62,7 @@ $(document).on('turbolinks:load', function () {
       if (hiddenCheck) hiddenCheck.prop('checked', true);
       // プレビュー画像の削除
       $(this).parent().remove();
-      if ($('.previewsBox').length == 10) {
+      if ($('.previewsBox').length == 9) {
         $('#image-box').append(buildFileField(fileIndex[0]));
         // 配列から最初の要素を取り除き、その要素を返す
         fileIndex.shift();
