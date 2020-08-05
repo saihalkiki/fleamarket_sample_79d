@@ -29,15 +29,15 @@
               %tbody
                 %tr
                   %th 出品者
-                  %td 
+                  %td
                     = @item.user.nickname
                 %tr
                   %th カテゴリー
-                  %td 
+                  %td
                     = @item.category
                 %tr
                   %th 商品の状態
-                  %td 
+                  %td
                     = @item.quality
                 %tr
                   %th 配送料の負担
@@ -51,14 +51,20 @@
                   %th 発送日の目安
                   %td
                     = @item.period
-          -if user_signed_in? && current_user.id == @item.user_id
-            .morelist
+
+          .morelist
+            - if current_user.id == @item.user_id
               .morelist__editbtn
-                =link_to "#{@item.id}, /edit", method: :get do
+                =link_to edit_item_path(@item.id), method: :get do
                   編集
               .morelist__deletebtn
-                =link_to "#{@item.id}", method: :delete do
+                =link_to item_path(@item.id), method: :delete do
                   削除
+            -else
+              .morelist__deletebtn
+                =link_to  item_purchase_index_path(@item.id) do
+                  購入
+
           .option
             %ul
               %li.likebtn
@@ -98,11 +104,11 @@
 
 
 
-            
 
 
 
 
 
-                    
+
+
 
