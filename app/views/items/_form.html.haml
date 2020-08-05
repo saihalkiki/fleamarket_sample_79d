@@ -6,20 +6,25 @@
     .Form__field
       %p.img__upload__comment 最大10枚までアップロードできます
       %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-      #previews
-        - if @item.persisted?
-          - @item.images.each_with_index do |image, i|
-            = image_tag image.image.url, data: { index: i }, width: "150", height: '150'
-      .imageContainer
-        #image-box
-          = f.fields_for :images do |image|
-            .js-file_group{data: {index: "#{image.index}"}}
-              = image.file_field :image, class: "js-file"
-              .js-remove.newInputHidden 削除
-            - if @item.persisted?
-              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+      #image-box
+        #previews
           - if @item.persisted?
-            .js-file_group{data: {index: "#{@item.images.count}"}}
+            - @item.images.each_with_index do |image, i|
+              .previewsBox{data: { index: i }}
+                .previewsBox__image
+                  = image_tag image.image.url, data: { index: i }
+                .js-remove.text-center
+                  削除
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @item.persisted?
+          - if @item.images.count <= 9
+            .js-file_group{"data-index" => "#{@item.images.count}"}
               = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
               .js-remove 削除
   .Form__group
