@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
@@ -9,11 +9,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = @item.images.build
-
-
-    
     #親階層のカテゴリー取得
-
     @category_parent_array = Category.where(ancestry: nil)
   end
 
@@ -43,6 +39,11 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
+    @keyword = params[:keyword]
   end
 
   def edit
