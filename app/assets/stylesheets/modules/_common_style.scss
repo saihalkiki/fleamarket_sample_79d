@@ -29,6 +29,14 @@ a {
   margin-right: 5px;
   margin-bottom: 5px;
   background-color: rgb(245, 245, 245);
+  &__image {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid white;
+  }
   img{
     width:auto;
     height:auto;
