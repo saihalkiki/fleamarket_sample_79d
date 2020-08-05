@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function () {
       // ファイルのブラウザ上でのURLを取得する
       const file = e.target.files[0];
       const blobUrl = window.URL.createObjectURL(file);
-      $(this).next('div').removeClass('newInputHidden');
+      $(this).parent().hide();
       // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
       if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
         img.setAttribute('src', blobUrl);
