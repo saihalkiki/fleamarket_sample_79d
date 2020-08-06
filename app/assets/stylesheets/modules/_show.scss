@@ -156,12 +156,14 @@
      display: flex;
      width: 250px;
      li{
-      // margin-right: auto;
-      // padding: 6px 10px;
-      // border-radius: 40px;
-      // color: #3CCACE;
-      // border: 1px solid #ffb340;
-      
+      .unlikebtn{
+        border: 1px solid #ffb340;
+        border-radius: 40px;
+        background-color:white;
+        margin-right: auto;
+        padding: 6px 10px;
+        color: #3CCACE;
+      }
       .likebtn{
         border: 1px solid #ffb340;
         border-radius: 40px;

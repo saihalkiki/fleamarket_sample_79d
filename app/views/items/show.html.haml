@@ -66,20 +66,8 @@
                   購入
 
           .option
-            %ul
-              %li
-                -if current_user.already_liked?(@item)
-                  = button_to item_like_path(@item), class:"likebtn", method: :delete do
-                    %i.fa.fa-star
-                    いいね件数:
-                    =@item.likes.count
-                -else
-                  = button_to item_likes_path(@item), class:"likebtn" do
-                    %i.fa.fa-star
-                      いいね件数:
-                      =@item.likes.count
-                
-                  
+            .like-function
+              = render partial: "like", locals: { item: @item }
             %ul.report
               %li.reportbtn
                 =link_to "#" do
