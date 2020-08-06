@@ -82,4 +82,14 @@ describe User do
     end
   end
 
+  # nicknameがuniquennss: trueになっているか
+  describe '#create' do
+    it "同じnicknameは登録できないこと" do
+      user = create(:user)
+      another_user = build(:user, nickname: user.nickname)
+      another_user.valid?
+      expect(another_user.errors[:nickname]).to include("has already been taken")
+    end
+  end
+
 end
