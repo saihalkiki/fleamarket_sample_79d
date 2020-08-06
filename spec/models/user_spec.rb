@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe User do
+  describe '#create' do
+    it "email, nickname, last_name , first_name, last_name_read, first_name_read, gender, birthday, password, password_confirmationが存在すれば登録できる" do
+      user = build(:user)
+      expect(user).to be_valid
+    end
+  end
   #presence: trueになっているか
   describe '#create' do
     it "emailが空では登録できないこと" do
@@ -92,4 +98,18 @@ describe User do
     end
   end
 
+  describe '#create' do
+    it "passwordが7文字以下だと登録できないこと" do
+      user = build(:user, password: "111111")
+      user.valid?
+      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
+    end
+  end
+
+  describe '#create' do
+    it "passwordが7文字以上だと登録できること" do
+      user = build(:user, password: "1111111", password_confirmation: "1111111")
+      expect(user).to be_valid
+    end
+  end
 end
