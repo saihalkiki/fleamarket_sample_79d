@@ -1,4 +1,18 @@
-購入完了しました!
-=@item.price
-=@item.name
-%p ¥135,000(送料込み)
+.donemain
+  .donecontent
+    %h2.donesuccess
+      = link_to "/items" do
+        購入が完了しました
+    .donetable
+      %table
+        %tbody
+          %tr
+            %th 商品名
+            %td
+              = @item.name
+          %tr
+            %th 値段
+            %td
+              = @item.price
+
+      
