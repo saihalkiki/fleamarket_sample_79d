@@ -48,10 +48,8 @@ $(document).on('turbolinks:load', function () {
           $('#image-box').append(buildFileField(fileIndex[0]));
           // 減った分の配列末尾に1足した数を追加する
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-          console.log(fileIndex);
           // 配列から最初の要素を取り除き、その要素を返す
           fileIndex.shift();
-          console.log(fileIndex);
         }
       }
     });
@@ -68,10 +66,8 @@ $(document).on('turbolinks:load', function () {
         $('#image-box').append(buildFileField(fileIndex[0]));
         // 減った分の配列末尾に1足した数を追加する
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-        console.log(fileIndex);
         // 配列から最初の要素を取り除き、その要素を返す
         fileIndex.shift();
-        console.log(fileIndex);
       }
       // クリックした親要素(div.js-file_group)を削除
       $(`#item_images_attributes_${targetIndex}_image`).parent().remove();
