@@ -67,7 +67,11 @@
 
           .option
             .like-function
-              = render partial: "like", locals: { item: @item }
+              -if current_user.already_liked?(@item)
+                = render partial: "liked", locals: { item: @item }
+              -else
+                = render partial: "like", locals: { item: @item }
+              
             %ul.report
               %li.reportbtn
                 =link_to "#" do

@@ -1,14 +1,7 @@
 %ul
   %li
-    -if current_user.already_liked?(@item)
-      .like-function__unlike
-        = link_to item_like_path(@item.id), class:"unlikebtn", method: :delete, remote: true do
-          %i.fa.fa-star
-          いいね件数:
-          =@item.likes.count
-    -else
-      .like-function__like
-        = link_to item_likes_path(@item.id), class:"likebtn", method: :post, remote: true do
-          %i.fa.fa-star
-          いいね件数:
-          =@item.likes.count
+    .like-function__like
+      = link_to item_likes_path(@item.id), class:"likebtn", method: :post, remote: true do
+        %i.fa.fa-star
+        いいね件数:
+        =@item.likes.count
