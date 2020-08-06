@@ -34,7 +34,12 @@
                 %tr
                   %th カテゴリー
                   %td
-                    = @item.category.name
+                    %br
+                      = @item.category.root.name
+                    %br
+                      = @item.category.parent.name
+                    %br
+                      = @item.category.name
                 %tr
                   %th 商品の状態
                   %td
