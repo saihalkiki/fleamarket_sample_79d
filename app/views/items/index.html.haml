@@ -2,9 +2,9 @@
   / アプリ紹介
   .mainApps
     .appsContents
-      %h2.appsContents__subtitle 
+      %h2.appsContents__subtitle
         人生を変えるフリマアプリ
-      %p.appsContents__text 
+      %p.appsContents__text
         FURIMAはだれでもかんたんに出品・購入できる
         %br
         フリマアプリです
@@ -26,7 +26,7 @@
           = image_tag "pict/pict-reason-01.jpg"
         .reasonsList__text
           %span 3分
-          ですぐに出品  
+          ですぐに出品
         .reasonsList__description
           スマホで入力するだけで簡単に出品できる！
       %li.reasonsList
@@ -46,7 +46,7 @@
           %span 手数料
           業界最安
         .reasonsList__description
-          最大3%でお得に出品&購入！  
+          最大3%でお得に出品&購入！
 
 
   / アピール
@@ -93,7 +93,7 @@
         .featuresList__text
           様々な支払いに対応
         .featuresList__description
-          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。 
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
 
 
@@ -112,6 +112,9 @@
             =link_to "#" do
               %figure.listimage
                 = image_tag "item/sample_item01.jpg"
+                  - if item.purchaser_id.present?
+                  .items-box-sold
+                    .items-box-sold__inner SOLD
               .listbody
                 %h3.name
                   = item.name
@@ -124,7 +127,7 @@
                         0
                   %p
                     (税込)
-  
+
   / ピックアップカテゴリー アーカイブ
   .mainProducts
     %h2.mainProducts__head
