@@ -15,8 +15,7 @@ class Item < ApplicationRecord
   [:name, :explanation, :quality, :delivery_cost, :prefecture_id, :period_id, :price, :user_id].each do |v|
     validates v, presence: true
   end
-
-  validates :name, length: { maximum: 40 }
+  validates :name, length: { maximum: 50 }
 
   def self.search(search)
     if search
