@@ -1,0 +1,41 @@
+.donemain{
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+
+.donesuccess{
+  margin: 0 0 50px 0;
+  font-size: 30px;
+  a{
+    color: red;
+  }
+ 
+}
+
+.donetable{
+  margin-bottom: 30px;
+  table{
+   width: 100%;
+   border-collapse: collapse;
+   border: 1px solid #f8f8f8;
+   th{
+     width: 20%;
+   background-color: #eee;
+   font-weight: 400;
+   padding: 8px;
+   border: 1px solid #dedede;
+   font-size: 14px;
+   text-align: center;
+   }
+   td{
+     width: 61%;
+   padding: 15px 15px;
+   border: 1px solid #dedede;
+   font-size: 14px;
+   }
+  }
+}
