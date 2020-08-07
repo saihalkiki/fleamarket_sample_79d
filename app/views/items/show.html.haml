@@ -55,7 +55,7 @@
                 %tr
                   %th 発送日の目安
                   %td
-                    = @item.period
+                    = @item.period.integer
 
           .morelist
             - if current_user.id == @item.user_id
