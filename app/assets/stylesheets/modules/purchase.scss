@@ -2,9 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .payment{
-  width: 70%;
   height: auto;
-  margin:250px 403px 570px;
+  margin:80px 220px 80px;
   display: flex;
  &__left{
    width: 110%;
@@ -28,21 +27,35 @@
     margin-top: 100px;
   }
  }
- &__right{
+}
+.payment__right{
    width: 90%;
-   height: auto;
    padding: 30px;
    text-align: center;
    border: 2px solid lightgrey;
    border-radius: 3px;
-   border-radius: 2px;
-   &--product{
-     font-size: 30px;
-     margin-bottom: 40px;
-     line-height: 120px;
+  }
+  .payment__right--product{
+     font-size: 20px;
+     margin: 30px 30px;
+     h2{
+       margin-bottom: 20px;
+       color: gray;
+     }
+     p{
+       font-size: 30px;
+     }
    }
-   &--price{
+   .payment__right--price{
      font-size: 30px;
+     font-size: 20px;
+     margin: 30px 30px;
+     h2{
+       margin-bottom: 20px;
+       color: grey;
+     }
+     p{
+       font-size: 30px;
+     }
    }
- }
-}
+ 

@@ -56,9 +56,8 @@
 .cardinfo{
   width: 40%;
   height: auto;
-  margin: 40px 538.5px;
+  margin: 50px 450px;
   border: 3px solid black;
-  display: flex;
   .cardinfo-contents{
     h2 {
       font-size: 25px;
@@ -67,25 +66,41 @@
     }
     .card-info {
       text-align: center;
-      margin: auto;
+      margin-left: 30px;
       display: flex;
       &__name{
         font-size: 20px;
       }
+      &__number{
+        margin: 5px 0 0 10px;
+      }
     }
-    .card-date {
-      margin-bottom: 20px;
-      font-size: 20px;
-      display: flex;
-      &__name{}
-    }
-  }
-  .card-deletebtn {
-    color: white;
-    background-color: red;
-    border-style: none;
-    padding: 150px;
-
-
   }
 }
+
+.card-date {
+  margin-bottom: 20px;
+  margin-left: 50px;
+  font-size: 20px;
+  display: flex;
+}
+.card-date__date{
+  margin: 5px 0 0 10px;
+}
+
+.delete-submit{
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: center;
+  margin-left: 450px;
+  margin-bottom: 100px;
+  }
+  .card-deletebtn{
+    width: 65%;
+    height: 50px;
+    color: white;
+    background-color: red;
+    margin-top: 15px;
+    font-size: 20px;
+   }
