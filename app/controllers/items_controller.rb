@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+    @like = Like.new
   end
 
   def search

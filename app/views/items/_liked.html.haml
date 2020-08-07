@@ -1,0 +1,7 @@
+%ul
+  %li
+    .like-function__unlike
+      = link_to item_like_path(@item.id), class:"unlikebtn", method: :delete, remote: true do
+        %i.fa.fa-star
+        いいね件数
+        =@item.likes.count
