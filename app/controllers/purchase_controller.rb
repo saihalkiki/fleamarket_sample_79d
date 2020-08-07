@@ -1,6 +1,6 @@
 class PurchaseController < ApplicationController
   require 'payjp'
-  
+
 
   def index
     card = Card.where(user_id: current_user.id).first
@@ -19,15 +19,16 @@ class PurchaseController < ApplicationController
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     @item = Item.find(params[:item_id])
     Payjp::Charge.create(
-    :amount => @item.price, 
-    :customer => @card.customer_id, 
-    :currency => 'jpy', 
+    :amount => @item.price,
+    :customer => @card.customer_id,
+    :currency => 'jpy',
   )
-  redirect_to action: 'done' 
+  redirect_to action: 'done'
   end
 
-  def done 
-    @item = Item.find(params[:item_id])
+  def done
+    @item_purchaser = Item.find(params[:id])
+    @item_purchaser.update(purchaser_id: current_user.id)
   end
 
 end
