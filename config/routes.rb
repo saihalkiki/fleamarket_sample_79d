@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
     resources :comments, only: :create
   end
-  resources :users, only: :show
+  resources :users, only: [:new, :show]
   resources :cards, only: [:new, :create, :show, :destroy] do
   end
   
