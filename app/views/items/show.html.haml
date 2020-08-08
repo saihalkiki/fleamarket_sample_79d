@@ -6,14 +6,13 @@
           %h2.itembox__name
             = @item.name
           .itembox__top
-            %ul
-              %li
-                = image_tag "pict/pict-reason-03.jpg"
-                %ul
-                  %li
-                    = image_tag "pict/pict-reason-03.jpg"
-                  %li
-                    = image_tag "pict/pict-reason-03.jpg"
+            %ul.firstimage
+              %li.firstimage__big
+                = image_tag @item.images.first.image.url
+              %ul.subimage
+                - @item.images.each do |image|
+                  %li.subimage__small
+                    = image_tag image.image.url
           .itembox__price
             %span
               = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
@@ -36,10 +35,10 @@
                   %td
                     %br
                       = @item.category.root.name
-                    %br
-                      = @item.category.parent.name
-                    %br
-                      = @item.category.name
+                    -# %br
+                    -#   = @item.category.parent.name
+                    -# %br
+                    -#   = @item.category.name
                 %tr
                   %th 商品の状態
                   %td

@@ -29,10 +29,9 @@
   &__top{
     margin: 16px 0 0;
     }
-  ul{
-      display: flex;
+    .firstimage{
       position: relative;
-      li{
+      .firstimage__big{
           display: flex;
           flex-direction: column;
           width: 560px;
@@ -42,13 +41,16 @@
             object-fit: cover;
             height: 346px;
             width: 540px;
-          }
-          ul{
+      }
+    }
+  }
+        
+      .subimage{
             display: flex;
             justify-content: center;
             margin-top: 10px;
-            width: 560px;
-            li{
+            flex-wrap: wrap;
+        .subimage__small{
               width: 25%;
               margin: 0 10px 0 0;
               img{
@@ -57,8 +59,7 @@
               }
             }
           }
-          }
-          }
+
   &__price{
     margin: 24px 0 24px;
     text-align: center;
