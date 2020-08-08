@@ -29,7 +29,7 @@ class User < ApplicationRecord
       sns.user = user
       sns.save
     end
-    user
+    { user: user, sns: sns }
   end
 
   enum gender: { 男性: 0, 女性: 1}
