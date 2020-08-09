@@ -46,18 +46,21 @@
       %span 必須
       %br/
       = f.date_field :birthday, autocomplete: "bday"
-    .field
-      = f.label :パスワード, class:"password_registration"
-      - if @minimum_password_length
-        %em (7文字以上)
-      %span 必須
-      %br/
-      = f.password_field :password, autocomplete: "new-password"
-    .field
-      = f.label :パスワード確認用
-      %span 必須
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
+    - if @sns_id.present?
+      = hidden_field_tag :sns_auth, true
+    - else
+      .field
+        = f.label :パスワード, class:"password_registration"
+        - if @minimum_password_length
+          %em (7文字以上)
+        %span 必須
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :パスワード確認用
+        %span 必須
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
     .actions
       = f.submit "次へ", class:"submitbtn"
   = render "devise/shared/links"
