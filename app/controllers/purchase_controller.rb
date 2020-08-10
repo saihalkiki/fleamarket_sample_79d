@@ -27,8 +27,9 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @item_purchaser = Item.find(params[:id])
+    @item_purchaser = Item.find(params[:item_id])
     @item_purchaser.update(purchaser_id: current_user.id)
+    @item = Item.find(params[:item_id])
+    redirect_to item_path(@item)
   end
-
 end

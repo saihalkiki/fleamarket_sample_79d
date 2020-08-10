@@ -163,9 +163,7 @@
    display: flex;
    justify-content: space-between;
    ul{
-     margin: 10px 0 0;
      display: flex;
-     width: 250px;
      li{
       .unlikebtn{
         border: 1px solid #ffb340;
@@ -192,17 +190,18 @@
      }
    }
    ul.report{
-     margin: 10px 0 0;
+     margin-top: 2px;
      display: flex;
      li.reportbtn{
-       font-size: 9px;
+       font-size: 12px;
        a{
-        padding: 6px 10px;
+        padding: 8px 14px;
         display: inline-block;
         border-radius: 4px;
         color: #333;
         border: 1px solid #333;
         text-decoration: none;
+        border-radius: 40px;
        }
      }
    }
@@ -287,7 +286,6 @@
 
 // ItemにSOLDを表示
  .listimage{
-  margin: 0px;
   font-size: 0px;
   position: relative;
   .items-box-sold{
@@ -314,3 +312,10 @@
     }
   }
 }
+
+.topbtn{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+  }
+
