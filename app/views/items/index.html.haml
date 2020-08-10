@@ -112,7 +112,7 @@
             =link_to "#" do
               %figure.listimage
                 = image_tag "item/sample_item01.jpg"
-                  - if item.purchaser_id.present?
+                - if item.purchaser_id.present?
                   .items-box-sold
                     .items-box-sold__inner SOLD
               .listbody
@@ -143,7 +143,7 @@
             =link_to "#" do
               %figure.listimage
                 = image_tag "item/sample_item01.jpg"
-                  - if item.purchaser_id.present?
+                - if item.purchaser_id.present?
                   .items-box-sold
                     .items-box-sold__inner SOLD
               .listbody
