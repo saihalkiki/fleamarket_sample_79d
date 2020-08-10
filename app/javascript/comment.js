@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
   function buildHTML(comment){
     let html = `<div class="commentcontent">
                   <div class="commentuser">
