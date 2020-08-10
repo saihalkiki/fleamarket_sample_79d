@@ -16,13 +16,16 @@
     = form_tag(action: :pay, method: :post) do
       %button.paymentbtn 購入する
   .payment__right
-    .payment__right--product
-      %h2
-        商品名
-      %p
-        =@item.name
-    .payment__right--price
-      %h2
-        お支払い金額
-      %p 
-        =@item.price
+    .product-info
+      .info-name
+        %h2
+          商品名
+        %p
+          =@item.name
+      .info-price
+        %h2
+          お支払い金額
+        %p 
+          = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
+    .info-image
+      = image_tag @item.images[0].image.url, class: 'Message__image', size: "270x200"

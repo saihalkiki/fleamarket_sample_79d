@@ -35,9 +35,11 @@
    border: 2px solid lightgrey;
    border-radius: 3px;
   }
-  .payment__right--product{
+  .product-info{
      font-size: 20px;
      margin: 30px 30px;
+     display: flex;
+     justify-content: space-evenly;
      h2{
        margin-bottom: 20px;
        color: gray;
@@ -46,10 +48,9 @@
        font-size: 30px;
      }
    }
-   .payment__right--price{
+   .info-price{
      font-size: 30px;
      font-size: 20px;
-     margin: 30px 30px;
      h2{
        margin-bottom: 20px;
        color: grey;
@@ -57,5 +58,8 @@
      p{
        font-size: 30px;
      }
+   }
+   .info-image{
+     margin-top:60px;
    }
  
