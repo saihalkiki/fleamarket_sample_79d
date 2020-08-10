@@ -30,7 +30,6 @@ $(function () {
     //選択された親カテゴリーの名前を取得
     let parentId = $(this).val();
     //親階層カテゴリーが初期値でないとき発火
-    console.log(parentId);
     if (parentId != "") {
       // いったん子階層・孫階層の表示データを削除
       // 子階層カテゴリーを持ってくるためにajax通信
@@ -68,7 +67,6 @@ $(function () {
   // 子階層カテゴリー選択後のイベント
   $('.categoryList').on('change', '#children_category', function () {
     let childId = $(this).val();
-    console.log(childId);
     if (childId != "") {
       $.ajax({
         url: '/items/get_category_grandchildren',
