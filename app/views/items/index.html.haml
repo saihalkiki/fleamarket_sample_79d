@@ -109,9 +109,9 @@
       .boxlists
         - @items_new.first(4).each do |item|
           .boxlist
-            =link_to "#" do
+            =link_to item_path(item.id) do
               %figure.listimage
-                = image_tag "item/sample_item01.jpg"
+                = image_tag item.images.first.image.url
                 - if item.purchaser_id.present?
                   .items-box-sold
                     .items-box-sold__inner SOLD
@@ -140,9 +140,9 @@
       .boxlists
         - @items_archive.first(4).each do |item|
           .boxlist
-            =link_to "#" do
+            =link_to item_path(item.id) do
               %figure.listimage
-                = image_tag "item/sample_item01.jpg"
+                = image_tag item.images.first.image.url
                 - if item.purchaser_id.present?
                   .items-box-sold
                     .items-box-sold__inner SOLD
