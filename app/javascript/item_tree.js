@@ -1,13 +1,11 @@
 $(function () {
-  let setTime = 0;
-  $('.navLeft__item').hover(function(){
-    clearTimeout(setTime);
+  let setTimeCategoryTree = 0;
+  $('#category_tree').hover(function(){
+    clearTimeout(setTimeCategoryTree);
     $(this).children('div').show();
-    console.log("hover");
   },function(){
     let hideMenu = $(this).children('div')
-      setTime = setTimeout(function() {
-      console.log("timeout")
+      setTimeCategoryTree = setTimeout(function() {
       hideMenu.hide();
     },200)
   })
