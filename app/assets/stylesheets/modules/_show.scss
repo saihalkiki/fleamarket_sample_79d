@@ -76,7 +76,7 @@
         display: flex;
         margin: 0 0 0 260px;
         }
-       
+
 
  }
 
@@ -114,7 +114,7 @@
   text-align: center;
    line-height: 50px;
    margin-bottom: 40px;
-   
+
    &__editbtn{
      margin-bottom: 5px;
     display: flex;
@@ -130,7 +130,7 @@
       margin-top: 15px;
       font-size: 20px;
      }
-    
+
    }
    &__deletebtn{
     display: flex;
@@ -147,8 +147,18 @@
       font-size: 20px;
      }
     }
+    &__soldbtn{
+      display: flex;
+      flex-direction: column;
+      width: 560px;
+      align-items: center;
+      margin: 0 auto;
+      color: white;
+      background-color: #888888;
+      margin-top: 15px;
+      font-size: 20px;
+     }
   }
-
  .option{
    display: flex;
    justify-content: space-between;
@@ -196,7 +206,7 @@
        }
      }
    }
-   
+
  }
 
  .commentbox{
@@ -274,3 +284,33 @@
      }
    }
  }
+
+// ItemにSOLDを表示
+ .listimage{
+  margin: 0px;
+  font-size: 0px;
+  position: relative;
+  .items-box-sold{
+    width: 0;
+    height: 0;
+    border-width: 120px 120px 0 0;
+    border-color: #ea352d transparent transparent transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-style: solid;
+    &__inner{
+      top: -90px;
+      font-size: 30px;
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      color: #fff;
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  }
+}

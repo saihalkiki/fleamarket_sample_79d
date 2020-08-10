@@ -6,13 +6,20 @@
           %h2.itembox__name
             = @item.name
           .itembox__top
-            %ul.firstimage
-              %li.firstimage__big
-                = image_tag @item.images.first.image.url
-              %ul.subimage
-                - @item.images.each do |image|
-                  %li.subimage__small
-                    = image_tag image.image.url
+            %ul
+              %li
+                %figure.listimage
+                  = image_tag "pict/pict-reason-03.jpg"
+                  - if @item.purchaser_id.present?
+                    .items-box-sold
+                      .items-box-sold__inner SOLD
+                %ul.firstimage
+                  %li.firstimage__big
+                    = image_tag @item.images.first.image.url
+                  %ul.subimage
+                    - @item.images.each do |image|
+                      %li.subimage__small
+                        = image_tag image.image.url
           .itembox__price
             %span
               = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
@@ -64,6 +71,9 @@
               .morelist__deletebtn
                 =link_to item_path(@item.id), method: :delete do
                   削除
+            -elsif @item.purchaser_id.present?
+              .morelist__soldbtn
+                売り切れました
             -else
               .morelist__deletebtn
                 =link_to  item_purchase_index_path(@item.id) do
@@ -82,8 +92,8 @@
                     %i.fa.fa-star
                     いいね件数:
                     =@item.likes.count
-                
-                  
+
+
             %ul.report
               %li.reportbtn
                 =link_to "#" do
@@ -114,7 +124,7 @@
                         =comment.text
                       .commenttime
                         =comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                        
+
 
 
 
