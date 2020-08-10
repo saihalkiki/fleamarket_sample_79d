@@ -1,4 +1,5 @@
 $(function () {
+  console.log("category.js発火");
   // カテゴリーオプション作成(セレクトタグ内のoption)
   function buildOption(category) {
     let html =
@@ -25,8 +26,10 @@ $(function () {
       </select>`
     $('.categoryList').append(buildGrandchidrenSelect);
   }
+  console.log($('#parent_category'));
   // 親階層カテゴリー選択後のイベント
   $('#parent_category').on('change', function () {
+    console.log("category.js発火");
     //選択された親カテゴリーの名前を取得
     let parentId = $(this).val();
     //親階層カテゴリーが初期値でないとき発火

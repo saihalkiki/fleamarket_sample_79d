@@ -1,4 +1,5 @@
 $(function(){
+  console.log("comment.js発火");
   function buildHTML(comment){
     let html = `<div class="commentcontent">
                   <div class="commentuser">
