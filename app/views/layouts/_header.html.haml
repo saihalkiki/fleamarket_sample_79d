@@ -11,23 +11,29 @@
             = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
     .nav
       .navLeft
-        .navLeft__item#category
+        .navLeft__item#category_tree
           = link_to "カテゴリー", "#"
           / カテゴリー覧html
           .tree.displayNone
             %ul.categoryTree
-              %li.categoryTree__item
-                = link_to "アイテム1", "#"
-              %li.categoryTree__item
-                = link_to "アイテム2", "#"
-              %li.categoryTree__item
-                = link_to "アイテム3", "#"
-              %li.categoryTree__item
-                = link_to "アイテム4", "#"
-              %li.categoryTree__item
-                = link_to "アイテム5", "#"
-              %li.categoryTree__item
-                = link_to "アイテム6", "#"
+              = link_to "#", class: "categoryTree__item" do
+                %li
+                  アイテム1
+              = link_to "#", class: "categoryTree__item" do
+                %li
+                  アイテム2
+              = link_to "#", class: "categoryTree__item" do
+                %li
+                  アイテム3
+              = link_to "#", class: "categoryTree__item" do
+                %li
+                  アイテム4
+              = link_to "#", class: "categoryTree__item" do
+                %li
+                  アイテム5
+              = link_to "#", class: "categoryTree__item" do
+                %li
+                  アイテム6
         .navLeft__item#brand
           = link_to "ブランド", "#"
           .tree.displayNone
