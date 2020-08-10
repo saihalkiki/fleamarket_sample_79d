@@ -4,8 +4,7 @@
       = f.label :image, "出品画像"
       %span.Form__label--required 必須
     .Form__field
-      %p.img__upload__comment 最大10枚までアップロードできます
-      %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+      %p.img__upload__comment ※最大10枚までアップロード可
       #image-box
         #previews
           - if @item.persisted?
