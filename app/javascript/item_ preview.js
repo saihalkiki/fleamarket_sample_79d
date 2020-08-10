@@ -1,5 +1,4 @@
 $(function () {
-  console.log("item_preview.js発火");
   // 画像用のinputを生成する関数
   const buildFileField = function(index) {
     const html = `<div class="js-file_group" data-index="${index}">
