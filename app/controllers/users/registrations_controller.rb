@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user = User.new(sign_up_params)
     unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
+      flash = @user.errors.full_messages
       render :new and return
     end
     # @userのデータをsessionにハッシュの形で情報を保持させている @userの属性を全て整形している
