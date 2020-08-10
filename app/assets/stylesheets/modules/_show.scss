@@ -152,17 +152,12 @@
       width: 560px;
       align-items: center;
       margin: 0 auto;
-       a{
-        width: 85%;
-        height: 50px;
-        color: white;
-        background-color: #888888;
-        margin-top: 15px;
-        font-size: 20px;
-       }
-      }
+      color: white;
+      background-color: #888888;
+      margin-top: 15px;
+      font-size: 20px;
+     }
   }
-
  .option{
    display: flex;
    justify-content: space-between;
@@ -277,3 +272,33 @@
      }
    }
  }
+
+// ItemにSOLDを表示
+ .listimage{
+  margin: 0px;
+  font-size: 0px;
+  position: relative;
+  .items-box-sold{
+    width: 0;
+    height: 0;
+    border-width: 120px 120px 0 0;
+    border-color: #ea352d transparent transparent transparent;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-style: solid;
+    &__inner{
+      top: -90px;
+      font-size: 30px;
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      color: #fff;
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  }
+}

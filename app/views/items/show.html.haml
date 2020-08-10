@@ -8,7 +8,11 @@
           .itembox__top
             %ul
               %li
-                = image_tag "pict/pict-reason-03.jpg"
+                %figure.listimage
+                  = image_tag "pict/pict-reason-03.jpg"
+                    - if @item.purchaser_id.present?
+                    .items-box-sold
+                      .items-box-sold__inner SOLD
                 %ul
                   %li
                     = image_tag "pict/pict-reason-03.jpg"
