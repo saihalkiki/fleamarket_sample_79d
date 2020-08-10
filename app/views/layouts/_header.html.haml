@@ -15,25 +15,11 @@
           = link_to "カテゴリー", "#"
           / カテゴリー覧html
           .tree.displayNone
-            %ul.categoryTree
-              = link_to "#", class: "categoryTree__item" do
-                %li
-                  アイテム1
-              = link_to "#", class: "categoryTree__item" do
-                %li
-                  アイテム2
-              = link_to "#", class: "categoryTree__item" do
-                %li
-                  アイテム3
-              = link_to "#", class: "categoryTree__item" do
-                %li
-                  アイテム4
-              = link_to "#", class: "categoryTree__item" do
-                %li
-                  アイテム5
-              = link_to "#", class: "categoryTree__item" do
-                %li
-                  アイテム6
+            %ul.categoryTree.categoryTree--parent
+              - @category_parent_array.each do |parent| 
+                = link_to "#", class: "categoryTree__item" do
+                  %li
+                    = parent.name
         .navLeft__item#brand
           = link_to "ブランド", "#"
           .tree.displayNone

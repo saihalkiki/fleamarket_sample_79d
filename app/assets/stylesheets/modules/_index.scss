@@ -120,8 +120,12 @@
     border-bottom: 1px solid #f8f8f8;
     width: 240px;
     line-height: 38px;
-    > a:hover{
+    a:hover{
       color: #ffb340;
+    }
+    &--children{
+      position: absolute;
+      left: 240px;
     }
   }
 }
