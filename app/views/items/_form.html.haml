@@ -59,11 +59,10 @@
       = f.select :quality,['新品、未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり','傷や汚れあり', '全体的に状態が悪い'],  { include_blank: '選択してください' }, { class: "Form__input", id: "quality_id" }
   .Form__group
     .Form__label
-      = f.label :delivery_cost,
-      "配送料の負担"
+      = f.label :delivery_cost,"配送料の負担"
       %span.Form__label--required 必須
     .Form__field
-      = f.select :delivery_cost, [['送料込み（出品者負担）', 1], ['着払い（購入者負担）', 2]], { include_blank: '選択してください' }, { id: "delivery_cost_id", class: "Form__input" }
+      = f.select :delivery_cost, Item.delivery_costs.keys, {include_blank: '選択してください'},{class: "Form__input"}
   .Form__group
     .Form__label
       = f.label "発送元の地域"

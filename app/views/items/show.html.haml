@@ -35,10 +35,10 @@
                   %td
                     %br
                       = @item.category.root.name
-                    -# %br
-                    -#   = @item.category.parent.name
-                    -# %br
-                    -#   = @item.category.name
+                    %br
+                      = @item.category.parent.name
+                    %br
+                      = @item.category.name
                 %tr
                   %th 商品の状態
                   %td
@@ -54,7 +54,7 @@
                 %tr
                   %th 発送日の目安
                   %td
-                    = @item.period_id
+                    = @item.period.integer
 
           .morelist
             - if current_user.id == @item.user_id
