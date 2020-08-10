@@ -111,7 +111,7 @@
           .boxlist
             =link_to item_path(item.id) do
               %figure.listimage
-                = image_tag item.images.first.image.url
+                = image_tag item.images.first.image.url, size: "220x150"
                 - if item.purchaser_id.present?
                   .items-box-sold
                     .items-box-sold__inner SOLD
@@ -142,7 +142,7 @@
           .boxlist
             =link_to item_path(item.id) do
               %figure.listimage
-                = image_tag item.images.first.image.url
+                = image_tag item.images.first.image.url, size: "220x150"
                 - if item.purchaser_id.present?
                   .items-box-sold
                     .items-box-sold__inner SOLD
