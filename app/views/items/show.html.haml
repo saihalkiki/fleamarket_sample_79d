@@ -65,6 +65,9 @@
               .morelist__deletebtn
                 =link_to item_path(@item.id), method: :delete do
                   削除
+            -elsif @item.purchaser_id.present?
+              .morelist__soldbtn
+                売り切れました
             -else
               .morelist__deletebtn
                 =link_to  item_purchase_index_path(@item.id) do
@@ -105,7 +108,7 @@
                         =comment.text
                       .commenttime
                         =comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                        
+
 
 
 
