@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-  }
+  omniauth_callbacks: 'users/omniauth_callbacks',
+  registrations: 'users/registrations'
+}
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
   resources :items do
+    resources :likes, only: [:create, :destroy]
     resources :purchase, only: [:index] do
       collection do
         post 'pay', to: 'purchase#pay'
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
     end
     resources :comments, only: :create
   end
-  resources :users, only: :show
+  resources :users, only: [:new, :show]
   resources :cards, only: [:new, :create, :show, :destroy] do
   end
   

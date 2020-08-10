@@ -10,6 +10,10 @@
   border-radius:10px;
   display: flex;
   justify-content: center;
+  &__title {
+    font-size: 30px;
+    padding: 20px 0;
+  }
   &__container{
     width: 100%;
   }
@@ -30,7 +34,7 @@
     }
   }
   &__exhibitBtn{
-    width: 300px;
+    width: 100%;
     background-color: #ea352d;
     color: #fff;
     border: none;
@@ -44,8 +48,34 @@
     padding: 5px;
   }
   &__btn {
-    padding: 60px 0;
     text-align: center;
+    height: 50px;
+    width: 300px;
+    line-height: 50px;
+    &--margin{
+      margin: 40px 0 20px;
+    }
+    input{
+      cursor: pointer;
+    }
+    &--mail{
+      background-color: #3CCACE;
+      color: #fff;
+      border: none;
+      margin-bottom: 10px;
+    }
+    &--facebook{
+      background-color: #385185;
+      color: #fff;
+      border: none;
+      margin: 10px 0;
+    }
+    &--google{
+      background-color: #FFFFFF;
+      color: black;
+      border: 1px solid gray;
+      margin-top: 10px;
+    }
   }
 
    textarea{

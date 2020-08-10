@@ -13,11 +13,13 @@
                     - if @item.purchaser_id.present?
                     .items-box-sold
                       .items-box-sold__inner SOLD
-                %ul
-                  %li
-                    = image_tag "pict/pict-reason-03.jpg"
-                  %li
-                    = image_tag "pict/pict-reason-03.jpg"
+                %ul.firstimage
+                  %li.firstimage__big
+                    = image_tag @item.images.first.image.url
+                  %ul.subimage
+                    - @item.images.each do |image|
+                      %li.subimage__small
+                        = image_tag image.image.url
           .itembox__price
             %span
               = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
@@ -40,10 +42,10 @@
                   %td
                     %br
                       = @item.category.root.name
-                    %br
-                      = @item.category.parent.name
-                    %br
-                      = @item.category.name
+                    -# %br
+                    -#   = @item.category.parent.name
+                    -# %br
+                    -#   = @item.category.name
                 %tr
                   %th 商品の状態
                   %td
@@ -59,7 +61,7 @@
                 %tr
                   %th 発送日の目安
                   %td
-                    = @item.period.integer
+                    = @item.period_id
 
           .morelist
             - if current_user.id == @item.user_id
@@ -79,9 +81,19 @@
 
           .option
             %ul
-              %li.likebtn
-                %i.fa.fa-star
-                  お気に入り
+              %li
+                -if current_user.already_liked?(@item)
+                  = button_to item_like_path(@item), class:"likebtn", method: :delete do
+                    %i.fa.fa-star
+                    いいね件数:
+                    =@item.likes.count
+                -else
+                  = button_to item_likes_path(@item), class:"likebtn" do
+                    %i.fa.fa-star
+                    いいね件数:
+                    =@item.likes.count
+
+
             %ul.report
               %li.reportbtn
                 =link_to "#" do

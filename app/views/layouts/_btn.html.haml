@@ -1,4 +1,4 @@
--if user_signed_in?
+-if user_signed_in? && !request.path.include?("items/new")
   = link_to new_item_path do
     .ExhibitBtn
       .ExhibitBtn__text

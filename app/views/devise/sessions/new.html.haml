@@ -16,3 +16,13 @@
     .actions
       = f.submit "Log in", class:"submitbtn"
   = render "devise/shared/links"
+  .Form
+    .Form__group
+      .Form__btn
+        = link_to user_facebook_omniauth_authorize_path, method: :post do
+          .Form__btn.Form__btn--facebook
+            Facebookで登録
+      .Form__btn
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+          .Form__btn.Form__btn--google
+            Googleで登録
