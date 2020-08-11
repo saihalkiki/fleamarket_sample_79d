@@ -33,6 +33,15 @@
       font-size: 15px;
     }
   }
+  .Form-price {
+    display: flex;
+    .price-left {
+      margin-top: 8px;
+    }
+    .Form__field {
+      width: 100%;
+    }
+  }
   &__exhibitBtn{
     width: 100%;
     background-color: #ea352d;
