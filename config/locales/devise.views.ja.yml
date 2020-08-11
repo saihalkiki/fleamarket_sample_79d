@@ -31,10 +31,15 @@ ja:
             last_name_read:
               blank: "が入力されていません。"
               invalid: "が有効でありません。"
-            last_name:
+            first_name_read:
               blank: "が入力されていません。"
               invalid: "が有効でありません。"
-
+            gender:
+              blank: "が入力されていません。"
+              invalid: "が有効でありません。"
+            birthday:
+              blank: "が入力されていません。"
+              invalid: "が有効でありません。"
     attributes:
       user:
         current_password: "現在のパスワード"
