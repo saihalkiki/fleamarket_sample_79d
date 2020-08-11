@@ -32,5 +32,4 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
     redirect_to item_path(@item)
   end
-
 end
