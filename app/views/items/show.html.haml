@@ -63,25 +63,30 @@
                     = @item.period.integer
 
           .morelist
-            - if current_user.id == @item.user_id
-              .morelist__editbtn
-                =link_to edit_item_path(@item.id), method: :get do
-                  編集
+            - if user_signed_in?
+              - if current_user.id == @item.user_id
+                .morelist__editbtn
+                  =link_to edit_item_path(@item.id), method: :get do
+                    編集
+                .morelist__deletebtn
+                  =link_to item_path(@item.id), method: :delete do
+                    削除
+              -elsif @item.purchaser_id.present?
+                .morelist__soldbtn
+                  売り切れました
+              -else
+                .morelist__deletebtn
+                  =link_to  item_purchase_index_path(@item.id) do
+                    購入
+            - else
               .morelist__deletebtn
-                =link_to item_path(@item.id), method: :delete do
-                  削除
-            -elsif @item.purchaser_id.present?
-              .morelist__soldbtn
-                売り切れました
-            -else
-              .morelist__deletebtn
-                =link_to  item_purchase_index_path(@item.id) do
+                = link_to new_user_session_path do
                   購入
 
           .option
             %ul
               %li
-                -if current_user.already_liked?(@item)
+                -if user_signed_in? && current_user.already_liked?(@item)
                   = button_to item_like_path(@item), class:"likebtn", method: :delete do
                     %i.fa.fa-star
                     いいね件数:
