@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  
+
   belongs_to :category
   belongs_to :user
   has_many :images, dependent: :destroy
@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   enum delivery_cost:{"送料込み（出品者負担）": 1, "着払い（購入者負担）": 2}
 
-  [:name, :explanation, :quality, :delivery_cost, :prefecture_id, :period_id, :price, :user_id].each do |v|
+  [:name, :explanation, :quality, :delivery_cost, :prefecture_id, :period_id, :price, :image ,:user_id].each do |v|
     validates v, presence: true
   end
   validates :name, length: { maximum: 50 }
