@@ -57,6 +57,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+       @category_grandchildren = @item.category
+      @category_grandchildren_array = @category_grandchildren.siblings
+      @category_children = @category_grandchildren.parent
+      @category_children_array = @category_children.siblings
+      @category_parent = @category_grandchildren.root
+      @category_parent_array = @category_parent.siblings
     if @item.update(item_params)
       redirect_to item_path
     else
