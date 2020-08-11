@@ -1,10 +1,10 @@
 class PurchaseController < ApplicationController
+  before_action :set_item_id, only: [:index, :pay, :done]
   require 'payjp'
 
 
   def index
     card = Card.where(user_id: current_user.id).first
-    @item = Item.find(params[:item_id])
     if card.blank?
       redirect_to controller: "cards", action: "new"
     else
@@ -17,7 +17,6 @@ class PurchaseController < ApplicationController
   def pay
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-    @item = Item.find(params[:item_id])
     Payjp::Charge.create(
     :amount => @item.price,
     :customer => @card.customer_id,
@@ -29,7 +28,12 @@ class PurchaseController < ApplicationController
   def done
     @item_purchaser = Item.find(params[:item_id])
     @item_purchaser.update(purchaser_id: current_user.id)
-    @item = Item.find(params[:item_id])
     redirect_to item_path(@item)
   end
+
+  private
+  def set_item_id
+    @item = Item.find(params[:item_id])
+  end
+
 end
