@@ -1,3 +1,10 @@
+-if @item.errors.any?
+  .error
+    %ul
+      -@item.errors.full_messages.each do |message|
+        %li
+          .error-message
+            =message
 = form_with model: @item, class:"Form__container", local: true do |f|
   .Form__group
     .Form__label
