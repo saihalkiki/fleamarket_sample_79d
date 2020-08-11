@@ -76,10 +76,13 @@
       = f.collection_select(:period_id, Period.all, :id, :integer, {include_blank: '選択してください'},{class: "Form__input"})
   .Form__group
     .Form__label
-      = f.label :price, "販売価格"
+      = f.label :price, "販売価格", class: "pricebox"
       %span.Form__label--required 必須
-    .Form__field
-      = f.number_field :price, class: "Form__input", placeholder:"例)￥1500"
+    .Form-price
+      %span.price-left
+        ￥
+      .Form__field
+        = f.number_field :price, class: "Form__input", placeholder:"0"
   .Form__group--last
     .Form__btn.Form__btn--margin
       = f.submit class:"Form__exhibitBtn"

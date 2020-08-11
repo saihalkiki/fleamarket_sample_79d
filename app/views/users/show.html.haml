@@ -10,37 +10,15 @@
         = link_to "/cards/new", class:"profilesetting__content" do
           %i.fas.fa-credit-card
           クレジットカード
-    .mypage__profile--bottom
-      .addbox
-      .addbox
-      .addbox
-      .addbox
-  .mypage__items
-    .mypage__items--item
-      =link_to "#" do
-        = image_tag "item/sample_item01.jpg", size: "180x180", alt: "商品画像"
-      .details
-        3000
-        %i.fas.fa-star
-          0
-        %p
-          (税込)
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    .mypage__items--item
-    -# -@items.each do |item|
-    -#   =item.name
-    -#   =item.region
+  -if @item.present?
+    .mypage__items
+      -@item.each do |item|
+        .mypage__items--item
+          =link_to item_path(item.id) do
+            = image_tag item.images[0].image.url, class: 'Message__image', size: "200x200"
+          .details
+            = number_to_currency(item.price, unit:"￥", strip_insignificant_zeros: true)
+            (税込)
+  -else
+    %p 出品した商品はありません
+            
