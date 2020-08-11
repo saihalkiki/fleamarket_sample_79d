@@ -1,5 +1,10 @@
 .registration
   %h2 会員情報入力
+  -if @address.errors.any?
+    %ul
+      -@address.errors.full_messages.each do |address|
+        %li
+          =address
   = form_with model: @address, id: 'new_user', class: 'new_user', local: true do |f|
     = devise_error_messages!
     .field
