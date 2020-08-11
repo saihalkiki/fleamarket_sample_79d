@@ -14,12 +14,18 @@
         .navLeft__item#category_tree
           = link_to "カテゴリー", "#"
           / カテゴリー覧html
-          .tree.displayNone
-            %ul.categoryTree.categoryTree--parent
+          .tree.tree__parent.displayNone
+            %ul.categoryTree.categoryTree__parent
               - @category_parent_array.each do |parent| 
                 = link_to "#", class: "categoryTree__item" do
                   %li
                     = parent.name
+                .tree.tree__child.displayNone
+                  %ul.categoryTree.categoryTree__child
+                    - parent.children.each do |child| 
+                      = link_to "#", class: "categoryTree__item" do
+                        %li
+                          = child.name
         .navLeft__item#brand
           = link_to "ブランド", "#"
           .tree.displayNone
