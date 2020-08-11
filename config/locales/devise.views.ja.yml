@@ -35,15 +35,36 @@ ja:
               blank: "が入力されていません。"
               invalid: "が有効でありません。"
             gender:
-              blank: "が入力されていません。"
+              blank: "が選択されていません。"
               invalid: "が有効でありません。"
             birthday:
+              blank: "が選択されていません。"
+              invalid: "が有効でありません。"
+        address:
+          attributes:
+            postal_code:
+              blank: "が入力されていません。"
+              invalid: "はハイフンありで入力してください。"
+            prefecture_id:
+              blank: "が選択されていません。"
+              invalid: "が有効でありません。"
+            city:
               blank: "が入力されていません。"
               invalid: "が有効でありません。"
+            house_number:
+              blank: "が入力されていません。"
+              invalid: "が有効でありません。"
+            building_name:
+              blank: "が入力されていません。"
+              invalid: "が有効でありません。"
+            phone_number:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              invalid: "はハイフンなしで入力してください。"
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: 名前
+        name: "名前"
         email: "メールアドレス"
         nickname: "ニックネーム"
         last_name: "名字"
@@ -55,8 +76,16 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+      address:
+        postal_code: "郵便番号"
+        prefecture_id: "都道府県"
+        city: "市区町村"
+        house_number: "番地"
+        building_name: "建物名"
+        phone_number: "電話番号"
     models:
       user: "ユーザ"
+      address: "住所"
   devise:
     confirmations:
       new:

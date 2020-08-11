@@ -12,7 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user = User.new(sign_up_params)
     unless @user.valid?
-      flash = @user.errors.full_messages
       render :new and return
     end
     # @userのデータをsessionにハッシュの形で情報を保持させている @userの属性を全て整形している
@@ -26,7 +25,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
-      flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
     @user.build_address(@address.attributes)
