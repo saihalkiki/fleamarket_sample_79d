@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def new
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-       @category_grandchildren = @item.category
+      @category_grandchildren = @item.category
       @category_grandchildren_array = @category_grandchildren.siblings
       @category_children = @category_grandchildren.parent
       @category_children_array = @category_children.siblings
