@@ -69,9 +69,7 @@
     height: 50px;
     width: 300px;
     line-height: 50px;
-    &--margin{
-      margin: 40px auto 20px;
-    }
+    margin: 40px 250px 20px;
     input{
       cursor: pointer;
     }
@@ -79,7 +77,7 @@
       background-color: #3CCACE;
       color: #fff;
       border: none;
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
     &--facebook{
       background-color: #385185;
@@ -91,7 +89,7 @@
       background-color: #FFFFFF;
       color: black;
       border: 1px solid gray;
-      margin-top: 10px;
+      margin: 10px 0;
     }
   }
 
