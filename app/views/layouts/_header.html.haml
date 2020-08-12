@@ -11,15 +11,23 @@
             = image_tag 'icon/icon-search 1.png', alt: '検索アイコン'
     .nav
       .navLeft
-        .navLeft__item#category_tree
+        .navLeft__item#category
           = link_to "カテゴリー", "#"
           / カテゴリー覧html
-          .tree.tree__parent.displayNone
+          .tree.displayNone
             %ul.categoryTree
-              - @category_parent_array.each do |parent| 
-                = link_to "#", class: "categoryTreeParent categoryTree__parent categoryTree__item" do
-                  %li.categoryTree__item--name{data: { index: "#{parent.id}" }}
-                    = parent.name
+              %li.categoryTree__item
+                = link_to "アイテム1", "#"
+              %li.categoryTree__item
+                = link_to "アイテム2", "#"
+              %li.categoryTree__item
+                = link_to "アイテム3", "#"
+              %li.categoryTree__item
+                = link_to "アイテム4", "#"
+              %li.categoryTree__item
+                = link_to "アイテム5", "#"
+              %li.categoryTree__item
+                = link_to "アイテム6", "#"
         .navLeft__item#brand
           = link_to "ブランド", "#"
           .tree.displayNone
