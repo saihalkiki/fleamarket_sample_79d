@@ -26,6 +26,14 @@
 * お気に入り登録
 
 
+# 本番環境
+* 本番環境のIPアドレス
+  http://54.248.73.192/
+* basic認証のID、パスワード
+  ID:adminuser
+  PW:passwordhogehoge
+
+
 
 # 使用技術
 * Haml
