@@ -42,7 +42,9 @@
 * Jquery
 * Ruby
 * Ruby on Rails
-* AWS
+* JavaScript
+* AWS(EC2/S3)
+* RSpec
 
 
 
