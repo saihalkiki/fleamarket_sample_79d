@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search, :get_category_children, :get_category_grandchildren]
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
-    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def new
