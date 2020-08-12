@@ -17,7 +17,8 @@ class Item < ApplicationRecord
     validates v, presence: true
   end
   validates :name, length: { maximum: 50 }
-
+  validates :price, :numericality => { greater_than_or_equal_to: 50, less_than: 1000000 }
+ 
   def self.search(search)
     if search
       Item.where('name LIKE(?)', "%#{search}%")
