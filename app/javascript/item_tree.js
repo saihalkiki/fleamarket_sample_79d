@@ -10,7 +10,7 @@ $(function () {
     return html;
   }
   // 子階層カテゴリーのツリーを生成
-  function appendChidrenTree(insertHTML) {
+  function appendChildrenTree(insertHTML) {
     let buildChildSelect = '';
     buildChildSelect =
       `<div class="tree tree__child">
@@ -21,16 +21,16 @@ $(function () {
     $('#category_tree').append(buildChildSelect);
   }
   // 孫階層カテゴリーのツリーを生成
-  // function appendGrandchidrenTree(insertHTML) {
-  //   let buildGrandchidrenSelect = '';
-  //   buildGrandchidrenSelect =
-  //     `<div class="tree tree__grandhild">
-  //       <ul class="categoryTree">
-  //         ${insertHTML}
-  //       </ul>
-  //     </div>`
-  //   $('#category_tree').append(buildGrandchidrenSelect);
-  // }
+  function appendGrandchildrenTree(insertHTML) {
+    let buildGrandchildrenSelect = '';
+    buildGrandchildrenSelect =
+      `<div class="tree tree__grandchild">
+        <ul class="categoryTree">
+          ${insertHTML}
+        </ul>
+      </div>`
+    $('#category_tree').append(buildGrandchildrenSelect);
+  }
 
   // タイマー用変数を定義
   let setTimeCategoryTree = 0;
@@ -60,17 +60,40 @@ $(function () {
     })
     .done(function (children){
       $('.tree__child').remove(); 
+      $('.tree__grandchild').remove(); 
       //追加するHTMLの入れ物を作る
       let insertHTML = '';
       //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       $.each(children, function (i, childData) {
         insertHTML += buildLink(childData)
       });
-      appendChidrenTree(insertHTML);
+      appendChildrenTree(insertHTML);
+    })
+    .fail(function () {
+      alert('カテゴリー取得に失敗しました');
+    })
+  });
+  $('#category_tree').on('mouseover', '.categoryTreeChild',function(){
+    childId = $(this).children().data('index');
+    $.ajax({
+      url: '/items/get_category_grandchildren',
+      type: 'GET',
+      data: { child_id: childId },
+      dataType: 'json'
+    })
+    .done(function (grandchildren){
+      $('.tree__grandchild').remove(); 
+      //追加するHTMLの入れ物を作る
+      let insertHTML = '';
+      //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+      $.each(grandchildren, function (i, grandchildData) {
+          insertHTML += buildLink(grandchildData)
+      });
+      appendGrandchildrenTree(insertHTML);
+      debugger
     })
     .fail(function () {
       alert('カテゴリー取得に失敗しました');
     })
   })
-  
 })

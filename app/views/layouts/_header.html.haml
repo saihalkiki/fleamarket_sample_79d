@@ -14,7 +14,7 @@
         .navLeft__item#category_tree
           = link_to "カテゴリー", "#"
           / カテゴリー覧html
-          .tree.tree__parent
+          .tree.tree__parent.displayNone
             %ul.categoryTree
               - @category_parent_array.each do |parent| 
                 = link_to "#", class: "categoryTreeParent categoryTree__parent categoryTree__item" do
