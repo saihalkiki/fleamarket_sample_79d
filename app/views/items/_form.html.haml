@@ -92,4 +92,7 @@
         = f.number_field :price, class: "Form__input", placeholder:"0"
   .Form__group--last
     .Form__btn.Form__btn--margin
-      = f.submit "出品する", class:"Form__exhibitBtn"
+      - if request.path_info == new_item_path
+        = f.submit "出品する",class:"Form__exhibitBtn"
+      - else
+        = f.submit "編集する",class:"Form__exhibitBtn"
