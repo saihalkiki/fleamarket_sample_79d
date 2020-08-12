@@ -22,8 +22,8 @@ class ItemsController < ApplicationController
 
   # 孫階層のカテゴリー取得
   def get_category_grandchildren
-      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -87,5 +87,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
 end

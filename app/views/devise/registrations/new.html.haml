@@ -40,7 +40,7 @@
       = f.label :性別
       %span 必須
       %br/
-      = f.select :gender,[['男性'], ['女性']], { include_blank: '選択してください' }, { id: "quality_id" }
+      = f.select :gender, User.genders.keys, { include_blank: '選択してください' }, { id: "quality_id" }
     .field
       = f.label :誕生日
       %span 必須
