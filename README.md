@@ -26,21 +26,6 @@
 * お気に入り登録
 
 
-# 本番環境
-
-
-
-# デモ DEMO 
-![商品詳細ページ](https://gyazo.com/c02dfc226826608ecc8d40feba3fb203)
-![商品購入ページ](https://gyazo.com/b71de405a89ef5ecf381aa14a04979fb)
-
-
-
-# Installation 使用方法
-  $ git clone 
-  $ cd 
-  $ bundle install
-
 
 # 使用技術
 * Haml
