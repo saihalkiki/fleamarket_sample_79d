@@ -1,8 +1,18 @@
 $(function () {
-  // カテゴリーのリンク要素を作成(ul内)
-  function buildLink(category) {
+  // 子カテゴリーのリンク要素を作成(ul内)
+  function buildChildLink(category) {
     let html =
       `<a class="categoryTreeChild categoryTree__item" href="#">
+        <li class="categoryTree__item--name" data-index="${category.id}">
+          ${category.name}
+        </li>
+      </a>`
+    return html;
+  }
+  // 孫カテゴリーのリンク要素を作成(ul内)
+  function buildGrandchildLink(category) {
+    let html =
+      `<a class="categoryTreeGrandchild categoryTree__item" href="#">
         <li class="categoryTree__item--name" data-index="${category.id}">
           ${category.name}
         </li>
@@ -47,6 +57,7 @@ $(function () {
     setTimeCategoryTree = setTimeout(function() {
       // カテゴリー親階層を非表示
       $('.tree__child').remove();
+      $('.tree__grandchild').remove();
       hideMenu.addClass('displayNone');
     },200)
   })
@@ -60,12 +71,12 @@ $(function () {
     })
     .done(function (children){
       $('.tree__child').remove(); 
-      $('.tree__grandchild').remove(); 
+      $('.tree__grandchild').remove();
       //追加するHTMLの入れ物を作る
       let insertHTML = '';
       //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       $.each(children, function (i, childData) {
-        insertHTML += buildLink(childData)
+        insertHTML += buildChildLink(childData)
       });
       appendChildrenTree(insertHTML);
     })
@@ -87,10 +98,9 @@ $(function () {
       let insertHTML = '';
       //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       $.each(grandchildren, function (i, grandchildData) {
-          insertHTML += buildLink(grandchildData)
+        insertHTML += buildGrandchildLink(grandchildData)
       });
       appendGrandchildrenTree(insertHTML);
-      debugger
     })
     .fail(function () {
       alert('カテゴリー取得に失敗しました');
