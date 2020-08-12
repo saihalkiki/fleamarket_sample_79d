@@ -16,9 +16,9 @@
           / カテゴリー覧html
           .tree.tree__parent
             %ul.categoryTree
-              - @category_parent_array.each_with_index do |parent, i| 
+              - @category_parent_array.each do |parent| 
                 = link_to "#", class: "categoryTreeParent categoryTree__item" do
-                  %li.categoryTree__item--name{data: { index: i }}
+                  %li.categoryTree__item--name{data: { index: "#{parent.id}" }}
                     = parent.name
         .navLeft__item#brand
           = link_to "ブランド", "#"
