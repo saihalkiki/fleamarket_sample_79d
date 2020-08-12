@@ -48,7 +48,7 @@ $(function () {
         let insertHTML = '';
         //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
         $.each(children, function (i, child) {
-          insertHTML += buildOption(childData)
+          insertHTML += buildOption(child)
         });
         appendChidrenBox(insertHTML);
       })

@@ -16,7 +16,7 @@ $(function () {
   // カテゴリーのリンク要素を作成(ul内)
   function buildLink(category) {
     let html =
-      `<a class="categoryTreeParent categoryTree__item" href="#">
+      `<a class="categoryTreeChild categoryTree__item" href="#">
         <li class="categoryTree__item--name" data-index="${category.id}">
           ${category.name}
         </li>
@@ -65,24 +65,24 @@ $(function () {
   })
   $('.categoryTreeParent').hover(function(){
     let parentId = $(this).children().data('index');
-    // $.ajax({
-    //   url: '/items/get_category_children',
-    //   type: 'GET',
-    //   data: { parent_id: parentId + 1 },
-    //   dataType: 'json'
-    // })
-    // .done(function (children){
-    //   //追加するHTMLの入れ物を作る
-    //   let insertHTML = '';
-    //   //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-    //   $.each(children, function (i, child) {
-    //     insertHTML += buildLink(childData)
-    //   });
-    //   let a = appendChidrenTree(insertHTML);
-    // })
-    // .fail(function () {
-    //   alert('カテゴリー取得に失敗しました');
-    // })
+    $.ajax({
+      url: '/items/get_category_children',
+      type: 'GET',
+      data: { parent_id: parentId + 1 },
+      dataType: 'json'
+    })
+    .done(function (children){
+      //追加するHTMLの入れ物を作る
+      let insertHTML = '';
+      //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+      $.each(children, function (i, childData) {
+        insertHTML += buildLink(childData)
+      });
+      appendChidrenTree(insertHTML);
+    })
+    .fail(function () {
+      alert('カテゴリー取得に失敗しました');
+    })
   },function(){ //ホバーアウト後の処理
 
   })
