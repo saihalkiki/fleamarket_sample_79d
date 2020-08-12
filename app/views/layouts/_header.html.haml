@@ -17,7 +17,7 @@
           .tree.tree__parent
             %ul.categoryTree
               - @category_parent_array.each do |parent| 
-                = link_to "#", class: "categoryTreeParent categoryTree__item" do
+                = link_to "#", class: "categoryTreeParent categoryTree__parent categoryTree__item" do
                   %li.categoryTree__item--name{data: { index: "#{parent.id}" }}
                     = parent.name
         .navLeft__item#brand

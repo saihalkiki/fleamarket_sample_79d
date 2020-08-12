@@ -98,12 +98,15 @@
   position: absolute;
   background-color: #fff;
   width: 240px;
+  min-height: 585px;
   &__parent{
     z-index: 2;
     top: 40px;
   }
   &__child{
+    top: 45px;
     left: 240px;
+    z-index: 2;
   }
 }
 

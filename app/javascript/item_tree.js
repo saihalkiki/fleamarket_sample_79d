@@ -1,18 +1,4 @@
 $(function () {
-
-`
-<div class="tree tree__parent displayNone">
-  <ul class="categoryTree">
-    以下繰り返し処理
-    <a class="categoryTreeParent categoryTree__item" href="#">
-      <li class="categoryTree__item--name" data-index="0">
-      レディース（カテゴリーの変数）
-      </li>
-    </a>
-  </ul>
-</div>
-`
-
   // カテゴリーのリンク要素を作成(ul内)
   function buildLink(category) {
     let html =
@@ -60,6 +46,7 @@ $(function () {
     // タイマーを起動し、0.2s後に処理を実装
     setTimeCategoryTree = setTimeout(function() {
       // カテゴリー親階層を非表示
+      $('.tree__child').remove();
       hideMenu.addClass('displayNone');
     },200)
   })
@@ -68,10 +55,11 @@ $(function () {
     $.ajax({
       url: '/items/get_category_children',
       type: 'GET',
-      data: { parent_id: parentId + 1 },
+      data: { parent_id: parentId },
       dataType: 'json'
     })
     .done(function (children){
+      $('.tree__child').remove(); 
       //追加するHTMLの入れ物を作る
       let insertHTML = '';
       //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
@@ -83,7 +71,5 @@ $(function () {
     .fail(function () {
       alert('カテゴリー取得に失敗しました');
     })
-  },function(){ //ホバーアウト後の処理
-
   })
 })
