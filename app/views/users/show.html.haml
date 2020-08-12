@@ -17,7 +17,9 @@
           =link_to item_path(item.id) do
             = image_tag item.images[0].image.url, class: 'Message__image', size: "200x200"
           .details
-            = number_to_currency(item.price, unit:"￥", strip_insignificant_zeros: true)
+            ¥
+            %span<>
+            =item.price
             (税込)
   -else
     %p 出品した商品はありません

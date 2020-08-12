@@ -26,6 +26,8 @@
         %h2
           お支払い金額
         %p 
-          = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
+          ¥
+          %span<>
+          =@item.price
     .info-image
       = image_tag @item.images[0].image.url, class: 'Message__image', size: "270x200"
