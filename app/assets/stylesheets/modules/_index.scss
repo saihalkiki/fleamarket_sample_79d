@@ -238,7 +238,9 @@
     margin: 0px auto;
     padding: 26px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    width: 880px;
     .boxlist{
       width: 220px;
       .listimage{
