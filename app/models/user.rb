@@ -32,7 +32,7 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
-  enum gender: { 男性: 0, 女性: 1}
+  enum gender: { "男性": 1, "女性": 2}
   validates :password, length: { minimum: 7 }
   validates :nickname, presence: true, uniqueness: true
   # 全角ひらがな、全角カタカナ、漢字
