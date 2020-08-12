@@ -24,7 +24,7 @@ $(function () {
     return html;
   }
   // 子階層カテゴリーのツリーを生成
-  function appendChidrenBox(insertHTML) {
+  function appendChidrenTree(insertHTML) {
     let buildChildSelect = '';
     buildChildSelect =
       `<div class="tree tree__child">
@@ -35,16 +35,16 @@ $(function () {
     $('#category_tree').append(buildChildSelect);
   }
   // 孫階層カテゴリーのツリーを生成
-  function appendGrandchidrenBox(insertHTML) {
-    let buildGrandchidrenSelect = '';
-    buildGrandchidrenSelect =
-      `<div class="tree tree__grandhild">
-        <ul class="categoryTree">
-          ${insertHTML}
-        </ul>
-      </div>`
-    $('#category_tree').append(buildGrandchidrenSelect);
-  }
+  // function appendGrandchidrenTree(insertHTML) {
+  //   let buildGrandchidrenSelect = '';
+  //   buildGrandchidrenSelect =
+  //     `<div class="tree tree__grandhild">
+  //       <ul class="categoryTree">
+  //         ${insertHTML}
+  //       </ul>
+  //     </div>`
+  //   $('#category_tree').append(buildGrandchidrenSelect);
+  // }
 
   // タイマー用変数を定義
   let setTimeCategoryTree = 0;
@@ -65,18 +65,24 @@ $(function () {
   })
   $('.categoryTreeParent').hover(function(){
     let parentId = $(this).children().data('index');
-    $.ajax({
-      url: '/items/get_category_children',
-      type: 'GET',
-      data: { parent_id: parentId + 1 },
-      dataType: 'json'
-    })
-    .done(function (children){
-      console.log(children);
-    })
-    .fail(function () {
-      alert('カテゴリー取得に失敗しました');
-    })
+    // $.ajax({
+    //   url: '/items/get_category_children',
+    //   type: 'GET',
+    //   data: { parent_id: parentId + 1 },
+    //   dataType: 'json'
+    // })
+    // .done(function (children){
+    //   //追加するHTMLの入れ物を作る
+    //   let insertHTML = '';
+    //   //配列childrenの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+    //   $.each(children, function (i, child) {
+    //     insertHTML += buildLink(childData)
+    //   });
+    //   let a = appendChidrenTree(insertHTML);
+    // })
+    // .fail(function () {
+    //   alert('カテゴリー取得に失敗しました');
+    // })
   },function(){ //ホバーアウト後の処理
 
   })
