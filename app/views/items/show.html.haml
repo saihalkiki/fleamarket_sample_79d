@@ -21,7 +21,9 @@
                         = image_tag image.image.url
           .itembox__price
             %span
-              = number_to_currency(@item.price, unit:"￥", strip_insignificant_zeros: true)
+              ¥
+              %span<>
+              =@item.price
             .itembox__tax
               %h2
                 (税込)
