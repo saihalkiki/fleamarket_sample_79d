@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def index
     @items_new = Item.all.order("created_at DESC")
     @items_archive = Item.all
+    @items_random = Item.order("RAND()").limit(8)
   end
 
   def new

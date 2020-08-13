@@ -127,3 +127,32 @@
                         0
                   %p
                     (税込)
+  .mainProducts
+    %h2.mainProducts__head
+      商品一覧
+    .productsBox
+      .boxlists
+        - @items_random.each do |item|
+          .boxlist
+            =link_to item_path(item.id) do
+              %figure.listimage
+                = image_tag item.images.first.image.url, size: "220x150"
+                - if item.purchaser_id.present?
+                  .items-box-sold
+                    .items-box-sold__inner SOLD
+              .listbody
+                %h3.name
+                  = item.name
+                .datails
+                  %ul
+                    %li
+                      = item.price
+                    %li
+                      %i.fas.fa-star
+                        0
+                  %p
+                    (税込)
+        .itemsmore
+          = link_to search_items_path do
+            もっと見る
+            %i.fa.fa-angle-right
