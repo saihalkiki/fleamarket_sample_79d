@@ -13,3 +13,12 @@ ja:
         prefecture_id: "発送元の地域"
         period_id: "発送までの日数"
         price: "販売価格"
+        images: 画像
+  helpers: 
+    submit:
+      create: 登録する
+      update: 更新する
+      submit: 保存する
+      item:
+        create: 出品する
+        update: 更新する
