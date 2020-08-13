@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
       flash.now[:notice] = "出品しました！"
       redirect_to item_path(@item.id)
     else
+      @image = @item.images.build
       @category_parent_array = Category.where(ancestry: nil)
       render :new
     end
