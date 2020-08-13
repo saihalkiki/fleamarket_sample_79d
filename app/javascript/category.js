@@ -6,7 +6,7 @@ $(function () {
     return html;
   }
   // 子階層カテゴリーの表示作成
-  function appendChidrenBox(insertHTML){
+  function appendChildrenBox(insertHTML){
     let buildChildSelect = '';
     buildChildSelect =
       `<select class="Form__input" id="children_category" name="item[category_id]">
@@ -16,14 +16,14 @@ $(function () {
     $('.categoryList').append(buildChildSelect);
   }
   // 孫階層カテゴリーの表示作成
-  function appendGrandchidrenBox(insertHTML){
-    let buildGrandchidrenSelect = '';
-    buildGrandchidrenSelect =
+  function appendGrandchildrenBox(insertHTML){
+    let buildGrandchildrenSelect = '';
+    buildGrandchildrenSelect =
       `<select class="Form__input" id="grandchildren_category" name="item[category_id]">
         <option>選択してください</option>
         ${insertHTML}
       </select>`
-    $('.categoryList').append(buildGrandchidrenSelect);
+    $('.categoryList').append(buildGrandchildrenSelect);
   }
   // 親階層カテゴリー選択後のイベント
   $('#parent_category').on('change', function () {
@@ -31,7 +31,6 @@ $(function () {
     let parentId = $(this).val();
     //親階層カテゴリーが初期値でないとき発火
     if (parentId != "") {
-      // いったん子階層・孫階層の表示データを削除
       // 子階層カテゴリーを持ってくるためにajax通信
       $.ajax({
         url: '/items/get_category_children',
@@ -50,7 +49,7 @@ $(function () {
         $.each(children, function (i, child) {
           insertHTML += buildOption(child)
         });
-        appendChidrenBox(insertHTML);
+        appendChildrenBox(insertHTML);
       })
       // 親階層カテゴリーが初期値でないときの失敗動作
       .fail(function () {
@@ -87,7 +86,7 @@ $(function () {
           $.each(grandchildren, function (i, grandchildren) {
             insertHTML += buildOption(grandchildren)
           });
-          appendGrandchidrenBox(insertHTML);
+          appendGrandchildrenBox(insertHTML);
         }
       })
         // 親階層カテゴリーが初期値でないときの失敗動作
