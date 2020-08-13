@@ -23,7 +23,7 @@ class Item < ApplicationRecord
     if search
       Item.where('name LIKE(?)', "%#{search}%").order("created_at DESC")
     else
-      Item.all
+      Item.all.order("created_at DESC")
     end
   end
 end
