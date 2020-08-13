@@ -21,7 +21,7 @@ class Item < ApplicationRecord
  
   def self.search(search)
     if search
-      Item.where('name LIKE(?)', "%#{search}%")
+      Item.where('name LIKE(?)', "%#{search}%").order("created_at DESC")
     else
       Item.all
     end
