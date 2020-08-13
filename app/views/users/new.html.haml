@@ -4,12 +4,15 @@
     .Form__btn
       = link_to new_user_registration_path do
         .Form__btn.Form__btn--mail
+          %i.far.fa-envelope
           メールアドレスで登録
     .Form__btn
       = link_to user_facebook_omniauth_authorize_path, method: :post do
         .Form__btn.Form__btn--facebook
+          %i.fab.fa-facebook
           Facebookで登録
     .Form__btn
       = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
         .Form__btn.Form__btn--google
+          %i.fab.fa-google
           Googleで登録
