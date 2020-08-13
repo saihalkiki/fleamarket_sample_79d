@@ -11,16 +11,30 @@
           %i.fas.fa-credit-card
           クレジットカード
   -if @item.present?
-    .mypage__items
-      -@item.each do |item|
-        .mypage__items--item
-          =link_to item_path(item.id) do
-            = image_tag item.images[0].image.url, class: 'Message__image', size: "200x200"
-          .details
-            ¥
-            %span<>
-            =item.price
-            (税込)
+    %h2.mainProducts__head
+      出品一覧
+    .productsBox
+      .boxlists
+        - @item.each do |item|
+          .boxlist
+            =link_to item_path(item.id) do
+              %figure.listimage
+                = image_tag item.images.first.image.url, size: "220x150"
+                - if item.purchaser_id.present?
+                  .items-box-sold
+                    .items-box-sold__inner SOLD
+              .listbody
+                %h3.name
+                  = item.name
+                .datails
+                  %ul
+                    %li
+                      = item.price
+                    %li
+                      %i.fas.fa-star
+                        =item.likes.count
+                  %p
+                    (税込)
   -else
     %p 出品した商品はありません
             
