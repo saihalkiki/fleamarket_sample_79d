@@ -22,7 +22,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user: current_user, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to card_path(current_user.id)
+        redirect_back_or card_path(current_user.id)
       else
         redirect_to action: :new, alert: "クレジットカードを登録できませんでした。"
       end
