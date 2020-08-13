@@ -127,34 +127,3 @@
                         0
                   %p
                     (税込)
-
-  / ピックアップカテゴリー アーカイブ
-  .mainProducts
-    %h2.mainProducts__head
-      ピックアップブランド
-    .productsBox
-      .boxhead
-        =link_to "#" do
-          %h3.head__title
-            アーカイブ
-      .boxlists
-        - @items_archive.first(4).each do |item|
-          .boxlist
-            =link_to item_path(item.id) do
-              %figure.listimage
-                = image_tag item.images.first.image.url, size: "220x150"
-                - if item.purchaser_id.present?
-                  .items-box-sold
-                    .items-box-sold__inner SOLD
-              .listbody
-                %h3.name
-                  = item.name
-                .datails
-                  %ul
-                    %li
-                      = item.price
-                    %li
-                      %i.fas.fa-star
-                        0
-                  %p
-                    (税込)

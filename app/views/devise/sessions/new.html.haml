@@ -26,5 +26,5 @@
       .Form__btn
         = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
           .Form__btn.Form__btn--google
-            %i.fab.fa-google
+            =image_tag "image.png", alt: "Rails icon", id: "pic1", class: "image", size: "18x18"
             Googleで登録

@@ -90,6 +90,12 @@
       color: black;
       border: 1px solid gray;
       margin: 10px 0;
+      position: relative;
+      .image{
+        position: absolute;
+        top: 15px;
+        left: 75px;
+      }
     }
   }
 
