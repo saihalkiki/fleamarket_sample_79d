@@ -130,6 +130,10 @@
     %h2.mainProducts__head
       商品一覧
     .productsBox
+      .itemsMore
+        = link_to search_items_path do
+          もっと見る
+          %i.fa.fa-angle-right
       .boxlists
         - @items_random.each do |item|
           .boxlist
@@ -151,7 +155,3 @@
                         0
                   %p
                     (税込)
-        .itemsmore
-          = link_to search_items_path do
-            もっと見る
-            %i.fa.fa-angle-right
