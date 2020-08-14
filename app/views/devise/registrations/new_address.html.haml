@@ -7,6 +7,29 @@
           =address
   = form_with model: @address, id: 'new_user', class: 'new_user', local: true do |f|
     = devise_error_messages!
+    .registration_name
+      .registration_name_firstbox
+        .field
+          = f.label :宛先の名字
+          %span.text_color_black 任意
+          %br/
+          = f.text_field :last_name, autofocus: true, autocomplete: "family-name"
+        .field
+          = f.label :宛先の名
+          %span.text_color_black 任意
+          %br/
+          = f.text_field :first_name, autocomplete: "given-name"
+      .registration_name_firstbox
+        .field
+          = f.label :名字ふりがな
+          %span.text_color_black 任意
+          %br/
+          = f.text_field :last_name_read
+        .field
+          = f.label :名ふりがな
+          %span.text_color_black 任意
+          %br/
+          = f.text_field :first_name_read
     .field
       = f.label :郵便番号
       %span 必須
