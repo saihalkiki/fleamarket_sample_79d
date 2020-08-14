@@ -13,7 +13,7 @@ describe Address do
     it "postal_codeが空では登録できないこと" do
       address = build(:address, postal_code: "")
       address.valid?
-      expect(address.errors[:postal_code]).to include("can't be blank")
+      expect(address.errors[:postal_code]).to include("が入力されていません。")
     end
   end
 
@@ -21,7 +21,7 @@ describe Address do
     it "prefecture_idが空では登録できないこと" do
       address = build(:address, prefecture_id: "")
       address.valid?
-      expect(address.errors[:prefecture_id]).to include("can't be blank")
+      expect(address.errors[:prefecture_id]).to include("が選択されていません。")
     end
   end
 
@@ -29,7 +29,7 @@ describe Address do
     it "cityが空では登録できないこと" do
       address = build(:address, city: "")
       address.valid?
-      expect(address.errors[:city]).to include("can't be blank")
+      expect(address.errors[:city]).to include("が入力されていません。")
     end
   end
 
@@ -37,7 +37,7 @@ describe Address do
     it "house_numberが空では登録できないこと" do
       address = build(:address, house_number: "")
       address.valid?
-      expect(address.errors[:house_number]).to include("can't be blank")
+      expect(address.errors[:house_number]).to include("が入力されていません。")
     end
   end
 
@@ -45,7 +45,7 @@ describe Address do
     it "phone_numberが空では登録できないこと" do
       address = build(:address, phone_number: "")
       address.valid?
-      expect(address.errors[:phone_number]).to include("can't be blank")
+      expect(address.errors[:phone_number]).to include("が入力されていません。")
     end
   end
 
@@ -62,7 +62,7 @@ describe Address do
       address = create(:address)
       another_address = build(:address, phone_number: address.phone_number)
       another_address.valid?
-      expect(another_address.errors[:phone_number]).to include("has already been taken")
+      expect(another_address.errors[:phone_number]).to include("はハイフンなしで入力してください。")
     end
   end
 end
