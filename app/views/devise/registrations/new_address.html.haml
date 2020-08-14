@@ -1,16 +1,9 @@
 .registration
-  %h2 会員情報入力
-  -if @address.errors.any?
-    %ul
-      -@address.errors.full_messages.each do |address|
-        %li
-          =address
   = form_with model: @address, id: 'new_user', class: 'new_user', local: true do |f|
-    = devise_error_messages!
     .registration_name
       .registration_name_firstbox
         .field
-          = f.label :宛先の名字
+          = f.label :宛先の姓
           %span.text_color_black 任意
           %br/
           = f.text_field :last_name, autofocus: true, autocomplete: "family-name"
@@ -21,7 +14,7 @@
           = f.text_field :first_name, autocomplete: "given-name"
       .registration_name_firstbox
         .field
-          = f.label :名字ふりがな
+          = f.label :姓ふりがな
           %span.text_color_black 任意
           %br/
           = f.text_field :last_name_read
@@ -35,22 +28,38 @@
       %span 必須
       %br/
       = f.text_field :postal_code, autofocus: true, autocomplete: "postal-code", placeholder: "例：123-4567"
+      - if @address.errors.include?(:postal_code)
+        .form__error
+          %p{:style => "color: red;"}
+            = @address.errors.full_messages_for(:postal_code).first
     .field
       = f.label :都道府県
       %span 必須
       %br/
       =f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: '選択してください' })
+      - if @address.errors.include?(:prefecture_id)
+        .form__error
+          %p{:style => "color: red;"}
+            = @address.errors.full_messages_for(:prefecture_id).first
 
     .field
       = f.label :市区町村
       %span 必須
       %br/
       = f.text_field :city, autofocus: true, autocomplete: "address-level2"
+      - if @address.errors.include?(:city)
+        .form__error
+          %p{:style => "color: red;"}
+            = @address.errors.full_messages_for(:city).first
     .field
       = f.label :番地
       %span 必須
       %br/
       = f.text_field :house_number
+      - if @address.errors.include?(:house_number)
+        .form__error
+          %p{:style => "color: red;"}
+            = @address.errors.full_messages_for(:house_number).first
 
     .field
       = f.label :建物名
@@ -62,6 +71,10 @@
       %span 必須
       %br/
       = f.text_field :phone_number, placeholder: "例：08012345678"
+      - if @address.errors.include?(:phone_number)
+        .form__error
+          %p{:style => "color: red;"}
+            = @address.errors.full_messages_for(:phone_number).first
     %div
     .actions
       = f.submit "新規登録", class:"submitbtn"
