@@ -33,7 +33,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
     redirect_to root_path
   end
-
   protected
 
   def address_params
