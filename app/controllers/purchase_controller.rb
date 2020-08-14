@@ -6,6 +6,8 @@ class PurchaseController < ApplicationController
   def index
     card = Card.where(user_id: current_user.id).first
     if card.blank?
+      store_location
+      flash.now[:notice] = "クレジットカードを登録してください"
       redirect_to controller: "cards", action: "new"
     else
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
