@@ -46,7 +46,7 @@ class User < ApplicationRecord
     validates v, format: { with: VALID_NAME_READ_REGEX }
   end
 
-  [:nickname, :last_name, :first_name, :last_name_read, :first_name_read,:gender, :birthday, :email ,:password].each do |v|
+  [:nickname, :last_name, :first_name, :last_name_read, :first_name_read, :birthday, :email ,:password].each do |v|
     validates v, presence: true
   end
 end
