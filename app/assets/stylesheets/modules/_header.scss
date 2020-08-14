@@ -98,7 +98,7 @@
   position: absolute;
   background-color: #fff;
   width: 240px;
-  min-height: 585px;
+  min-height: 510px;
   &__parent{
     z-index: 2;
     top: 40px;
@@ -127,7 +127,7 @@
     padding: 3px 8px 3px 5px;
     border-bottom: 1px solid #f8f8f8;
     width: 240px;
-    line-height: 38px;
+    line-height: 32px;
     a:hover{
       color: #ffb340;
     }
