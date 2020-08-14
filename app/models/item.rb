@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   enum delivery_cost:{"送料込み（出品者負担）": 1, "着払い（購入者負担）": 2}
 
-  [:name, :explanation, :quality, :delivery_cost, :prefecture_id, :period_id, :price, :user_id, :images].each do |v|
+  [:name, :explanation, :quality, :delivery_cost, :prefecture_id, :period_id, :price, :user_id, :images, :category_id].each do |v|
     validates v, presence: true
   end
   validates :name, length: { maximum: 50 }

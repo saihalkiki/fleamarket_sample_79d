@@ -1,67 +1,71 @@
 require 'rails_helper'
 
 describe Item do
-  describe '#create' do
+  describe 'createアクションの際' do
     it "nameが空では登録できないこと" do
       item = build(:item, name: "")
       item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+      expect(item.errors[:name]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
     it "explanationが空では登録できないこと" do
       item = build(:item, explanation: "")
       item.valid?
-      expect(item.errors[:explanation]).to include("can't be blank")
+      expect(item.errors[:explanation]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
     it "qualityが空では登録できないこと" do
       item = build(:item, quality: "")
       item.valid?
-      expect(item.errors[:quality]).to include("can't be blank")
+      expect(item.errors[:quality]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
     it "delivery_costが空では登録できないこと" do
       item = build(:item, delivery_cost: "")
       item.valid?
-      expect(item.errors[:delivery_cost]).to include("can't be blank")
+      expect(item.errors[:delivery_cost]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
     it "prefecture_idが空では登録できないこと" do
       item = build(:item, prefecture_id: "")
       item.valid?
-      expect(item.errors[:prefecture_id]).to include("can't be blank")
+      expect(item.errors[:prefecture_id]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
     it "periodが空では登録できないこと" do
-      item = build(:item, period: "")
+      item = build(:item, period_id: "")
       item.valid?
-      expect(item.errors[:period]).to include("can't be blank")
+      expect(item.errors[:period_id]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
     it "priceが空では登録できないこと" do
       item = build(:item, price: "")
       item.valid?
-      expect(item.errors[:price]).to include("can't be blank")
+      expect(item.errors[:price]).to include("を入力してください")
     end
-  end
 
-  describe '#create' do
-    it "nameが50文字以上であること" do
+    it "nameが50文字以上は登録できない" do
       item = build(:item, name: "ああああああああああああああああああああああああああああああああああああああああああああああああああああああ")
       item.valid?
-      expect(item.errors[:name]).to include("is too long (maximum is 50 characters)")
+      expect(item.errors[:name]).to include("は50文字以内で入力してください")
+    end
+
+    it "prefecture_idが空では登録できないこと" do
+      item = build(:item, prefecture_id:"")
+      item.valid?
+      expect(item.errors[:prefecture_id]).to include("を入力してください")
+    end
+
+    it "priceが¥50以下のときは登録できない" do
+      item = build(:item, price: "40")
+      item.valid?
+      expect(item.errors[:price]).to include("は50以上の値にしてください")
+    end
+
+    it "priceが¥1,000,000以上のときは登録できない" do
+      item = build(:item, price: "1500000")
+      item.valid?
+      expect(item.errors[:price]).to include("は1000000より小さい値にしてください")
     end
   end
 
