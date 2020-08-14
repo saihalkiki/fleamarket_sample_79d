@@ -6,9 +6,9 @@
     %p.bannerContents__text.bannerContents--shadow
       今すぐ無料ダウンロード
     .bannerContents__btn
-      = link_to "#", class: "bannerContents__btn--apple" do
+      = link_to "https://www.apple.com/jp/", class: "bannerContents__btn--apple" do
         = image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",alt:"appleicon"
-      = link_to "#", class: "bannerContents__btn--google" do
+      = link_to "https://play.google.com/store", class: "bannerContents__btn--google" do
         = image_tag "google-play-badge.png" ,alt:"gogleicon"
 
 
@@ -46,7 +46,7 @@
         %li
           =link_to "お知らせ", "#" 
   .footer__logo
-    =link_to "#" do
+    =link_to root_path do
       = image_tag "logo/logo-white.png",alt:"logo"
   %p
     ©　FURIMA
