@@ -1,17 +1,24 @@
 .registration
   %h2 会員情報入力
   = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-    = devise_error_messages!
     .field
       = f.label :email
       %span 必須
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email"
+      - if @user.errors.include?(:email)
+        .form__error
+          %p{:style => "color: red;"}
+            = @user.errors.full_messages_for(:email).first
     .field
       = f.label :ニックネーム
       %span 必須
       %br/
       = f.text_field :nickname, autocomplete: "nickname"
+      - if @user.errors.include?(:nickname)
+        .form__error
+          %p{:style => "color: red;"}
+            = @user.errors.full_messages_for(:nickname).first
     .registration_name
       .registration_name_firstbox
         .field
@@ -19,22 +26,38 @@
           %span 必須
           %br/
           = f.text_field :last_name, autofocus: true, autocomplete: "family-name"
+          .Form__error
+            - if @user.errors.include?(:last_name)
+              %p{:style => "color: red;"}
+                = @user.errors.full_messages_for(:last_name).first
         .field
           = f.label :名
           %span 必須
           %br/
           = f.text_field :first_name, autocomplete: "given-name"
+          .Form__error
+            - if @user.errors.include?(:first_name)
+              %p{:style => "color: red;"}
+                = @user.errors.full_messages_for(:first_name).first
       .registration_name_firstbox
         .field
           = f.label :名字ふりがな
           %span 必須
           %br/
           = f.text_field :last_name_read
+          .Form__error
+            - if @user.errors.include?(:last_name_read)
+              %p{:style => "color: red;"}
+                = @user.errors.full_messages_for(:last_name_read).first
         .field
           = f.label :名ふりがな
           %span 必須
           %br/
           = f.text_field :first_name_read
+          .Form__error
+            - if @user.errors.include?(:first_name_read)
+              %p{:style => "color: red;"}
+                = @user.errors.full_messages_for(:last_name_read).first
         %div
     .field
       = f.label :性別
@@ -46,6 +69,10 @@
       %span 必須
       %br/
       = f.date_field :birthday, autocomplete: "bday"
+      - if @user.errors.include?(:birthday)
+        .form__error
+          %p{:style => "color: red;"}
+            = @user.errors.full_messages_for(:birthday).first
     - if @sns_id.present?
       = hidden_field_tag :sns_auth, true
     - else
@@ -56,11 +83,19 @@
         %span 必須
         %br/
         = f.password_field :password, autocomplete: "new-password"
+        - if @user.errors.include?(:password)
+          .form__error
+            %p{:style => "color: red;"}
+              = @user.errors.full_messages_for(:password).first
       .field
         = f.label :パスワード確認用
         %span 必須
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password"
+        - if @user.errors.include?(:password_confirmation)
+          .form__error
+            %p{:style => "color: red;"}
+              = @user.errors.full_messages_for(:password_confirmation).first
     .actions
       = f.submit "次へ", class:"submitbtn"
   = render "devise/shared/links"
