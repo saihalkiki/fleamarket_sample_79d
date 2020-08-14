@@ -61,6 +61,10 @@
                   %th 発送日の目安
                   %td
                     = @item.period.integer
+                %tr
+                  %th 商品説明
+                  %td
+                    = @item.explanation
 
           .morelist
             - if user_signed_in?
